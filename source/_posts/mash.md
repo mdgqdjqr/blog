@@ -5,9 +5,6 @@ categories:
   - Linux 教程
 ---
 
-
-# mash使用
-
 系统环境：
 
 | 项目     | 版本                            |
@@ -15,6 +12,7 @@ categories:
 | Centos 8 | CentOS-8.2.2004-x86_64-dvd1.iso |
 
 
+# mash使用
 
 1. 安装mash软件包
 
