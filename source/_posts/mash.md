@@ -5,6 +5,12 @@ categories:
   - Linux 教程
 ---
 
+# mash使用
+
+mash 命令：导出仓库软件包工具。
+
+<!--more-->
+
 系统环境：
 
 | 项目     | 版本                            |
