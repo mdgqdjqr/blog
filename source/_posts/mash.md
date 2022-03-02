@@ -1,6 +1,6 @@
 ---
 title: mash
-date: 2022-01-06 14:15:23
+date: 2022-01-01 14:15:23
 categories:
   - Linux 教程
 ---
