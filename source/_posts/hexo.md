@@ -966,25 +966,27 @@ toc:
 
 ![](hexo使用数学公式.png)
 
+更换渲染引擎：
+
+```bash
+npm uninstall hexo-renderer-marked --save
+npm install hexo-renderer-kramed --save
+```
+
 修改主题配置文件 `blog/themes/NEXT/_config.yml` 如下所示：
 
 ```bash
 math:
-  # Default (false) will load mathjax / katex script on demand.
-  # That is it only render those page which has `mathjax: true` in front-matter.
-  # If you set it to true, it will load mathjax / katex script EVERY PAGE.
-  every_page: true
+  # Default (true) will load mathjax / katex script on demand.
+  # That is it only render those page which has `mathjax: true` in Front-matter.
+  # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
+  per_page: false
 
+  # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
   mathjax:
     enable: true
-    # Available values: none | ams | all
-    tags: none
-
-  katex:
-    enable: false
-    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
-    copy_tex: false
-
+    # See: https://mhchem.github.io/MathJax-mhchem/
+    mhchem: false
 ```
 
 
