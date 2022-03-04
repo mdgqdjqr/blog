@@ -31,6 +31,7 @@ categories:
   | -------- | -------------------------------- | --------------- |
   | Centos 8 | CentOS-8.2.2004-x86_64-dvd1.iso  | Minimal Install |
   | ubuntu   | ubuntu-20.04.3-desktop-amd64.iso | 默认安装        |
+  | NEXT     | 7.8.0                            |                 |
 
 - 硬件环境
 
@@ -642,7 +643,7 @@ avatar:
 
 ![Next-文章结尾标志](Next-文章结尾标志.png)
 
-在路径 `blog/themes/Next/layout/_macro` 中新建 `passage-end-tag.njk` 文件，并添加以下内容：
+在路径 `blog/themes/Next/layout/_macro` 中新建 `passage-end-tag.swig` 文件，并添加以下内容：
 
 ```bash
 <div>
@@ -657,7 +658,7 @@ avatar:
 ```bash
 <div>
   {% if not is_index %}
-    {% include 'passage-end-tag.njk' %}
+    {% include 'passage-end-tag.swig' %}
   {% endif %}
 </div>
 ```
@@ -740,11 +741,17 @@ npm install live2d-widget-model-tororo
 
 ```bash
 codeblock:
+  # Code Highlight theme
+  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
+  # See: https://github.com/chriskempson/tomorrow-theme
   highlight_theme: night
-  border_radius:
+  # Add copy button on codeblock
   copy_button:
     enable: true
+    # Show text copy result.
     show_result: true
+    # Available values: default | flat | mac
+    style:
 ```
 
 
@@ -986,7 +993,13 @@ math:
   mathjax:
     enable: true
     # See: https://mhchem.github.io/MathJax-mhchem/
-    mhchem: false
+    mhchem: true
+
+  # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.
+  katex:
+    enable: false
+    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+    copy_tex: false
 ```
 
 需要使用数学公式时，打开即可：
@@ -1348,6 +1361,12 @@ FATAL TypeError: Object.fromEntries is not a function
 ```
 
 查看 `node` 版本，发现是 `v10.19.0`，升级到 `v12.22.10` 即可
+
+
+
+##	5.	中文路径文章目录不能自动跳转
+
+修改方法见：[fix: Chinese TOC cannot jump      #1540](https://github.com/theme-next/hexo-theme-next/pull/1540/commits/ec521c927dc10255977324284c1c667f2e220da7)
 
 
 
