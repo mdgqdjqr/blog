@@ -3,6 +3,10 @@ title: ipcalc
 date: 2022-01-01 14:16:23
 categories:
   - Linux 教程
+tag:
+  - Linux
+  - ipcalc
+  - Centos
 ---
 
 

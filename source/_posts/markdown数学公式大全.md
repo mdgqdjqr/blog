@@ -3,6 +3,10 @@ title: markdown数学公式大全
 date: 2022-01-07 14:15:23
 categories:
   - 学术知识积累
+tag:
+  - 数学
+  - markdown
+  - Mathjax
 mathjax: true
 ---
 

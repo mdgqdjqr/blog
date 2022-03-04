@@ -3,6 +3,10 @@ title: mash
 date: 2022-01-01 14:15:23
 categories:
   - Linux 教程
+tags:
+  - Centos
+  - Linux
+  - mash
 ---
 
 # mash使用

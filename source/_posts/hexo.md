@@ -3,6 +3,10 @@ title: Hexo + GitHub 史上最全搭建个人 blog教程
 date: 2022-03-01 15:30:23
 categories:
   - Linux 教程
+tag:
+  - hexo
+  - blog
+  - Linux
 ---
 
 
