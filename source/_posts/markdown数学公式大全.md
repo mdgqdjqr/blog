@@ -67,6 +67,7 @@ mathjax: true
 | $\neq$   | \neq     |
 | $\leq$   | \leq     |
 | $\geq$   | \geq     |
+| $\equiv$ | \equiv   |
 
 
 
