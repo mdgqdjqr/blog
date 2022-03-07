@@ -52,6 +52,7 @@ mathjax: true
 | 符号      | markdown | 符号     | markdown |
 | --------- | -------- | -------- | -------- |
 | $\forall$ | \forall  | $\exist$ | \exist   |
+| $\sim$    | \sim     |          |          |
 
 
 
