@@ -9,7 +9,7 @@ tags:
   - mash
 ---
 
-# mash使用
+# mash
 
 mash 命令：导出仓库软件包工具。
 
