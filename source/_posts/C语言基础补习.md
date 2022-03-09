@@ -5,6 +5,7 @@ tags:
   - 嵌入式
   - Linux
   - C语言
+  - Ubuntu
 categories:
   - 嵌入式开发
 ---
