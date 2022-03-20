@@ -49,10 +49,11 @@ mathjax: true
 
 其他符号
 
-| 符号      | markdown | 符号     | markdown |
-| --------- | -------- | -------- | -------- |
-| $\forall$ | \forall  | $\exist$ | \exist   |
-| $\sim$    | \sim     |          |          |
+| 符号                       | markdown                 | 符号                        | markdown                  |
+| -------------------------- | ------------------------ | --------------------------- | ------------------------- |
+| $\forall$                  | \forall                  | $\exist$                    | \exist                    |
+| $\sim$                     | \sim                     |                             |                           |
+| $\overline{\text{上划线}}$ | \overline{\text{上划线}} | $\underline{\text{下划线}}$ | \underline{\text{下划线}} |
 
 
 
