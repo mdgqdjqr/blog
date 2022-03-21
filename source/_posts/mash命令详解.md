@@ -1,5 +1,5 @@
 ---
-title: mash
+title: mash 命令详解
 date: 2022-01-01 14:15:23
 categories:
   - Linux 教程
@@ -22,7 +22,7 @@ mash 命令：导出仓库软件包工具。
 | Centos 8 | CentOS-8.2.2004-x86_64-dvd1.iso |
 
 
-# mash使用
+# mash安装使用
 
 1. 安装mash软件包
 

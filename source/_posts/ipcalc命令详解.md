@@ -1,5 +1,5 @@
 ---
-title: ipcalc
+title: ipcalc 命令详解
 date: 2022-01-01 14:16:23
 categories:
   - Linux 教程
@@ -13,12 +13,12 @@ tag:
 
 #	ipcalc
 
-​	ipcalc命令的全称是：Calculate IP information for a host（计算主机的IP信息）
+ipcalc命令的全称是：Calculate IP information for a host（计算主机的IP信息）
 
-​	一个简单的ip地址计算器，可以完成简单的IP地址计算任务。
+一个简单的ip地址计算器，可以完成简单的IP地址计算任务。
 <!--more-->
 
-#	安装ipcalc
+#	ipcalc安装
 
 ```bash
 [root@localhost ~]# dnf install initscripts
