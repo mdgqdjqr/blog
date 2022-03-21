@@ -208,3 +208,11 @@ search commands:
    koji --user $name --password $passwd tag-build $tag zip-1.0.1-1.el8
    ```
 
+
+
+详细信息可参考：
+
+[Fedora Koji Wiki](https://fedoraproject.org/wiki/Koji)
+
+[koji 命令总结](https://blog.csdn.net/zhangna20151015/article/details/86236281)
+
