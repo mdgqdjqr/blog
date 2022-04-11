@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="kojiKoji 是用于构建 RPM 包的软件。 它使用 Mock 创建 chroot 环境来执行构建。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="koji 命令详解">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/03/21/koji%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="kojiKoji 是用于构建 RPM 包的软件。 它使用 Mock 创建 chroot 环境来执行构建。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-21T02:31:23.000Z">
+<meta property="article:modified_time" content="2022-04-10T01:23:15.399Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Centos">
+<meta property="article:tag" content="koji">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/03/21/koji%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>koji 命令详解 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/03/21/koji%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          koji 命令详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-21 10:31:23" itemprop="dateCreated datePublished" datetime="2022-03-21T10:31:23+08:00">2022-03-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-10 09:23:15" itemprop="dateModified" datetime="2022-04-10T09:23:15+08:00">2022-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Linux-%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Linux 教程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/03/21/koji%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/03/21/koji%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="koji"><a href="#koji" class="headerlink" title="koji"></a>koji</h1><p>Koji 是用于构建 RPM 包的软件。 它使用 Mock 创建 chroot 环境来执行构建。</p>
+<span id="more"></span>
+<h1 id="koji-安装"><a href="#koji-安装" class="headerlink" title="koji 安装"></a>koji 安装</h1><ol>
+<li><p>安装koji软件包及相关软件包</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token punctuation">[</span>root@localhost <span class="token operator">~</span><span class="token punctuation">]</span># dnf install koji<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>修改koji配置文件 <code>vim /etc/koji.conf</code> （URL可自行修改）</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token punctuation">[</span>koji<span class="token punctuation">]</span>
+server <span class="token operator">=</span> http<span class="token operator">:</span><span class="token comment">//192.168.102.149/kojihub</span>
+weburl <span class="token operator">=</span> http<span class="token operator">:</span><span class="token comment">//192.168.102.149/koji</span>
+KeycloakCert <span class="token operator">=</span> True
+topurl <span class="token operator">=</span> http<span class="token operator">:</span><span class="token comment">//192.168.102.149/kojifiles</span>
+topdir <span class="token operator">=</span> <span class="token operator">/</span>mnt<span class="token operator">/</span>koji<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h1 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h1><p>用法： koji [global-options] command [command-options-and-arguments]</p>
+<h1 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">admin commands<span class="token operator">:</span>
+        add<span class="token operator">-</span>external<span class="token operator">-</span>repo         Create an external repo and<span class="token operator">/</span>or add one to a tag
+        add<span class="token operator">-</span>group                 Add a group to a tag
+        add<span class="token operator">-</span>group<span class="token operator">-</span>pkg             Add a package to a group's package listing
+        add<span class="token operator">-</span>group<span class="token operator">-</span>req             Add a group to a group's required list
+        add<span class="token operator">-</span>host                  Add a host
+        add<span class="token operator">-</span>host<span class="token operator">-</span>to<span class="token operator">-</span>channel       Add a host to a channel
+        add<span class="token operator">-</span>pkg                   Add a package to the listing <span class="token keyword">for</span> tag
+        add<span class="token operator">-</span>tag                   Add a new tag to the database
+        add<span class="token operator">-</span>tag<span class="token operator">-</span>inheritance       Add to a tag's inheritance
+        add<span class="token operator">-</span>target                Create a new build target
+        add<span class="token operator">-</span>user                  Add a user
+        add<span class="token operator">-</span>volume                Add a new storage volume
+        assign<span class="token operator">-</span>task               Assign a task to a host
+        block<span class="token operator">-</span>group               Block group in tag
+        block<span class="token operator">-</span>group<span class="token operator">-</span>pkg           Block a package from a group's package listing
+        block<span class="token operator">-</span>group<span class="token operator">-</span>req           Block a group's requirement listing
+        block<span class="token operator">-</span>pkg                 Block a package in the listing <span class="token keyword">for</span> tag
+        clone<span class="token operator">-</span>tag                 Duplicate the contents of one tag onto another tag
+        disable<span class="token operator">-</span>host              Mark one or more hosts as disabled
+        disable<span class="token operator">-</span>user              Disable logins by a user
+        edit<span class="token operator">-</span>external<span class="token operator">-</span>repo        Edit data <span class="token keyword">for</span> an external repo
+        edit<span class="token operator">-</span>host                 Edit a host
+        edit<span class="token operator">-</span>tag                  Alter tag information
+        edit<span class="token operator">-</span>tag<span class="token operator">-</span>inheritance      Edit tag inheritance
+        edit<span class="token operator">-</span>target               Set the name<span class="token punctuation">,</span> build_tag<span class="token punctuation">,</span> and<span class="token operator">/</span>or dest_tag of an existing build target to new values
+        edit<span class="token operator">-</span>user                 Alter user information
+        enable<span class="token operator">-</span>host               Mark one or more hosts as enabled
+        enable<span class="token operator">-</span>user               Enable logins by a user
+        free<span class="token operator">-</span>task                 Free a task
+        grant<span class="token operator">-</span>cg<span class="token operator">-</span>access           Add a user to a content generator
+        grant<span class="token operator">-</span>permission          Grant a permission to a user
+        import                    Import externally built RPMs into the database
+        import<span class="token operator">-</span>archive            Import an archive file and associate it with a build
+        import<span class="token operator">-</span>cg                 Import external builds with rich metadata
+        import<span class="token operator">-</span>sig                Import signatures into the database and write <span class="token keyword">signed</span> RPMs
+        list<span class="token operator">-</span><span class="token keyword">signed</span>               List <span class="token keyword">signed</span> copies of rpms
+        lock<span class="token operator">-</span>tag                  Lock a tag
+        make<span class="token operator">-</span>task                 Create an arbitrary task
+        prune<span class="token operator">-</span><span class="token keyword">signed</span><span class="token operator">-</span>copies       Prune <span class="token keyword">signed</span> copies
+        regen<span class="token operator">-</span>repo                Force a repo to be regenerated
+        remove<span class="token operator">-</span>channel            Remove a channel entirely
+        remove<span class="token operator">-</span>external<span class="token operator">-</span>repo      Remove an external repo from a tag or tags<span class="token punctuation">,</span> or remove entirely
+        remove<span class="token operator">-</span>group              Remove group from tag
+        remove<span class="token operator">-</span>host<span class="token operator">-</span>from<span class="token operator">-</span>channel  Remove a host from a channel
+        remove<span class="token operator">-</span>pkg                Remove a package from the listing <span class="token keyword">for</span> tag
+        remove<span class="token operator">-</span>tag                Remove a tag
+        remove<span class="token operator">-</span>tag<span class="token operator">-</span>inheritance    Remove a tag inheritance link
+        remove<span class="token operator">-</span>target             Remove a build target
+        rename<span class="token operator">-</span>channel            Rename a channel
+        restart<span class="token operator">-</span>hosts             Restart enabled hosts
+        revoke<span class="token operator">-</span>cg<span class="token operator">-</span>access          Remove a user from a content generator
+        revoke<span class="token operator">-</span>permission         Revoke a permission from a user
+        set<span class="token operator">-</span>build<span class="token operator">-</span>volume          Move a build to a different volume
+        set<span class="token operator">-</span>pkg<span class="token operator">-</span>arches            Set the list of extra arches <span class="token keyword">for</span> a package
+        set<span class="token operator">-</span>pkg<span class="token operator">-</span>owner             Set the owner <span class="token keyword">for</span> a package
+        set<span class="token operator">-</span>pkg<span class="token operator">-</span>owner<span class="token operator">-</span>global      Set the owner <span class="token keyword">for</span> a package globally
+        set<span class="token operator">-</span>task<span class="token operator">-</span>priority         Set task priority
+        unblock<span class="token operator">-</span>group<span class="token operator">-</span>pkg         Unblock a package from a group's package listing
+        unblock<span class="token operator">-</span>group<span class="token operator">-</span>req         Unblock a group's requirement listing
+        unblock<span class="token operator">-</span>pkg               Unblock a package in the listing <span class="token keyword">for</span> tag
+        unlock<span class="token operator">-</span>tag                Unlock a tag
+        write<span class="token operator">-</span><span class="token keyword">signed</span><span class="token operator">-</span>rpm          Write <span class="token keyword">signed</span> RPMs to disk
+
+bind commands<span class="token operator">:</span>
+        move<span class="token operator">-</span>build                <span class="token char">'Move'</span> one or more builds between tags
+        tag<span class="token operator">-</span>build                 Apply a tag to one or more builds
+        untag<span class="token operator">-</span>build               Remove a tag from one or more builds
+
+build commands<span class="token operator">:</span>
+        build                     Build a package from source
+        cancel                    Cancel tasks and<span class="token operator">/</span>or builds
+        chain<span class="token operator">-</span>build               Build one or more packages from source
+        image<span class="token operator">-</span>build               Create a disk image given an install tree
+        image<span class="token operator">-</span>build<span class="token operator">-</span>indirection   Create a disk image using other disk images via the Indirection plugin
+        maven<span class="token operator">-</span>build               Build a Maven package from source
+        maven<span class="token operator">-</span>chain               Run a set of Maven builds in dependency order
+        resubmit                  Retry a canceled or failed task<span class="token punctuation">,</span> using the same parameter as the original task<span class="token punctuation">.</span>
+        spin<span class="token operator">-</span>appliance            Create an appliance given a kickstart file
+        spin<span class="token operator">-</span>livecd               Create a live CD image given a kickstart file
+        spin<span class="token operator">-</span>livemedia            Create a livemedia image given a kickstart file
+        win<span class="token operator">-</span>build                 Build a Windows package from source
+        wrapper<span class="token operator">-</span>rpm               Build wrapper rpms <span class="token keyword">for</span> any archives associated with a build<span class="token punctuation">.</span>
+
+download commands<span class="token operator">:</span>
+        download<span class="token operator">-</span>build            Download a built package
+        download<span class="token operator">-</span>logs             Download a logs <span class="token keyword">for</span> package
+        download<span class="token operator">-</span>task             Download the output of a build task
+
+info commands<span class="token operator">:</span>
+        buildinfo                 Print basic information about a build
+        help                      List available commands
+        hostinfo                  Print basic information about a host
+        latest<span class="token operator">-</span>build              Print the latest builds <span class="token keyword">for</span> a tag
+        list<span class="token operator">-</span>api                  Print the list of XML<span class="token operator">-</span>RPC APIs
+        list<span class="token operator">-</span>buildroot            List the rpms used in or built in a buildroot
+        list<span class="token operator">-</span>builds               Print the build listing
+        list<span class="token operator">-</span>channels             Print channels listing
+        list<span class="token operator">-</span>external<span class="token operator">-</span>repos       List external repos
+        list<span class="token operator">-</span>groups               Print the group listings
+        list<span class="token operator">-</span>history              Display historical data
+        list<span class="token operator">-</span>hosts                Print the host listing
+        list<span class="token operator">-</span>permissions          List user permissions
+        list<span class="token operator">-</span>pkgs                 Print the package listing <span class="token keyword">for</span> tag or <span class="token keyword">for</span> owner
+        list<span class="token operator">-</span>tag<span class="token operator">-</span>inheritance      Print the inheritance information <span class="token keyword">for</span> a tag
+        list<span class="token operator">-</span>tagged               List the builds or rpms in a tag
+        list<span class="token operator">-</span>tags                 Print the list of tags
+        list<span class="token operator">-</span>targets              List the build targets
+        list<span class="token operator">-</span>tasks                Print the list of tasks
+        list<span class="token operator">-</span>untagged             List untagged builds
+        list<span class="token operator">-</span>volumes              List storage volumes
+        mock<span class="token operator">-</span>config               Create a mock config
+        rpminfo                   Print basic information about an RPM
+        show<span class="token operator">-</span>groups               Show groups data <span class="token keyword">for</span> a tag
+        taginfo                   Print basic information about a tag
+        taskinfo                  Show information about a task
+
+miscellaneous commands<span class="token operator">:</span>
+        call                      Execute an arbitrary XML<span class="token operator">-</span>RPC call
+        dist<span class="token operator">-</span>repo                 Create a yum repo with distribution options
+        import<span class="token operator">-</span>comps              Import group<span class="token operator">/</span>package information from a comps file
+        moshimoshi                Introduce yourself
+        version                   Report client and hub versions
+
+monitor commands<span class="token operator">:</span>
+        add<span class="token operator">-</span>notification          Add user's notification
+        block<span class="token operator">-</span>notification        Block user's notifications
+        edit<span class="token operator">-</span>notification         Edit user's notification
+        list<span class="token operator">-</span>notifications        List user's notifications and blocks
+        remove<span class="token operator">-</span>notification       Remove user's notifications
+        unblock<span class="token operator">-</span>notification      Unblock user's notification
+        wait<span class="token operator">-</span>repo                 Wait <span class="token keyword">for</span> a repo to be regenerated
+        watch<span class="token operator">-</span>logs                Watch logs in realtime
+        watch<span class="token operator">-</span>task                Track progress of particular tasks
+
+search commands<span class="token operator">:</span>
+        search                    Search the system<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="参考实例"><a href="#参考实例" class="headerlink" title="参考实例"></a>参考实例</h1><ol>
+<li><p>临时编译</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">koji <span class="token operator">--</span>user $name <span class="token operator">--</span>password $passwd build $tag <span class="token operator">--</span>scratch <span class="token operator">--</span>nowait $src_rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>编译入库</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">koji <span class="token operator">--</span>user $name <span class="token operator">--</span>password $passwd build $tag <span class="token operator">--</span>nowait $src_rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>添加 tag</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">koji <span class="token operator">--</span>user $name <span class="token operator">--</span>password $passwd tag<span class="token operator">-</span>build $tag zip<span class="token operator">-</span><span class="token number">1.0</span><span class="token number">.1</span><span class="token operator">-</span><span class="token number">1.</span>el8<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ol>
+<p>详细信息可参考：</p>
+<p><a target="_blank" rel="noopener" href="https://fedoraproject.org/wiki/Koji">Fedora Koji Wiki</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhangna20151015/article/details/86236281">koji 命令总结</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/03/21/koji%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="koji 命令详解">https://mdgqdjqr.github.io/blog/2022/03/21/koji命令详解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/blog/tags/Centos/" rel="tag"># Centos</a>
+              <a href="/blog/tags/koji/" rel="tag"># koji</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/03/09/alias%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" rel="prev" title="alias 命令详解">
+      <i class="fa fa-chevron-left"></i> alias 命令详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/03/21/mock%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" rel="next" title="mock 命令详解">
+      mock 命令详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koji"><span class="nav-text">koji</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#koji-%E5%AE%89%E8%A3%85"><span class="nav-text">koji 安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="nav-text">语法格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%AE%9E%E4%BE%8B"><span class="nav-text">参考实例</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

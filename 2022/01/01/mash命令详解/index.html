@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="mashmash 命令：导出仓库软件包工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mash 命令详解">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="mashmash 命令：导出仓库软件包工具。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-01T06:15:23.000Z">
+<meta property="article:modified_time" content="2022-04-10T01:23:15.400Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Centos">
+<meta property="article:tag" content="mash">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>mash 命令详解 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          mash 命令详解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-01 14:15:23" itemprop="dateCreated datePublished" datetime="2022-01-01T14:15:23+08:00">2022-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-10 09:23:15" itemprop="dateModified" datetime="2022-04-10T09:23:15+08:00">2022-04-10</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/Linux-%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">Linux 教程</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="mash"><a href="#mash" class="headerlink" title="mash"></a>mash</h1><p>mash 命令：导出仓库软件包工具。</p>
+<span id="more"></span>
+<p>系统环境：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Centos 8</td>
+<td>CentOS-8.2.2004-x86_64-dvd1.iso</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="mash安装使用"><a href="#mash安装使用" class="headerlink" title="mash安装使用"></a>mash安装使用</h1><ol>
+<li><p>安装mash软件包</p>
+<p><code>dnf install mash</code></p>
+</li>
+<li><p>修改mash配置文件</p>
+<ul>
+<li><p>配置 <code>mash.conf</code>，主要是配置koji路径 <code>vim /etc/mash/mash.conf</code> ，以 <code>IP:192.168.102.128</code> 为例</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>defaults<span class="token punctuation">]</span>
+use_sqlite <span class="token operator">=</span> True
+use_repoview <span class="token operator">=</span> False
+buildhost <span class="token operator">=</span> http://192.168.102.128/kojihub
+repodir <span class="token operator">=</span> http://192.168.102.128/kojifiles
+configdir <span class="token operator">=</span> /etc/mash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>编写需要导出仓库 <code>tag</code> 的配置文件，以 <code>test_demo</code>为例 <code>vim /etc/mash/test-demo.mash</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>test_demo<span class="token punctuation">]</span>
+rpm_path <span class="token operator">=</span> %<span class="token punctuation">(</span>arch<span class="token punctuation">)</span>s/Packages
+repodata_path <span class="token operator">=</span> %<span class="token punctuation">(</span>arch<span class="token punctuation">)</span>s/
+<span class="token builtin class-name">source</span> <span class="token operator">=</span> True
+output_subdir <span class="token operator">=</span> test_demo/rpms
+debuginfo <span class="token operator">=</span> False
+multilib <span class="token operator">=</span> True
+multilib_method <span class="token operator">=</span> devel
+multilib_file <span class="token operator">=</span> list_pkgs.test_demo
+tag <span class="token operator">=</span> test_demo
+inherit <span class="token operator">=</span> True
+strict_keys <span class="token operator">=</span> True
+keys <span class="token operator">=</span> <span class="token comment">#此处按需填写</span>
+arches <span class="token operator">=</span> x86_64
+delta <span class="token operator">=</span> True
+max_delta_rpm_size <span class="token operator">=</span> <span class="token number">800000000</span>
+distro_tags <span class="token operator">=</span> cpe:/o:centos:ns:test_demo Null
+black_list <span class="token operator">=</span> hash_packages <span class="token operator">=</span> False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>mash的使用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mash -o /mnt/koji/mash test_demo	<span class="token comment">#可以将tag=test_demo最新入库的rpm包导出到/mnt/koji/mash/test_demo/rpms目录下</span>
+
+<span class="token variable"><span class="token variable">`</span>mash<span class="token variable">`</span></span>其他使用方式可以使用<span class="token variable"><span class="token variable">`</span>mash --help<span class="token variable">`</span></span>查看<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h1 id="mash软件包编译相关问题"><a href="#mash软件包编译相关问题" class="headerlink" title="mash软件包编译相关问题"></a>mash软件包编译相关问题</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bytecompiling .py files below /root/rpmbuild/BUILDROOT/mash-0.6.02-1.el8.10.x86_64/usr/lib/python3.6 using /usr/libexec/platform-python
+*** Error compiling <span class="token string">'/root/rpmbuild/BUILDROOT/mash-0.6.02-1.el8.10.x86_64/usr/lib/python3.6/site-packages/mash/config.py'</span><span class="token punctuation">..</span>.
+Sorry: TabError: inconsistent use of tabs and spaces <span class="token keyword">in</span> indentation <span class="token punctuation">(</span>config.py, line <span class="token number">151</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在python3环境下编译软件包时，<code>tab</code> 或者<code>空格</code>分开使用，不要空格和tab混用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+ /usr/lib/rpm/redhat/brp-mangle-shebangs
+mangling shebang <span class="token keyword">in</span> /usr/bin/mash from /usr/bin/python3 to <span class="token comment">#!/usr/libexec/platform-python</span>
+*** ERROR: ambiguous python shebang <span class="token keyword">in</span> /usr/share/mash/spam-o-matic: <span class="token comment">#!/usr/bin/python. Change it to python3 (or python2) explicitly.</span>
+error: Bad <span class="token builtin class-name">exit</span> status from /var/tmp/rpm-tmp.Ip2foI <span class="token punctuation">(</span>%install<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>解释器需指定python3</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">  File <span class="token string">"/usr/bin/mash"</span>, line <span class="token number">42</span>
+    print <span class="token string">"ERROR: No configuration specified!<span class="token entity" title="\n">\n</span>"</span>
+                                               ^
+SyntaxError: Missing parentheses <span class="token keyword">in</span> call to <span class="token string">'print'</span><span class="token builtin class-name">.</span> Did you mean print<span class="token punctuation">(</span><span class="token string">"ERROR: No configuration specified!<span class="token entity" title="\n">\n</span>"</span><span class="token punctuation">)</span>?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>python3下print语法稍有不同</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" title="mash 命令详解">https://mdgqdjqr.github.io/blog/2022/01/01/mash命令详解/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/blog/tags/Centos/" rel="tag"># Centos</a>
+              <a href="/blog/tags/mash/" rel="tag"># mash</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/01/01/ipcalc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" rel="next" title="ipcalc 命令详解">
+      ipcalc 命令详解 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mash"><span class="nav-text">mash</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mash%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="nav-text">mash安装使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mash%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%BC%96%E8%AF%91%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-text">mash软件包编译相关问题</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
