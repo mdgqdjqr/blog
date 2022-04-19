@@ -35,8 +35,10 @@
 <meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.1.1.2.jpg">
 <meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.1.1.3.jpg">
 <meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.1.1.4.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.1.2.1.png">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.2.1.png">
 <meta property="article:published_time" content="2022-03-07T01:56:16.000Z">
-<meta property="article:modified_time" content="2022-04-12T09:55:25.102Z">
+<meta property="article:modified_time" content="2022-04-19T01:42:01.046Z">
 <meta property="article:author" content="史小胖">
 <meta property="article:tag" content="考研">
 <meta property="article:tag" content="专业课">
@@ -237,7 +239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-12 17:55:25" itemprop="dateModified" datetime="2022-04-12T17:55:25+08:00">2022-04-12</time>
+                <time title="修改时间：2022-04-19 09:42:01" itemprop="dateModified" datetime="2022-04-19T09:42:01+08:00">2022-04-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -960,7 +962,8 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
 <li>体会带头结点、不带头节点的代码的区别；</li>
 <li>体会 “封装” 的好处；</li>
 </ol>
-<h4 id="2-单链表的查找"><a href="#2-单链表的查找" class="headerlink" title="2.    单链表的查找"></a>2.    单链表的查找</h4><p><strong>按位查找</strong></p>
+<h4 id="2-单链表的查找"><a href="#2-单链表的查找" class="headerlink" title="2.    单链表的查找"></a>2.    单链表的查找</h4><p><img src="/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.1.2.1.png" alt></p>
+<p><strong>按位查找</strong></p>
 <p>GetElem(L,i)：<font color="red">按位查找</font>操作，获取表 L 中第 i 个位置的元素的值。</p>
 <p>平均时间复杂度：$O(n)$</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">LNode <span class="token operator">*</span> <span class="token function">GetElem</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -976,7 +979,7 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
     <span class="token keyword">return</span> p<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>安值查找</strong></p>
-<p>LocateElem(L,e)：<font color="red">安值查找</font>操作，在表 L 中查找具有给定关键字值的元素。</p>
+<p>LocateElem(L,e)：<font color="red">按值查找</font>操作，在表 L 中查找具有给定关键字值的元素。</p>
 <p>时间复杂度：$O(n)$</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">LNode <span class="token operator">*</span> <span class="token function">LocateElem</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">,</span> ElemType e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     LNode <span class="token operator">*</span>p <span class="token operator">=</span> L<span class="token operator">-></span>next<span class="token punctuation">;</span>
@@ -984,7 +987,130 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
     <span class="token keyword">return</span> p<span class="token punctuation">;</span>		<span class="token comment">// 找到后返回该结点指针，否则返回NULL</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-双链表"><a href="#2-双链表" class="headerlink" title="2.    双链表"></a>2.    双链表</h3><h3 id="3-循环链表"><a href="#3-循环链表" class="headerlink" title="3.    循环链表"></a>3.    循环链表</h3><h3 id="4-静态链表"><a href="#4-静态链表" class="headerlink" title="4.    静态链表"></a>4.    静态链表</h3><h2 id="4-顺序表和链表的比较"><a href="#4-顺序表和链表的比较" class="headerlink" title="4.    顺序表和链表的比较"></a>4.    顺序表和链表的比较</h2>
+<p><strong>求表的长度</strong></p>
+<p>时间复杂度：$O(n)$</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 求表的长度（带头节点）</span>
+<span class="token keyword">int</span> <span class="token function">Length</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    LNode <span class="token operator">*</span>p <span class="token operator">=</span> L<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        len<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-单链表的建立"><a href="#3-单链表的建立" class="headerlink" title="3.    单链表的建立"></a>3.    单链表的建立</h4><p>头插法、尾插法：核心就是初始化操作，指定结点的后插操作；</p>
+<p><strong>尾插法建立单链表</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 后插操作：在 p 结点之后插入元素 e</span>
+<span class="token comment">// bool InsertNextNode(LNode *p, ElemType e)</span>
+bool <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>p<span class="token punctuation">,</span> ElemType e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>头插法建立单链表</strong></p>
+<p><font color="red">头插法的重要应用：链表的逆置</font>；</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 前插操作：逆向建立单链表</span>
+bool <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span> ElemType e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    L <span class="token operator">=</span> <span class="token punctuation">(</span>LinkList<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    L<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>next <span class="token operator">=</span> L<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    L<span class="token operator">-></span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-双链表"><a href="#2-双链表" class="headerlink" title="2.    双链表"></a>2.    双链表</h3><p><img src="/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.2.1.png" alt></p>
+<p><strong>双链表的初始化（带头结点）</strong></p>
+<p><font color="red">DLinklist 等价于 DNode *</font>，双链表不可随机存取，按位查找、按值查找操作都只能用遍历实现。时间复杂度：$O(n)$</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">DNode</span><span class="token punctuation">&#123;</span>
+    ElemType data<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">DNode</span> <span class="token operator">*</span>prior<span class="token punctuation">,</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>DNode<span class="token punctuation">,</span> <span class="token operator">*</span>DLinklist<span class="token punctuation">;</span>
+
+<span class="token comment">// 初始化双链表</span>
+bool <span class="token function">InitDLinkList</span><span class="token punctuation">(</span>DLinklist <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    L <span class="token operator">=</span> <span class="token punctuation">(</span>DNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    L<span class="token operator">-></span>prior <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>		<span class="token comment">// 头节点的 prior 永远指向 NULL</span>
+    L<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>			<span class="token comment">// 头节点之后暂时还没有结点</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 判断双链表是否为空</span>
+bool <span class="token function">Empty</span><span class="token punctuation">(</span>DLinklist L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 双链表的插入：在 p 结点后插入 s</span>
+bool <span class="token function">InsertNextDNode</span><span class="token punctuation">(</span>DNode <span class="token operator">*</span>p<span class="token punctuation">,</span> DNode <span class="token operator">*</span>s<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        p<span class="token operator">-></span>next<span class="token operator">-></span>prior <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>prior <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 双链表的删除:删除 p 结点的后继结点</span>
+bool <span class="token function">DeleteNextDNode</span><span class="token punctuation">(</span>DNode <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    DNode <span class="token operator">*</span>q <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>q <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> q<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        q<span class="token operator">-></span>next<span class="token operator">-></span>prior <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 销毁双链表</span>
+<span class="token keyword">void</span> <span class="token function">DestoryList</span><span class="token punctuation">(</span>DLinklist <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>L<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token function">DeleteNextDNode</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    L<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">testDLinkList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    DLinklist L<span class="token punctuation">;</span>
+    <span class="token function">InitLinkList</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...后续代码...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>双链表的遍历</strong></p>
+<ol>
+<li><p>后向遍历</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>前向遍历</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token operator">-></span>prior<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>前向遍历（跳过头节点）</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-></span>prior <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token operator">-></span>prior<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h3 id="3-循环链表"><a href="#3-循环链表" class="headerlink" title="3.    循环链表"></a>3.    循环链表</h3><h3 id="4-静态链表"><a href="#4-静态链表" class="headerlink" title="4.    静态链表"></a>4.    静态链表</h3><h2 id="4-顺序表和链表的比较"><a href="#4-顺序表和链表的比较" class="headerlink" title="4.    顺序表和链表的比较"></a>4.    顺序表和链表的比较</h2>
     </div>
 
     
@@ -1099,7 +1225,7 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="nav-text">第一章.    绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.    数据结构的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AE%97%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.    算法的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">3.    算法的时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%AE%97%E6%B3%95%E7%9A%84%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">4.    算法的空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">第二章.    线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">1.    线性表的定义和基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-text">2.    顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">2.1    顺序表的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4"><span class="nav-text">2.2    顺序表的插入删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="nav-text">2.3    顺序表的查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%93%BE%E8%A1%A8"><span class="nav-text">3.    链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-text">1.    单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4"><span class="nav-text">1.    单链表的插入删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="nav-text">2.    单链表的查找</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="nav-text">2.    双链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-text">3.    循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8"><span class="nav-text">4.    静态链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text">4.    顺序表和链表的比较</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="nav-text">第一章.    绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.    数据结构的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AE%97%E6%B3%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.    算法的基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">3.    算法的时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%AE%97%E6%B3%95%E7%9A%84%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">4.    算法的空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">第二章.    线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">1.    线性表的定义和基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-text">2.    顺序表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">2.1    顺序表的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4"><span class="nav-text">2.2    顺序表的插入删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="nav-text">2.3    顺序表的查找</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%93%BE%E8%A1%A8"><span class="nav-text">3.    链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-text">1.    单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%8F%92%E5%85%A5%E5%88%A0%E9%99%A4"><span class="nav-text">1.    单链表的插入删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="nav-text">2.    单链表的查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%BB%BA%E7%AB%8B"><span class="nav-text">3.    单链表的建立</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%8C%E9%93%BE%E8%A1%A8"><span class="nav-text">2.    双链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8"><span class="nav-text">3.    循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%9D%99%E6%80%81%E9%93%BE%E8%A1%A8"><span class="nav-text">4.    静态链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E9%A1%BA%E5%BA%8F%E8%A1%A8%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text">4.    顺序表和链表的比较</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

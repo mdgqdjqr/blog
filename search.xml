@@ -1,48 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>alias 命令详解</title>
-    <url>/blog/2022/03/09/alias%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><p>alias命令：设置指令的别名。</p>
-<span id="more"></span>
-<h1 id="alias-安装"><a href="#alias-安装" class="headerlink" title="alias 安装"></a>alias 安装</h1><p>alias 为 bash 提供的命令，默认系统便已安装。</p>
-<h1 id="alias-语法格式"><a href="#alias-语法格式" class="headerlink" title="alias 语法格式"></a>alias 语法格式</h1><pre class="line-numbers language-none"><code class="language-none">alias [别名]&#x3D;[指令名称]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>补充说明：用户可利用 alias 自定指令的别名。若仅输入alias，则可列出目前所有的别名设置；alias的效力仅及于该次登入的操作。若要每次登入时即自动设好别名，可在 .profile 或 .bashrc 中设定指令的别名。</p>
-<h1 id="参考实例"><a href="#参考实例" class="headerlink" title="参考实例"></a>参考实例</h1><ol>
-<li><p>不加任何参数，则列出目前所有的别名设置</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token punctuation">[</span>root@localhost <span class="token operator">~</span><span class="token punctuation">]</span># alias 
-alias cp<span class="token operator">=</span><span class="token char">'cp -i'</span>
-alias egrep<span class="token operator">=</span><span class="token char">'egrep --color=auto'</span>
-alias fgrep<span class="token operator">=</span><span class="token char">'fgrep --color=auto'</span>
-alias grep<span class="token operator">=</span><span class="token char">'grep --color=auto'</span>
-alias l<span class="token punctuation">.</span><span class="token operator">=</span><span class="token char">'ls -d .* --color=auto'</span>
-alias ll<span class="token operator">=</span><span class="token char">'ls -l --color=auto'</span>
-alias ls<span class="token operator">=</span><span class="token char">'ls --color=auto'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>添加参数，设置别名</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">alias vi<span class="token operator">=</span><span class="token char">'vim'</span>
-alias rpm<span class="token operator">=</span><span class="token char">'rpm -D "_topdir `pwd`"'</span>
-alias rpmbuild<span class="token operator">=</span><span class="token char">'rpmbuild -D "_topdir `pwd`"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>永久设置别名</p>
-<p>编辑用户的环境变量文件 .bash_profile，添加如下内容。</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c">alias sc<span class="token operator">=</span><span class="token string">"source ~/.bash_profile"</span>
-alias p<span class="token operator">=</span><span class="token string">"ps -u $USER"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>保存后退出，然后执行 <code>source .bash_profile</code>，重新载入环境变量文件。</p>
-<p>这时你就可以在当前用户下使用 sc 这个别名作为命令，它就等效你执行 <code>source ~/.bash_profile</code> 命令。</p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Linux 教程</category>
-      </categories>
-      <tags>
-        <tag>Centos</tag>
-        <tag>Linux</tag>
-        <tag>alias</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux 系统安装软件包</title>
     <url>/blog/2022/03/21/Linux%20%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85/</url>
     <content><![CDATA[<h1 id="Linux-系统安装软件包"><a href="#Linux-系统安装软件包" class="headerlink" title="Linux 系统安装软件包"></a>Linux 系统安装软件包</h1><p>安装开发过程中需要用到的软件。不同的开发需要的软件不一样，但安装方法相同。</p>
@@ -139,116 +97,35 @@ passwd: all authentication tokens updated successfully.<span aria-hidden="true" 
       </tags>
   </entry>
   <entry>
-    <title>ipcalc 命令详解</title>
-    <url>/blog/2022/01/01/ipcalc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="ipcalc"><a href="#ipcalc" class="headerlink" title="ipcalc"></a>ipcalc</h1><p>ipcalc命令的全称是：Calculate IP information for a host（计算主机的IP信息）</p>
-<p>一个简单的ip地址计算器，可以完成简单的IP地址计算任务。<br><span id="more"></span></p>
-<h1 id="ipcalc安装"><a href="#ipcalc安装" class="headerlink" title="ipcalc安装"></a>ipcalc安装</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># dnf install initscripts</span>
-Last metadata expiration check: <span class="token number">0</span>:03:34 ago on Thu 06 Jan <span class="token number">2022</span> <span class="token number">11</span>:23:44 AM CST.
-Dependencies resolved.
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
- Package         Arch       Version              Repository  Size
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
-Installing:
- initscripts     x86_64     <span class="token number">10.00</span>.15-1.el8       BaseOS     <span class="token number">339</span> k
-
-Transaction Summary
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
-Install  <span class="token number">1</span> Package
-
-Total download size: <span class="token number">339</span> k
-Installed size: <span class="token number">1.0</span> M
-Is this ok <span class="token punctuation">[</span>y/N<span class="token punctuation">]</span>: y
-Downloading Packages:
-initscripts-10.00.15-1.el8.x86_64 <span class="token number">1.8</span> MB/s <span class="token operator">|</span> <span class="token number">339</span> kB     00:00
-------------------------------------------------------------------
-Total                             <span class="token number">537</span> kB/s <span class="token operator">|</span> <span class="token number">339</span> kB     00:00
-Running transaction check
-Transaction check succeeded.
-Running transaction <span class="token builtin class-name">test</span>
-Transaction <span class="token builtin class-name">test</span> succeeded.
-Running transaction
-  Preparing        <span class="token builtin class-name">:</span>                                          <span class="token number">1</span>/1
-  Installing       <span class="token builtin class-name">:</span> initscripts-10.00.15-1.el8.x86_64        <span class="token number">1</span>/1
-  Running scriptlet: initscripts-10.00.15-1.el8.x86_64        <span class="token number">1</span>/1
-  Verifying        <span class="token builtin class-name">:</span> initscripts-10.00.15-1.el8.x86_64        <span class="token number">1</span>/1
-Installed products updated.
-
-Installed:
-  initscripts-10.00.15-1.el8.x86_64
-
-Complete<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h1><p>ipcalc [参数] [IP地址]</p>
-<h1 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc</span>
-ipcalc: <span class="token function">ip</span> address expected
-Usage: ipcalc <span class="token punctuation">[</span>OPTION<span class="token punctuation">..</span>.<span class="token punctuation">]</span>
-  -c, --check         Validate IP address <span class="token keyword">for</span> specified address family
-  -4, --ipv4          IPv4 address family <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
-  -6, --ipv6          IPv6 address family
-  -b, --broadcast     Display calculated broadcast address
-  -h, --hostname      Show <span class="token function">hostname</span> determined via DNS
-  -m, --netmask       Display default netmask <span class="token keyword">for</span> IP <span class="token punctuation">(</span>class A, B, or C<span class="token punctuation">)</span>
-  -n, --network       Display network address
-  -p, --prefix        Display network prefix
-  -s, --silent        Don't ever display error messages
-
-Help options:
-  -?, --help          Show this <span class="token builtin class-name">help</span> message
-  --usage             Display brief usage message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>-b</th>
-<th>由给定的IP地址和网络掩码计算出广播地址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-h</td>
-<td>显示给定IP地址所对应的主机名</td>
-</tr>
-<tr>
-<td>-m</td>
-<td>由给定的IP地址计算器网络掩码</td>
-</tr>
-<tr>
-<td>-p</td>
-<td>显示给定的掩码或IP地址的前缀</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>由给定的IP地址和网络掩码计算网络地址</td>
-</tr>
-<tr>
-<td>-s</td>
-<td>安静模式，不显示任何错误信息</td>
-</tr>
-<tr>
-<td>—help</td>
-<td>显示帮助信息</td>
-</tr>
-</tbody>
-</table>
-</div>
+    <title>alias 命令详解</title>
+    <url>/blog/2022/03/09/alias%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h1><p>alias命令：设置指令的别名。</p>
+<span id="more"></span>
+<h1 id="alias-安装"><a href="#alias-安装" class="headerlink" title="alias 安装"></a>alias 安装</h1><p>alias 为 bash 提供的命令，默认系统便已安装。</p>
+<h1 id="alias-语法格式"><a href="#alias-语法格式" class="headerlink" title="alias 语法格式"></a>alias 语法格式</h1><pre class="line-numbers language-none"><code class="language-none">alias [别名]&#x3D;[指令名称]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>补充说明：用户可利用 alias 自定指令的别名。若仅输入alias，则可列出目前所有的别名设置；alias的效力仅及于该次登入的操作。若要每次登入时即自动设好别名，可在 .profile 或 .bashrc 中设定指令的别名。</p>
 <h1 id="参考实例"><a href="#参考实例" class="headerlink" title="参考实例"></a>参考实例</h1><ol>
-<li><p>计算给定掩码的前缀 ：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -p 192.168.142.135 255.255.255.0</span>
-<span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<li><p>不加任何参数，则列出目前所有的别名设置</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token punctuation">[</span>root@localhost <span class="token operator">~</span><span class="token punctuation">]</span># alias 
+alias cp<span class="token operator">=</span><span class="token char">'cp -i'</span>
+alias egrep<span class="token operator">=</span><span class="token char">'egrep --color=auto'</span>
+alias fgrep<span class="token operator">=</span><span class="token char">'fgrep --color=auto'</span>
+alias grep<span class="token operator">=</span><span class="token char">'grep --color=auto'</span>
+alias l<span class="token punctuation">.</span><span class="token operator">=</span><span class="token char">'ls -d .* --color=auto'</span>
+alias ll<span class="token operator">=</span><span class="token char">'ls -l --color=auto'</span>
+alias ls<span class="token operator">=</span><span class="token char">'ls --color=auto'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>给定IP和网络掩码计算网络地址 ：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -n 192.168.142.135 255.255.255.0</span>
-<span class="token assign-left variable">NETWORK</span><span class="token operator">=</span><span class="token number">192.168</span>.142.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<li><p>添加参数，设置别名</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">alias vi<span class="token operator">=</span><span class="token char">'vim'</span>
+alias rpm<span class="token operator">=</span><span class="token char">'rpm -D "_topdir `pwd`"'</span>
+alias rpmbuild<span class="token operator">=</span><span class="token char">'rpmbuild -D "_topdir `pwd`"'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>给定IP显示对应的主机名：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -h 192.168.142.135</span>
-<span class="token assign-left variable"><span class="token environment constant">HOSTNAME</span></span><span class="token operator">=</span>localhost.localdomain<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>使用多个参数计算给定IP的网络掩码，广播地址，网络地址：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -m -b -n 192.168.142.135/21</span>
-<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.248.0
-<span class="token assign-left variable">BROADCAST</span><span class="token operator">=</span><span class="token number">192.168</span>.143.255
-<span class="token assign-left variable">NETWORK</span><span class="token operator">=</span><span class="token number">192.168</span>.136.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<li><p>永久设置别名</p>
+<p>编辑用户的环境变量文件 .bash_profile，添加如下内容。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">alias sc<span class="token operator">=</span><span class="token string">"source ~/.bash_profile"</span>
+alias p<span class="token operator">=</span><span class="token string">"ps -u $USER"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>保存后退出，然后执行 <code>source .bash_profile</code>，重新载入环境变量文件。</p>
+<p>这时你就可以在当前用户下使用 sc 这个别名作为命令，它就等效你执行 <code>source ~/.bash_profile</code> 命令。</p>
 </li>
 </ol>
 ]]></content>
@@ -258,7 +135,7 @@ Help options:
       <tags>
         <tag>Centos</tag>
         <tag>Linux</tag>
-        <tag>ipcalc</tag>
+        <tag>alias</tag>
       </tags>
   </entry>
   <entry>
@@ -1238,530 +1115,126 @@ FATAL TypeError: Object.fromEntries is not a <span class="token keyword">functio
       </tags>
   </entry>
   <entry>
-    <title>markdown数学公式大全</title>
-    <url>/blog/2022/01/07/markdown%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</url>
-    <content><![CDATA[<p>在用 markdown 写文档时有时候少不了需要插入一些公式，然而 markdown 公式输入远没有 word 这么直观，有很多复杂的格式和符号的英语缩写需要记忆，经常是刚用完，过几天不用又都忘记了，因此在这里将数学公式的 Latex 编辑方式做一个整理，以方便自己和读者今后使用，希望能帮助到你。</p>
-<span id="more"></span>
-<p>希腊字母</p>
+    <title>ipcalc 命令详解</title>
+    <url>/blog/2022/01/01/ipcalc%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="ipcalc"><a href="#ipcalc" class="headerlink" title="ipcalc"></a>ipcalc</h1><p>ipcalc命令的全称是：Calculate IP information for a host（计算主机的IP信息）</p>
+<p>一个简单的ip地址计算器，可以完成简单的IP地址计算任务。<br><span id="more"></span></p>
+<h1 id="ipcalc安装"><a href="#ipcalc安装" class="headerlink" title="ipcalc安装"></a>ipcalc安装</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># dnf install initscripts</span>
+Last metadata expiration check: <span class="token number">0</span>:03:34 ago on Thu 06 Jan <span class="token number">2022</span> <span class="token number">11</span>:23:44 AM CST.
+Dependencies resolved.
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+ Package         Arch       Version              Repository  Size
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+Installing:
+ initscripts     x86_64     <span class="token number">10.00</span>.15-1.el8       BaseOS     <span class="token number">339</span> k
+
+Transaction Summary
+<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span>
+Install  <span class="token number">1</span> Package
+
+Total download size: <span class="token number">339</span> k
+Installed size: <span class="token number">1.0</span> M
+Is this ok <span class="token punctuation">[</span>y/N<span class="token punctuation">]</span>: y
+Downloading Packages:
+initscripts-10.00.15-1.el8.x86_64 <span class="token number">1.8</span> MB/s <span class="token operator">|</span> <span class="token number">339</span> kB     00:00
+------------------------------------------------------------------
+Total                             <span class="token number">537</span> kB/s <span class="token operator">|</span> <span class="token number">339</span> kB     00:00
+Running transaction check
+Transaction check succeeded.
+Running transaction <span class="token builtin class-name">test</span>
+Transaction <span class="token builtin class-name">test</span> succeeded.
+Running transaction
+  Preparing        <span class="token builtin class-name">:</span>                                          <span class="token number">1</span>/1
+  Installing       <span class="token builtin class-name">:</span> initscripts-10.00.15-1.el8.x86_64        <span class="token number">1</span>/1
+  Running scriptlet: initscripts-10.00.15-1.el8.x86_64        <span class="token number">1</span>/1
+  Verifying        <span class="token builtin class-name">:</span> initscripts-10.00.15-1.el8.x86_64        <span class="token number">1</span>/1
+Installed products updated.
+
+Installed:
+  initscripts-10.00.15-1.el8.x86_64
+
+Complete<span class="token operator">!</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h1><p>ipcalc [参数] [IP地址]</p>
+<h1 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc</span>
+ipcalc: <span class="token function">ip</span> address expected
+Usage: ipcalc <span class="token punctuation">[</span>OPTION<span class="token punctuation">..</span>.<span class="token punctuation">]</span>
+  -c, --check         Validate IP address <span class="token keyword">for</span> specified address family
+  -4, --ipv4          IPv4 address family <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
+  -6, --ipv6          IPv6 address family
+  -b, --broadcast     Display calculated broadcast address
+  -h, --hostname      Show <span class="token function">hostname</span> determined via DNS
+  -m, --netmask       Display default netmask <span class="token keyword">for</span> IP <span class="token punctuation">(</span>class A, B, or C<span class="token punctuation">)</span>
+  -n, --network       Display network address
+  -p, --prefix        Display network prefix
+  -s, --silent        Don't ever display error messages
+
+Help options:
+  -?, --help          Show this <span class="token builtin class-name">help</span> message
+  --usage             Display brief usage message<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>字母</th>
-<th>markdown</th>
-<th>字母</th>
-<th>markdown</th>
+<th>-b</th>
+<th>由给定的IP地址和网络掩码计算出广播地址</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>A</td>
-<td>A</td>
-<td>$\alpha$</td>
-<td>\alpha</td>
+<td>-h</td>
+<td>显示给定IP地址所对应的主机名</td>
 </tr>
 <tr>
-<td>B</td>
-<td>B</td>
-<td>$\beta$</td>
-<td>\beta</td>
+<td>-m</td>
+<td>由给定的IP地址计算器网络掩码</td>
 </tr>
 <tr>
-<td>$\Gamma$</td>
-<td>\Gamma</td>
-<td>$\gamma$</td>
-<td>\gamma</td>
+<td>-p</td>
+<td>显示给定的掩码或IP地址的前缀</td>
 </tr>
 <tr>
-<td>$\Delta$</td>
-<td>\Delta</td>
-<td>$\delta$</td>
-<td>\delta</td>
+<td>-n</td>
+<td>由给定的IP地址和网络掩码计算网络地址</td>
 </tr>
 <tr>
-<td>E</td>
-<td>E</td>
-<td>$\epsilon$</td>
-<td>\epsilon</td>
+<td>-s</td>
+<td>安静模式，不显示任何错误信息</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td>$\varepsilon$</td>
-<td>\varepsilon</td>
-</tr>
-<tr>
-<td>Z</td>
-<td>Z</td>
-<td>$\zeta$</td>
-<td>\zeta</td>
-</tr>
-<tr>
-<td>H</td>
-<td>H</td>
-<td>$\eta$</td>
-<td>\eta</td>
-</tr>
-<tr>
-<td>$\Theta$</td>
-<td>\Theta</td>
-<td>$\theta$</td>
-<td>\theta</td>
-</tr>
-<tr>
-<td>I</td>
-<td>I</td>
-<td>$\iota$</td>
-<td>\iota</td>
-</tr>
-<tr>
-<td>K</td>
-<td>K</td>
-<td>$\kappa$</td>
-<td>\kappa</td>
-</tr>
-<tr>
-<td>$\Lambda$</td>
-<td>\Lambda</td>
-<td>$\lambda$</td>
-<td>\lambda</td>
-</tr>
-<tr>
-<td>M</td>
-<td>M</td>
-<td>$\mu$</td>
-<td>\mu</td>
-</tr>
-<tr>
-<td>N</td>
-<td>N</td>
-<td>$\nu$</td>
-<td>\nu</td>
-</tr>
-<tr>
-<td>$\Xi$</td>
-<td>\Xi</td>
-<td>$\xi$</td>
-<td>\xi</td>
-</tr>
-<tr>
-<td>O</td>
-<td>O</td>
-<td>$\omicron$</td>
-<td>\omicron</td>
-</tr>
-<tr>
-<td>$\Pi$</td>
-<td>\Pi</td>
-<td>$\pi$</td>
-<td>\pi</td>
-</tr>
-<tr>
-<td>P</td>
-<td>P</td>
-<td>$\rho$</td>
-<td>\rho</td>
-</tr>
-<tr>
-<td>$\Sigma$</td>
-<td>\Sigma</td>
-<td>$\sigma$</td>
-<td>\sigma</td>
-</tr>
-<tr>
-<td>T</td>
-<td>T</td>
-<td>$\tau$</td>
-<td>\tau</td>
-</tr>
-<tr>
-<td>$\Upsilon$</td>
-<td>\Upsilon</td>
-<td>$\upsilon$</td>
-<td>\upsilon</td>
-</tr>
-<tr>
-<td>$\Phi$</td>
-<td>\Phi</td>
-<td>$\phi$</td>
-<td>\phi</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>$\varphi$</td>
-<td>\varphi</td>
-</tr>
-<tr>
-<td>X</td>
-<td>X</td>
-<td>$\chi$</td>
-<td>\chi</td>
-</tr>
-<tr>
-<td>$\Psi$</td>
-<td>\Psi</td>
-<td>$\psi$</td>
-<td>\psi</td>
-</tr>
-<tr>
-<td>$\Omega$</td>
-<td>\Omega</td>
-<td>$\omega$</td>
-<td>\omega</td>
+<td>—help</td>
+<td>显示帮助信息</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p>其他符号</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>markdown</th>
-<th>符号</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\forall$</td>
-<td>\forall</td>
-<td>$\exist$</td>
-<td>\exist</td>
-</tr>
-<tr>
-<td>$\sim$</td>
-<td>\sim</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>$\overline{\text{上划线}}$</td>
-<td>\overline{\text{上划线}}</td>
-<td>$\underline{\text{下划线}}$</td>
-<td>\underline{\text{下划线}}</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>关系运算符</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>运算符</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\pm$</td>
-<td>\pm</td>
-</tr>
-<tr>
-<td>$\times$</td>
-<td>\times</td>
-</tr>
-<tr>
-<td>$\div$</td>
-<td>\div</td>
-</tr>
-<tr>
-<td>$\sum$</td>
-<td>\sum</td>
-</tr>
-<tr>
-<td>$\prod$</td>
-<td>\prod</td>
-</tr>
-<tr>
-<td>$\neq$</td>
-<td>\neq</td>
-</tr>
-<tr>
-<td>$\leq$</td>
-<td>\leq</td>
-</tr>
-<tr>
-<td>$\geq$</td>
-<td>\geq</td>
-</tr>
-<tr>
-<td>$\equiv$</td>
-<td>\equiv</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>三角函数</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>三角函数</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$sin x$</td>
-<td>sinx</td>
-</tr>
-<tr>
-<td>$arcsinx$</td>
-<td>arcsinx</td>
-</tr>
-<tr>
-<td>$cosx$</td>
-<td>cosx</td>
-</tr>
-<tr>
-<td>$arccosx$</td>
-<td>arccosx</td>
-</tr>
-<tr>
-<td>$tanx$</td>
-<td>tanx</td>
-</tr>
-<tr>
-<td>$arctanx$</td>
-<td>arctanx</td>
-</tr>
-<tr>
-<td>$secx$</td>
-<td>secx</td>
-</tr>
-<tr>
-<td>$cscx$</td>
-<td>cscx</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>对数函数</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\ln15$</td>
-<td>\ln15</td>
-</tr>
-<tr>
-<td>$\log_2 10$</td>
-<td>\log_2 10</td>
-</tr>
-<tr>
-<td>$lg7$</td>
-<td>\lg7</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>分式</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\frac{6x+4}{3+y^2}$</td>
-<td>\frac{6x+4}{3+y^2}</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>上标，下标</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$x_2-x_1$</td>
-<td>x_2-x_1</td>
-</tr>
-<tr>
-<td>$x^3-x^2$</td>
-<td>x^3-x^2</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>省略号</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>省略号</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\cdots$</td>
-<td>\cdots</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>行内公式 - 使用一个$包含公式可以独立一行</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>行内公式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\sum_{i=1}^{n}{(X_i - \overline{X})^2}$</td>
-<td>\sum_{i=1}^{n}{(X_i - \overline{X})^2}<br>两边添加$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>行间公式 - 使用两个$包含公式可以独立一行</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>行间公式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><script type="math/tex">\sum_{i=1}^{n}{(X_i - \overline{X})^2}</script></td>
-<td>\sum_{i=1}^{n}{(X_i - \overline{X})^2}<br>两边添加$$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>开根号</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\sqrt{3x+6}$</td>
-<td>\sqrt{3x+6}</td>
-</tr>
-<tr>
-<td>$\sqrt[3]{7y+9}$</td>
-<td>\sqrt[3]{7y+9}</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>极限</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\infty$</td>
-<td>\infty</td>
-</tr>
-<tr>
-<td>$\lim$</td>
-<td>\lim</td>
-</tr>
-<tr>
-<td>$\lim_{n \to +\infty}n$</td>
-<td>\lim_{n \to +\infty}n</td>
-</tr>
-<tr>
-<td>$\lim\limits_{n \to +\infty} n$</td>
-<td>\lim\limits_{n \to +\infty} n</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>微积分</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\int$</td>
-<td>\int</td>
-</tr>
-<tr>
-<td>$\int^2_3 x^5 {\rm d}x$</td>
-<td>\int^2_3 x^5 {\rm d}x</td>
-</tr>
-<tr>
-<td>$\prime$</td>
-<td>\prime</td>
-</tr>
-<tr>
-<td>$\sum$</td>
-<td>\sum</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>累加，累乘</strong></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>算式</th>
-<th>markdown</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\sum\limits_{n=0}^\infty \frac{1}{n^2}$</td>
-<td>\sum\limits_{n=0}^\infty \frac{1}{n^2}</td>
-</tr>
-<tr>
-<td>$\prod\limits_{n=0}^\infty \frac{1}{n^2}$</td>
-<td>\prod\limits_{n=0}^\infty \frac{1}{n^2}</td>
-</tr>
-</tbody>
-</table>
-</div>
+<h1 id="参考实例"><a href="#参考实例" class="headerlink" title="参考实例"></a>参考实例</h1><ol>
+<li><p>计算给定掩码的前缀 ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -p 192.168.142.135 255.255.255.0</span>
+<span class="token assign-left variable">PREFIX</span><span class="token operator">=</span><span class="token number">24</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>给定IP和网络掩码计算网络地址 ：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -n 192.168.142.135 255.255.255.0</span>
+<span class="token assign-left variable">NETWORK</span><span class="token operator">=</span><span class="token number">192.168</span>.142.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>给定IP显示对应的主机名：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -h 192.168.142.135</span>
+<span class="token assign-left variable"><span class="token environment constant">HOSTNAME</span></span><span class="token operator">=</span>localhost.localdomain<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用多个参数计算给定IP的网络掩码，广播地址，网络地址：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost ~<span class="token punctuation">]</span><span class="token comment"># ipcalc -m -b -n 192.168.142.135/21</span>
+<span class="token assign-left variable">NETMASK</span><span class="token operator">=</span><span class="token number">255.255</span>.248.0
+<span class="token assign-left variable">BROADCAST</span><span class="token operator">=</span><span class="token number">192.168</span>.143.255
+<span class="token assign-left variable">NETWORK</span><span class="token operator">=</span><span class="token number">192.168</span>.136.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>学术知识积累</category>
+        <category>Linux 教程</category>
       </categories>
       <tags>
-        <tag>数学</tag>
-        <tag>markdown</tag>
-        <tag>Mathjax</tag>
+        <tag>Centos</tag>
+        <tag>Linux</tag>
+        <tag>ipcalc</tag>
       </tags>
   </entry>
   <entry>
@@ -4082,91 +3555,530 @@ search commands<span class="token operator">:</span>
       </tags>
   </entry>
   <entry>
-    <title>mash 命令详解</title>
-    <url>/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
-    <content><![CDATA[<h1 id="mash"><a href="#mash" class="headerlink" title="mash"></a>mash</h1><p>mash 命令：导出仓库软件包工具。</p>
+    <title>markdown数学公式大全</title>
+    <url>/blog/2022/01/07/markdown%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E5%A4%A7%E5%85%A8/</url>
+    <content><![CDATA[<p>在用 markdown 写文档时有时候少不了需要插入一些公式，然而 markdown 公式输入远没有 word 这么直观，有很多复杂的格式和符号的英语缩写需要记忆，经常是刚用完，过几天不用又都忘记了，因此在这里将数学公式的 Latex 编辑方式做一个整理，以方便自己和读者今后使用，希望能帮助到你。</p>
 <span id="more"></span>
-<p>系统环境：</p>
+<p>希腊字母</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>项目</th>
-<th>版本</th>
+<th>字母</th>
+<th>markdown</th>
+<th>字母</th>
+<th>markdown</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Centos 8</td>
-<td>CentOS-8.2.2004-x86_64-dvd1.iso</td>
+<td>A</td>
+<td>A</td>
+<td>$\alpha$</td>
+<td>\alpha</td>
+</tr>
+<tr>
+<td>B</td>
+<td>B</td>
+<td>$\beta$</td>
+<td>\beta</td>
+</tr>
+<tr>
+<td>$\Gamma$</td>
+<td>\Gamma</td>
+<td>$\gamma$</td>
+<td>\gamma</td>
+</tr>
+<tr>
+<td>$\Delta$</td>
+<td>\Delta</td>
+<td>$\delta$</td>
+<td>\delta</td>
+</tr>
+<tr>
+<td>E</td>
+<td>E</td>
+<td>$\epsilon$</td>
+<td>\epsilon</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$\varepsilon$</td>
+<td>\varepsilon</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>Z</td>
+<td>$\zeta$</td>
+<td>\zeta</td>
+</tr>
+<tr>
+<td>H</td>
+<td>H</td>
+<td>$\eta$</td>
+<td>\eta</td>
+</tr>
+<tr>
+<td>$\Theta$</td>
+<td>\Theta</td>
+<td>$\theta$</td>
+<td>\theta</td>
+</tr>
+<tr>
+<td>I</td>
+<td>I</td>
+<td>$\iota$</td>
+<td>\iota</td>
+</tr>
+<tr>
+<td>K</td>
+<td>K</td>
+<td>$\kappa$</td>
+<td>\kappa</td>
+</tr>
+<tr>
+<td>$\Lambda$</td>
+<td>\Lambda</td>
+<td>$\lambda$</td>
+<td>\lambda</td>
+</tr>
+<tr>
+<td>M</td>
+<td>M</td>
+<td>$\mu$</td>
+<td>\mu</td>
+</tr>
+<tr>
+<td>N</td>
+<td>N</td>
+<td>$\nu$</td>
+<td>\nu</td>
+</tr>
+<tr>
+<td>$\Xi$</td>
+<td>\Xi</td>
+<td>$\xi$</td>
+<td>\xi</td>
+</tr>
+<tr>
+<td>O</td>
+<td>O</td>
+<td>$\omicron$</td>
+<td>\omicron</td>
+</tr>
+<tr>
+<td>$\Pi$</td>
+<td>\Pi</td>
+<td>$\pi$</td>
+<td>\pi</td>
+</tr>
+<tr>
+<td>P</td>
+<td>P</td>
+<td>$\rho$</td>
+<td>\rho</td>
+</tr>
+<tr>
+<td>$\Sigma$</td>
+<td>\Sigma</td>
+<td>$\sigma$</td>
+<td>\sigma</td>
+</tr>
+<tr>
+<td>T</td>
+<td>T</td>
+<td>$\tau$</td>
+<td>\tau</td>
+</tr>
+<tr>
+<td>$\Upsilon$</td>
+<td>\Upsilon</td>
+<td>$\upsilon$</td>
+<td>\upsilon</td>
+</tr>
+<tr>
+<td>$\Phi$</td>
+<td>\Phi</td>
+<td>$\phi$</td>
+<td>\phi</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>$\varphi$</td>
+<td>\varphi</td>
+</tr>
+<tr>
+<td>X</td>
+<td>X</td>
+<td>$\chi$</td>
+<td>\chi</td>
+</tr>
+<tr>
+<td>$\Psi$</td>
+<td>\Psi</td>
+<td>$\psi$</td>
+<td>\psi</td>
+</tr>
+<tr>
+<td>$\Omega$</td>
+<td>\Omega</td>
+<td>$\omega$</td>
+<td>\omega</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h1 id="mash安装使用"><a href="#mash安装使用" class="headerlink" title="mash安装使用"></a>mash安装使用</h1><ol>
-<li><p>安装mash软件包</p>
-<p><code>dnf install mash</code></p>
-</li>
-<li><p>修改mash配置文件</p>
-<ul>
-<li><p>配置 <code>mash.conf</code>，主要是配置koji路径 <code>vim /etc/mash/mash.conf</code> ，以 <code>IP:192.168.102.128</code> 为例</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>defaults<span class="token punctuation">]</span>
-use_sqlite <span class="token operator">=</span> True
-use_repoview <span class="token operator">=</span> False
-buildhost <span class="token operator">=</span> http://192.168.102.128/kojihub
-repodir <span class="token operator">=</span> http://192.168.102.128/kojifiles
-configdir <span class="token operator">=</span> /etc/mash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>编写需要导出仓库 <code>tag</code> 的配置文件，以 <code>test_demo</code>为例 <code>vim /etc/mash/test-demo.mash</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>test_demo<span class="token punctuation">]</span>
-rpm_path <span class="token operator">=</span> %<span class="token punctuation">(</span>arch<span class="token punctuation">)</span>s/Packages
-repodata_path <span class="token operator">=</span> %<span class="token punctuation">(</span>arch<span class="token punctuation">)</span>s/
-<span class="token builtin class-name">source</span> <span class="token operator">=</span> True
-output_subdir <span class="token operator">=</span> test_demo/rpms
-debuginfo <span class="token operator">=</span> False
-multilib <span class="token operator">=</span> True
-multilib_method <span class="token operator">=</span> devel
-multilib_file <span class="token operator">=</span> list_pkgs.test_demo
-tag <span class="token operator">=</span> test_demo
-inherit <span class="token operator">=</span> True
-strict_keys <span class="token operator">=</span> True
-keys <span class="token operator">=</span> <span class="token comment">#此处按需填写</span>
-arches <span class="token operator">=</span> x86_64
-delta <span class="token operator">=</span> True
-max_delta_rpm_size <span class="token operator">=</span> <span class="token number">800000000</span>
-distro_tags <span class="token operator">=</span> cpe:/o:centos:ns:test_demo Null
-black_list <span class="token operator">=</span> hash_packages <span class="token operator">=</span> False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-</li>
-<li><p>mash的使用</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mash -o /mnt/koji/mash test_demo	<span class="token comment">#可以将tag=test_demo最新入库的rpm包导出到/mnt/koji/mash/test_demo/rpms目录下</span>
-
-<span class="token variable"><span class="token variable">`</span>mash<span class="token variable">`</span></span>其他使用方式可以使用<span class="token variable"><span class="token variable">`</span>mash --help<span class="token variable">`</span></span>查看<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<h1 id="mash软件包编译相关问题"><a href="#mash软件包编译相关问题" class="headerlink" title="mash软件包编译相关问题"></a>mash软件包编译相关问题</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bytecompiling .py files below /root/rpmbuild/BUILDROOT/mash-0.6.02-1.el8.10.x86_64/usr/lib/python3.6 using /usr/libexec/platform-python
-*** Error compiling <span class="token string">'/root/rpmbuild/BUILDROOT/mash-0.6.02-1.el8.10.x86_64/usr/lib/python3.6/site-packages/mash/config.py'</span><span class="token punctuation">..</span>.
-Sorry: TabError: inconsistent use of tabs and spaces <span class="token keyword">in</span> indentation <span class="token punctuation">(</span>config.py, line <span class="token number">151</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>在python3环境下编译软件包时，<code>tab</code> 或者<code>空格</code>分开使用，不要空格和tab混用</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+ /usr/lib/rpm/redhat/brp-mangle-shebangs
-mangling shebang <span class="token keyword">in</span> /usr/bin/mash from /usr/bin/python3 to <span class="token comment">#!/usr/libexec/platform-python</span>
-*** ERROR: ambiguous python shebang <span class="token keyword">in</span> /usr/share/mash/spam-o-matic: <span class="token comment">#!/usr/bin/python. Change it to python3 (or python2) explicitly.</span>
-error: Bad <span class="token builtin class-name">exit</span> status from /var/tmp/rpm-tmp.Ip2foI <span class="token punctuation">(</span>%install<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>解释器需指定python3</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">  File <span class="token string">"/usr/bin/mash"</span>, line <span class="token number">42</span>
-    print <span class="token string">"ERROR: No configuration specified!<span class="token entity" title="\n">\n</span>"</span>
-                                               ^
-SyntaxError: Missing parentheses <span class="token keyword">in</span> call to <span class="token string">'print'</span><span class="token builtin class-name">.</span> Did you mean print<span class="token punctuation">(</span><span class="token string">"ERROR: No configuration specified!<span class="token entity" title="\n">\n</span>"</span><span class="token punctuation">)</span>?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>python3下print语法稍有不同</p>
+<p>其他符号</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>markdown</th>
+<th>符号</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\forall$</td>
+<td>\forall</td>
+<td>$\exist$</td>
+<td>\exist</td>
+</tr>
+<tr>
+<td>$\sim$</td>
+<td>\sim</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\overline{\text{上划线}}$</td>
+<td>\overline{\text{上划线}}</td>
+<td>$\underline{\text{下划线}}$</td>
+<td>\underline{\text{下划线}}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>关系运算符</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\pm$</td>
+<td>\pm</td>
+</tr>
+<tr>
+<td>$\times$</td>
+<td>\times</td>
+</tr>
+<tr>
+<td>$\div$</td>
+<td>\div</td>
+</tr>
+<tr>
+<td>$\sum$</td>
+<td>\sum</td>
+</tr>
+<tr>
+<td>$\prod$</td>
+<td>\prod</td>
+</tr>
+<tr>
+<td>$\neq$</td>
+<td>\neq</td>
+</tr>
+<tr>
+<td>$\leq$</td>
+<td>\leq</td>
+</tr>
+<tr>
+<td>$\geq$</td>
+<td>\geq</td>
+</tr>
+<tr>
+<td>$\equiv$</td>
+<td>\equiv</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>三角函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>三角函数</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$sin x$</td>
+<td>sinx</td>
+</tr>
+<tr>
+<td>$arcsinx$</td>
+<td>arcsinx</td>
+</tr>
+<tr>
+<td>$cosx$</td>
+<td>cosx</td>
+</tr>
+<tr>
+<td>$arccosx$</td>
+<td>arccosx</td>
+</tr>
+<tr>
+<td>$tanx$</td>
+<td>tanx</td>
+</tr>
+<tr>
+<td>$arctanx$</td>
+<td>arctanx</td>
+</tr>
+<tr>
+<td>$secx$</td>
+<td>secx</td>
+</tr>
+<tr>
+<td>$cscx$</td>
+<td>cscx</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>对数函数</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\ln15$</td>
+<td>\ln15</td>
+</tr>
+<tr>
+<td>$\log_2 10$</td>
+<td>\log_2 10</td>
+</tr>
+<tr>
+<td>$lg7$</td>
+<td>\lg7</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>分式</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\frac{6x+4}{3+y^2}$</td>
+<td>\frac{6x+4}{3+y^2}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>上标，下标</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$x_2-x_1$</td>
+<td>x_2-x_1</td>
+</tr>
+<tr>
+<td>$x^3-x^2$</td>
+<td>x^3-x^2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>省略号</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>省略号</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\cdots$</td>
+<td>\cdots</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>行内公式 - 使用一个$包含公式可以独立一行</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>行内公式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sum_{i=1}^{n}{(X_i - \overline{X})^2}$</td>
+<td>\sum_{i=1}^{n}{(X_i - \overline{X})^2}<br>两边添加$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>行间公式 - 使用两个$包含公式可以独立一行</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>行间公式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><script type="math/tex">\sum_{i=1}^{n}{(X_i - \overline{X})^2}</script></td>
+<td>\sum_{i=1}^{n}{(X_i - \overline{X})^2}<br>两边添加$$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>开根号</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sqrt{3x+6}$</td>
+<td>\sqrt{3x+6}</td>
+</tr>
+<tr>
+<td>$\sqrt[3]{7y+9}$</td>
+<td>\sqrt[3]{7y+9}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>极限</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\infty$</td>
+<td>\infty</td>
+</tr>
+<tr>
+<td>$\lim$</td>
+<td>\lim</td>
+</tr>
+<tr>
+<td>$\lim_{n \to +\infty}n$</td>
+<td>\lim_{n \to +\infty}n</td>
+</tr>
+<tr>
+<td>$\lim\limits_{n \to +\infty} n$</td>
+<td>\lim\limits_{n \to +\infty} n</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>微积分</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\int$</td>
+<td>\int</td>
+</tr>
+<tr>
+<td>$\int^2_3 x^5 {\rm d}x$</td>
+<td>\int^2_3 x^5 {\rm d}x</td>
+</tr>
+<tr>
+<td>$\prime$</td>
+<td>\prime</td>
+</tr>
+<tr>
+<td>$\sum$</td>
+<td>\sum</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>累加，累乘</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>算式</th>
+<th>markdown</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\sum\limits_{n=0}^\infty \frac{1}{n^2}$</td>
+<td>\sum\limits_{n=0}^\infty \frac{1}{n^2}</td>
+</tr>
+<tr>
+<td>$\prod\limits_{n=0}^\infty \frac{1}{n^2}$</td>
+<td>\prod\limits_{n=0}^\infty \frac{1}{n^2}</td>
+</tr>
+</tbody>
+</table>
+</div>
 ]]></content>
       <categories>
-        <category>Linux 教程</category>
+        <category>学术知识积累</category>
       </categories>
       <tags>
-        <tag>Centos</tag>
-        <tag>Linux</tag>
-        <tag>mash</tag>
+        <tag>数学</tag>
+        <tag>markdown</tag>
+        <tag>Mathjax</tag>
       </tags>
   </entry>
   <entry>
@@ -4263,6 +4175,94 @@ vim <span class="token operator">/</span>usr<span class="token operator">/</span
         <tag>Centos</tag>
         <tag>Linux</tag>
         <tag>mock</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mash 命令详解</title>
+    <url>/blog/2022/01/01/mash%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="mash"><a href="#mash" class="headerlink" title="mash"></a>mash</h1><p>mash 命令：导出仓库软件包工具。</p>
+<span id="more"></span>
+<p>系统环境：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Centos 8</td>
+<td>CentOS-8.2.2004-x86_64-dvd1.iso</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="mash安装使用"><a href="#mash安装使用" class="headerlink" title="mash安装使用"></a>mash安装使用</h1><ol>
+<li><p>安装mash软件包</p>
+<p><code>dnf install mash</code></p>
+</li>
+<li><p>修改mash配置文件</p>
+<ul>
+<li><p>配置 <code>mash.conf</code>，主要是配置koji路径 <code>vim /etc/mash/mash.conf</code> ，以 <code>IP:192.168.102.128</code> 为例</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>defaults<span class="token punctuation">]</span>
+use_sqlite <span class="token operator">=</span> True
+use_repoview <span class="token operator">=</span> False
+buildhost <span class="token operator">=</span> http://192.168.102.128/kojihub
+repodir <span class="token operator">=</span> http://192.168.102.128/kojifiles
+configdir <span class="token operator">=</span> /etc/mash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>编写需要导出仓库 <code>tag</code> 的配置文件，以 <code>test_demo</code>为例 <code>vim /etc/mash/test-demo.mash</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>test_demo<span class="token punctuation">]</span>
+rpm_path <span class="token operator">=</span> %<span class="token punctuation">(</span>arch<span class="token punctuation">)</span>s/Packages
+repodata_path <span class="token operator">=</span> %<span class="token punctuation">(</span>arch<span class="token punctuation">)</span>s/
+<span class="token builtin class-name">source</span> <span class="token operator">=</span> True
+output_subdir <span class="token operator">=</span> test_demo/rpms
+debuginfo <span class="token operator">=</span> False
+multilib <span class="token operator">=</span> True
+multilib_method <span class="token operator">=</span> devel
+multilib_file <span class="token operator">=</span> list_pkgs.test_demo
+tag <span class="token operator">=</span> test_demo
+inherit <span class="token operator">=</span> True
+strict_keys <span class="token operator">=</span> True
+keys <span class="token operator">=</span> <span class="token comment">#此处按需填写</span>
+arches <span class="token operator">=</span> x86_64
+delta <span class="token operator">=</span> True
+max_delta_rpm_size <span class="token operator">=</span> <span class="token number">800000000</span>
+distro_tags <span class="token operator">=</span> cpe:/o:centos:ns:test_demo Null
+black_list <span class="token operator">=</span> hash_packages <span class="token operator">=</span> False<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>mash的使用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mash -o /mnt/koji/mash test_demo	<span class="token comment">#可以将tag=test_demo最新入库的rpm包导出到/mnt/koji/mash/test_demo/rpms目录下</span>
+
+<span class="token variable"><span class="token variable">`</span>mash<span class="token variable">`</span></span>其他使用方式可以使用<span class="token variable"><span class="token variable">`</span>mash --help<span class="token variable">`</span></span>查看<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h1 id="mash软件包编译相关问题"><a href="#mash软件包编译相关问题" class="headerlink" title="mash软件包编译相关问题"></a>mash软件包编译相关问题</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Bytecompiling .py files below /root/rpmbuild/BUILDROOT/mash-0.6.02-1.el8.10.x86_64/usr/lib/python3.6 using /usr/libexec/platform-python
+*** Error compiling <span class="token string">'/root/rpmbuild/BUILDROOT/mash-0.6.02-1.el8.10.x86_64/usr/lib/python3.6/site-packages/mash/config.py'</span><span class="token punctuation">..</span>.
+Sorry: TabError: inconsistent use of tabs and spaces <span class="token keyword">in</span> indentation <span class="token punctuation">(</span>config.py, line <span class="token number">151</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>在python3环境下编译软件包时，<code>tab</code> 或者<code>空格</code>分开使用，不要空格和tab混用</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+ /usr/lib/rpm/redhat/brp-mangle-shebangs
+mangling shebang <span class="token keyword">in</span> /usr/bin/mash from /usr/bin/python3 to <span class="token comment">#!/usr/libexec/platform-python</span>
+*** ERROR: ambiguous python shebang <span class="token keyword">in</span> /usr/share/mash/spam-o-matic: <span class="token comment">#!/usr/bin/python. Change it to python3 (or python2) explicitly.</span>
+error: Bad <span class="token builtin class-name">exit</span> status from /var/tmp/rpm-tmp.Ip2foI <span class="token punctuation">(</span>%install<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>解释器需指定python3</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">  File <span class="token string">"/usr/bin/mash"</span>, line <span class="token number">42</span>
+    print <span class="token string">"ERROR: No configuration specified!<span class="token entity" title="\n">\n</span>"</span>
+                                               ^
+SyntaxError: Missing parentheses <span class="token keyword">in</span> call to <span class="token string">'print'</span><span class="token builtin class-name">.</span> Did you mean print<span class="token punctuation">(</span><span class="token string">"ERROR: No configuration specified!<span class="token entity" title="\n">\n</span>"</span><span class="token punctuation">)</span>?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>python3下print语法稍有不同</p>
+]]></content>
+      <categories>
+        <category>Linux 教程</category>
+      </categories>
+      <tags>
+        <tag>Centos</tag>
+        <tag>Linux</tag>
+        <tag>mash</tag>
       </tags>
   </entry>
   <entry>
@@ -4540,6 +4540,32 @@ Address: <span class="token number">220.181</span>.38.251<span aria-hidden="true
         <tag>Centos</tag>
         <tag>Linux</tag>
         <tag>nslookup</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>经典永流传</title>
+    <url>/blog/2022/01/06/%E7%BB%8F%E5%85%B8%E6%B0%B8%E6%B5%81%E4%BC%A0/</url>
+    <content><![CDATA[<p>该文仅收录网络热词及名人名言，以供学习参考，持续更新中~</p>
+<span id="more"></span>
+<h1 id="一-网络热词："><a href="#一-网络热词：" class="headerlink" title="一.    网络热词："></a>一.    网络热词：</h1><p>flesh search：人肉搜索；</p>
+<p>copycat：复制猫；</p>
+<p>long-distance relationship：异地恋；</p>
+<p>fashion icon：时尚达人；</p>
+<p>academic circle：学术界；</p>
+<p>flount wealth：炫富；</p>
+<p>mortage slave：房奴，车奴；</p>
+<p>zone out：开小差；</p>
+<p>cramming：死记硬背；</p>
+<p>first-tier cities：一线城市；</p>
+<p>anti-dumping：反倾销；</p>
+]]></content>
+      <categories>
+        <category>学术知识积累</category>
+      </categories>
+      <tags>
+        <tag>英语</tag>
+        <tag>考研</tag>
+        <tag>名人名句</tag>
       </tags>
   </entry>
   <entry>
@@ -5231,7 +5257,8 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
 <li>体会带头结点、不带头节点的代码的区别；</li>
 <li>体会 “封装” 的好处；</li>
 </ol>
-<h4 id="2-单链表的查找"><a href="#2-单链表的查找" class="headerlink" title="2.    单链表的查找"></a>2.    单链表的查找</h4><p><strong>按位查找</strong></p>
+<h4 id="2-单链表的查找"><a href="#2-单链表的查找" class="headerlink" title="2.    单链表的查找"></a>2.    单链表的查找</h4><p><img src="/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.1.2.1.png" alt></p>
+<p><strong>按位查找</strong></p>
 <p>GetElem(L,i)：<font color="red">按位查找</font>操作，获取表 L 中第 i 个位置的元素的值。</p>
 <p>平均时间复杂度：$O(n)$</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">LNode <span class="token operator">*</span> <span class="token function">GetElem</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -5247,7 +5274,7 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
     <span class="token keyword">return</span> p<span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>安值查找</strong></p>
-<p>LocateElem(L,e)：<font color="red">安值查找</font>操作，在表 L 中查找具有给定关键字值的元素。</p>
+<p>LocateElem(L,e)：<font color="red">按值查找</font>操作，在表 L 中查找具有给定关键字值的元素。</p>
 <p>时间复杂度：$O(n)$</p>
 <pre class="line-numbers language-c" data-language="c"><code class="language-c">LNode <span class="token operator">*</span> <span class="token function">LocateElem</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">,</span> ElemType e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     LNode <span class="token operator">*</span>p <span class="token operator">=</span> L<span class="token operator">-></span>next<span class="token punctuation">;</span>
@@ -5255,7 +5282,130 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
         p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
     <span class="token keyword">return</span> p<span class="token punctuation">;</span>		<span class="token comment">// 找到后返回该结点指针，否则返回NULL</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-双链表"><a href="#2-双链表" class="headerlink" title="2.    双链表"></a>2.    双链表</h3><h3 id="3-循环链表"><a href="#3-循环链表" class="headerlink" title="3.    循环链表"></a>3.    循环链表</h3><h3 id="4-静态链表"><a href="#4-静态链表" class="headerlink" title="4.    静态链表"></a>4.    静态链表</h3><h2 id="4-顺序表和链表的比较"><a href="#4-顺序表和链表的比较" class="headerlink" title="4.    顺序表和链表的比较"></a>4.    顺序表和链表的比较</h2>]]></content>
+<p><strong>求表的长度</strong></p>
+<p>时间复杂度：$O(n)$</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 求表的长度（带头节点）</span>
+<span class="token keyword">int</span> <span class="token function">Length</span><span class="token punctuation">(</span>LinkList L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> len <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    LNode <span class="token operator">*</span>p <span class="token operator">=</span> L<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        len<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-单链表的建立"><a href="#3-单链表的建立" class="headerlink" title="3.    单链表的建立"></a>3.    单链表的建立</h4><p>头插法、尾插法：核心就是初始化操作，指定结点的后插操作；</p>
+<p><strong>尾插法建立单链表</strong></p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 后插操作：在 p 结点之后插入元素 e</span>
+<span class="token comment">// bool InsertNextNode(LNode *p, ElemType e)</span>
+bool <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>p<span class="token punctuation">,</span> ElemType e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>头插法建立单链表</strong></p>
+<p><font color="red">头插法的重要应用：链表的逆置</font>；</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token comment">// 前插操作：逆向建立单链表</span>
+bool <span class="token function">ListInsert</span><span class="token punctuation">(</span>LinkList <span class="token operator">&amp;</span>L<span class="token punctuation">,</span> ElemType e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    L <span class="token operator">=</span> <span class="token punctuation">(</span>LinkList<span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    L<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    LNode <span class="token operator">*</span>s <span class="token operator">=</span> <span class="token punctuation">(</span>LNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>LNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>data <span class="token operator">=</span> e<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>next <span class="token operator">=</span> L<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    L<span class="token operator">-></span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-双链表"><a href="#2-双链表" class="headerlink" title="2.    双链表"></a>2.    双链表</h3><p><img src="/blog/2022/03/07/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2.3.2.1.png" alt></p>
+<p><strong>双链表的初始化（带头结点）</strong></p>
+<p><font color="red">DLinklist 等价于 DNode *</font>，双链表不可随机存取，按位查找、按值查找操作都只能用遍历实现。时间复杂度：$O(n)$</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">DNode</span><span class="token punctuation">&#123;</span>
+    ElemType data<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">DNode</span> <span class="token operator">*</span>prior<span class="token punctuation">,</span> <span class="token operator">*</span>next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>DNode<span class="token punctuation">,</span> <span class="token operator">*</span>DLinklist<span class="token punctuation">;</span>
+
+<span class="token comment">// 初始化双链表</span>
+bool <span class="token function">InitDLinkList</span><span class="token punctuation">(</span>DLinklist <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    L <span class="token operator">=</span> <span class="token punctuation">(</span>DNode <span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>DNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    L<span class="token operator">-></span>prior <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>		<span class="token comment">// 头节点的 prior 永远指向 NULL</span>
+    L<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>			<span class="token comment">// 头节点之后暂时还没有结点</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 判断双链表是否为空</span>
+bool <span class="token function">Empty</span><span class="token punctuation">(</span>DLinklist L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>L<span class="token operator">-></span>next <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 双链表的插入：在 p 结点后插入 s</span>
+bool <span class="token function">InsertNextDNode</span><span class="token punctuation">(</span>DNode <span class="token operator">*</span>p<span class="token punctuation">,</span> DNode <span class="token operator">*</span>s<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> s <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>next <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        p<span class="token operator">-></span>next<span class="token operator">-></span>prior <span class="token operator">=</span> s<span class="token punctuation">;</span>
+    s<span class="token operator">-></span>prior <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 双链表的删除:删除 p 结点的后继结点</span>
+bool <span class="token function">DeleteNextDNode</span><span class="token punctuation">(</span>DNode <span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>p <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    DNode <span class="token operator">*</span>q <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>q <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+    p<span class="token operator">-></span>next <span class="token operator">=</span> q<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>q<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        q<span class="token operator">-></span>next<span class="token operator">-></span>prior <span class="token operator">=</span> p<span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>q<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 销毁双链表</span>
+<span class="token keyword">void</span> <span class="token function">DestoryList</span><span class="token punctuation">(</span>DLinklist <span class="token operator">&amp;</span>L<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>L<span class="token operator">-></span>next <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>
+        <span class="token function">DeleteNextDNode</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">free</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    L<span class="token operator">=</span><span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">testDLinkList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    DLinklist L<span class="token punctuation">;</span>
+    <span class="token function">InitLinkList</span><span class="token punctuation">(</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// ...后续代码...</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>双链表的遍历</strong></p>
+<ol>
+<li><p>后向遍历</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token operator">-></span>next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>前向遍历</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span>p <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token operator">-></span>prior<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>前向遍历（跳过头节点）</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">while</span><span class="token punctuation">(</span>p<span class="token operator">-></span>prior <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    p <span class="token operator">=</span> p<span class="token operator">-></span>prior<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+<h3 id="3-循环链表"><a href="#3-循环链表" class="headerlink" title="3.    循环链表"></a>3.    循环链表</h3><h3 id="4-静态链表"><a href="#4-静态链表" class="headerlink" title="4.    静态链表"></a>4.    静态链表</h3><h2 id="4-顺序表和链表的比较"><a href="#4-顺序表和链表的比较" class="headerlink" title="4.    顺序表和链表的比较"></a>4.    顺序表和链表的比较</h2>]]></content>
       <categories>
         <category>学术知识积累</category>
       </categories>
@@ -5264,32 +5414,6 @@ bool <span class="token function">DeleteNode</span><span class="token punctuatio
         <tag>专业课</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>经典永流传</title>
-    <url>/blog/2022/01/06/%E7%BB%8F%E5%85%B8%E6%B0%B8%E6%B5%81%E4%BC%A0/</url>
-    <content><![CDATA[<p>该文仅收录网络热词及名人名言，以供学习参考，持续更新中~</p>
-<span id="more"></span>
-<h1 id="一-网络热词："><a href="#一-网络热词：" class="headerlink" title="一.    网络热词："></a>一.    网络热词：</h1><p>flesh search：人肉搜索；</p>
-<p>copycat：复制猫；</p>
-<p>long-distance relationship：异地恋；</p>
-<p>fashion icon：时尚达人；</p>
-<p>academic circle：学术界；</p>
-<p>flount wealth：炫富；</p>
-<p>mortage slave：房奴，车奴；</p>
-<p>zone out：开小差；</p>
-<p>cramming：死记硬背；</p>
-<p>first-tier cities：一线城市；</p>
-<p>anti-dumping：反倾销；</p>
-]]></content>
-      <categories>
-        <category>学术知识积累</category>
-      </categories>
-      <tags>
-        <tag>考研</tag>
-        <tag>英语</tag>
-        <tag>名人名句</tag>
       </tags>
   </entry>
   <entry>
@@ -6847,7 +6971,7 @@ I&=\lim\limits_{x\to0}\frac{\sqrt{1+tan}-\sqrt{1+sinx}}{xln(1+x)-x^2} \\
 <p>$I=\lim\limits_{x\to0}\frac{atanx+b(1-cosx)}{cln(1-2x)+d(1-e^{-x^2})}=\lim\limits_{x\to0}\frac{ax+\frac{1}{3}ax^3+\frac{1}{2}bx^2-\frac{1}{24}bx^4}{-2cx-2cx^2-\frac{8}{3}cx^3+dx^2-\frac{1}{2}dx^4}=\lim\limits_{x\to0}\frac{ax+\frac{1}{2}bx^2+\frac{1}{3}ax^3-\frac{1}{24}bx^4}{-2cx+(d-2c)x^2+\frac{8}{3}cx^3-\frac{1}{2}dx^4}=2$</p>
 <p>$\because a^2+c^2\neq0；\therefore a\neq0，c\neq 0$</p>
 <p>$\because \lim\limits_{x\to0}\frac{ax}{-2cx}=2，\therefore \frac{a}{-2c}=2\Leftrightarrow a=-4c$</p>
-<p>【自练】已知 $f(x)=e^{2x}ln(1+x)+ax+bx2$，设 $x\rightarrow 0$ 时，$f(x)=O(x^2)$，求$a，b$，并求 $f(x)$ 关于 $x$ 的无穷小阶数。</p>
+<p>【自练】已知 $f(x)=e^{2x}ln(1+x)+ax+bx^2$，设 $x\rightarrow 0$ 时，$f(x)=O(x^2)$，求$a，b$，并求 $f(x)$ 关于 $x$ 的无穷小阶数。</p>
 <p>解：$\lim\limits_{x\rightarrow 0}f(x)=\lim\limits_{x\to0}(1+2x+2x^2)(x-\frac{1}{2}x^2)+ax+bx^2=\lim\limits_{x\to0}(x+2x^2-\frac{1}{2}x^2+ax+bx^2)+O(x^2)=\lim\limits_{x\to0}[(1+a)x+(\frac{3}{2}+b)x^2]+O(x^2)=O(x^2)$</p>
 <p>$\therefore a=-1，b=-\frac{3}{2}$</p>
 <p>$f(x)$ 是比 $x$ 三次方的高阶无穷小，$f(x)$ 是 $x$ 的三阶无穷小；</p>
