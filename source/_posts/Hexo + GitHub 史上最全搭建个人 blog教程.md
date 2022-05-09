@@ -86,7 +86,7 @@ tag:
   git --version
   ```
 
-- ubuntu
+- ubuntu：注意容器无需 `sudo` 权限
 
   ```bash
   sudo apt-get install git
@@ -173,7 +173,7 @@ cd blog/
 npm install
 ```
 
-打开 `hexo` 的服务：
+打开 `hexo` 的服务：                 
 
 ```bash
 hexo g

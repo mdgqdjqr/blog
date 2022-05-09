@@ -126,8 +126,16 @@ mock：用于软件包构建的最小环境
 
 2. 清除已存在的mock环境
 
-   ```c
+   ```bash
    su pungi -c "mock -r pungi --clean"
+   ```
+
+3. 挂载目录
+
+   ```bash
+   mount -t proc /proc proc
+   mount --rbind /sys sys
+   mount --rbind /dev dev
    ```
 
    
