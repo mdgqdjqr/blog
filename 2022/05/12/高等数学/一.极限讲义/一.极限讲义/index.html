@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一.极限讲义">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.0.2.1.png">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.1.1.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.1.2.1.png">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.2.4.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.2.5.1.png">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.3.3.1.png">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.4.2.1.png">
+<meta property="article:published_time" content="2022-05-12T09:01:43.000Z">
+<meta property="article:modified_time" content="2022-05-12T07:25:39.226Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="考研">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.0.2.1.png">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一.极限讲义 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一.极限讲义
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-12 17:01:43 / 修改时间：15:25:39" itemprop="dateCreated datePublished" datetime="2022-05-12T17:01:43+08:00">2022-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%AD%A6%E6%9C%AF%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" itemprop="url" rel="index"><span itemprop="name">学术知识积累</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>该文为学习笔记，仅作学习参考，如有错误，望指正！</p>
+<span id="more"></span>
+<p>笔记说明：</p>
+<p><font color="red">红色：</font>表示重点，口诀，结论；</p>
+<p><font color="yellow">黄色：</font>表示注意点；</p>
+<p><font color="green">绿色：</font>表示解题思路，或方案；</p>
+<p><font color="pink">粉色：</font>真题考试时间；</p>
+<h3 id="0-预备知识"><a href="#0-预备知识" class="headerlink" title="0.    预备知识"></a>0.    预备知识</h3><h4 id="1-函数定义"><a href="#1-函数定义" class="headerlink" title="1.    函数定义"></a>1.    函数定义</h4><p>设数集 $D \subset R$ , 则映射 $f：D \rightarrow R$ 为定义在 $D$ 上的函数，记为 $y=f(x)，x \in R$，$x$ 称为自变量，$y$ 称为因变量，$D$ 称为定义域；特别的，对每个 $x \in D$，按对应法则 $f$，总有唯一确定的值 $y$ 与之对应。</p>
+<p>【自练】设函数$f(x)=\begin{cases}1，&amp; |x| \leq 1 \\0， &amp; |x| &gt; 1\end{cases}$，则函数 $f{f[f(x)]}$等于（    B    ）</p>
+<p>(A) 0</p>
+<p>(B) 1</p>
+<p>(C) $\begin{cases}1，&amp; |x| \leq 1 \hspace{25cm}\\0， &amp; |x| &gt; 1\end{cases}$</p>
+<p>(D) $\begin{cases}0，&amp; |x| \leq 1 \hspace{25cm}\\1， &amp; |x| &gt; 1\end{cases}$</p>
+<p><font color="green">解题思路：</font>从内到外，f(x) 的结果作为 f[x] 的 X 值域。</p>
+<h4 id="2-基本初等函数"><a href="#2-基本初等函数" class="headerlink" title="2.    基本初等函数"></a>2.    基本初等函数</h4><p>幂函数：$y=x^u，(u∈R)$。</p>
+<p>指数函数：$y=a^x，(a &gt; 0，a \neq 1)$。</p>
+<p>对数函数：$y=\log_a{x}，(a &gt; 0，a \neq 1)$。</p>
+<p>三角函数：$y=sinx，y=cosx，y=tanx，y=secx,y=cscx$ 等。</p>
+<p>反三角函数：$y=arcsinx，y=arccosx，y=arctanx，y=arccos\frac{1}{x}，y=$ 等。</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.0.2.1.png" alt></p>
+<h4 id="3-函数性质"><a href="#3-函数性质" class="headerlink" title="3.    函数性质"></a>3.    函数性质</h4><ol>
+<li><p>有界性：</p>
+<p>$f(x)\leq m_1，x \in X \subset D \Rightarrow f(x)$ 在数集 X 上有上界；</p>
+<p>$f(x) \geq m_2，x \in X \subset D \Rightarrow f(x)$ 在数集 X 上有下界；</p>
+<p>$|f(x)| \leq M (M &gt; 0)，x \in X \subset D \Rightarrow f(x)$ 在数集 X 上有界；</p>
+</li>
+<li><p>单调性：</p>
+<p>$f(x_1) &lt; f(x_2)，x_1 &lt; x_2，x_1,x_2 \in I \subset D \Rightarrow f(x)$ 在区间 $I$ 上有单调增加；</p>
+<p>$f(x_1) &gt; f(x_2)，x_1 &lt; x_2，x_1,x_2 \in I \subset D \Rightarrow f(x)$ 在区间 $I$ 上有单调减少；</p>
+</li>
+<li><p>奇偶性：</p>
+<p>$f(-x) = f(x)，x \in D (D关于 Y 轴对称) \Rightarrow f(x)$ 为偶函数；</p>
+<p>$-f(-x) = f(x)，x \in D (D关于原点对称) \Rightarrow f(x)$ 为奇函数；</p>
+</li>
+<li><p>周期性：</p>
+<p>$f(x+l)=f(x)，(x+l) \in D \Rightarrow f(x)$ 为周期函数，$l$ 为周期；</p>
+</li>
+</ol>
+<p>【自练】$f(x)=|xsinx|e^{cosx}，(-\infty &lt; x &lt; +\infty)$ 是（    D    ）</p>
+<p>（A）有界函数</p>
+<p>（B）单调函数</p>
+<p>（C）周期函数</p>
+<p>（D）偶函数</p>
+<p><font color="green">解题思路：</font>参考如下</p>
+<ol>
+<li>$x$ ：单调递增函数；</li>
+<li>$sinx$ ：振荡函数；</li>
+<li>$s \cdot sinx$：单调递增型振荡函数；</li>
+<li>$|x \cdot sinx|$：关于 Y 轴对称函数，即偶函数；</li>
+<li>$cosx$：振荡函数；</li>
+<li>$e^{cosx}$：关于 Y 轴对称的分段函数；</li>
+<li>偶函数 <em> 偶函数 = 偶函数；奇函数  </em> 奇函数 = 偶函数；偶函数 * 奇函数 = 奇函数；偶函数 + 奇函数 = 非奇非偶函数；</li>
+</ol>
+<h3 id="1-极限的概念与性质"><a href="#1-极限的概念与性质" class="headerlink" title="1.    极限的概念与性质"></a>1.    极限的概念与性质</h3><h4 id="1-极限的定义"><a href="#1-极限的定义" class="headerlink" title="1.    极限的定义"></a>1.    极限的定义</h4><ol>
+<li>数列极限：$\lim\limits_{n\to\infty}X_n=a \Leftrightarrow \forall \varepsilon &gt; 0，存在 N &gt; 0$ 总有 <script type="math/tex">|x_n -a|<\varepsilon</script>；</li>
+<li>函数极限：$\lim\limits_{x \to\ x_0}f(x)=A \Leftrightarrow \forall\varepsilon&gt;0,存在 \delta&gt;0$ 当 $0&lt;|x-x_0|&lt;\delta$ 时，总有 $|f(x)-A|&lt;\varepsilon$；</li>
+</ol>
+<p><font color="red">注意：</font>若左右极限存在且相等则极限存在，否则极限不存在。</p>
+<ol>
+<li><p>$\varepsilon&gt;0$​ 中的 <script type="math/tex">\varepsilon</script> 要多小就多小，<script type="math/tex">\varepsilon</script> 仅为一个尺度而已;</p>
+</li>
+<li><p>N 只要存在，不要求最小;</p>
+</li>
+<li><p>凡是定义条件均为充要条件；</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.1.1.1.jpg" alt></p>
+</li>
+</ol>
+<p>【例1】对任意给定的 $\varepsilon\in(0,1)$，总存在正整数 N，当 $n \geq N$ 时，恒有$|x_n-a| \leq 2\epsilon$ 是数列 ${x_n}$ 收敛于 $a$ 的（    C    ）</p>
+<p>（A）充分条件但非必要条件</p>
+<p>（B）必要条件但非充分条件</p>
+<p>（C）充分必要条件</p>
+<p>（D）既非充分条件又非必要条件</p>
+<p><font color="green">解题思路</font>：数列极限 $\lim\limits_{n\to\infty}x_n=a \Leftrightarrow \forall \varepsilon&gt;0，存在 N&gt;0，当n&gt;N时，总有|x_n-a|&lt;\varepsilon$</p>
+<ol>
+<li>题中对于任意给定的 $\varepsilon\in(0,1) \Rightarrow \forall\varepsilon&gt;0$ ；</li>
+<li>存在正整数 $N \Rightarrow 存在 N&gt;0$，；</li>
+<li>当 $n \geq N$ 时 $ (\geq：大于或等于)\Rightarrow n&gt;N$；</li>
+<li>恒有 $|x_n-a| \leq 2\varepsilon  \Rightarrow |x_n -a|&lt;\varepsilon$ ($\varepsilon$ 仅为尺度不分大小)；</li>
+</ol>
+<p><font color="red">【小结】</font>：</p>
+<ol>
+<li><p>$x \rightarrow x_0$：$x \neq x_0，x\begin{cases}x_0^+ \\x_0^-\end{cases}$ （去中间看两边）；</p>
+</li>
+<li><p>$\lim\limits_{x \to\ x_0}f(x)$ 存在与否与函数 $f(x)$ 在 $x=x_0$处有无定义无关；</p>
+</li>
+<li><p>$x \rightarrow □$ 表示：$x \rightarrow -\infty，x\rightarrow +\infty，x\rightarrow \infty，x\rightarrow x_0^+，x\rightarrow x_0^-，x\rightarrow x_0，n \rightarrow \infty$</p>
+</li>
+<li><p>若 $A=0$，则称 $f(x)$ 在 $x \rightarrow □$ 时为无穷小量；</p>
+<p>若 $A=\infty$，则称 $f(x)$ 在 $x\rightarrow □$ 时为无穷大量；</p>
+</li>
+</ol>
+<h4 id="2-极限性质"><a href="#2-极限性质" class="headerlink" title="2.    极限性质"></a>2.    极限性质</h4><ol>
+<li><p>唯一性：若$\lim\limits_{x \to □}f(x)=A (存在)$，则 A 唯一。</p>
+<p><font color="red">【小结】</font>：</p>
+<ol>
+<li><p>$\lim\limits_{x \to \infty}e^x=\begin{cases}+\infty \\ 0\end{cases}$ ：左右极限不相等，极限不存在；</p>
+</li>
+<li><p>$\lim\limits_{x \to 0}\frac{\sqrt{x^2}}{x}=\lim\limits_{x \to 0}\frac{|x|}{x}=\begin{cases} 1 \\ -1 \end{cases}$ ：极限不存在，<font color="yellow">出现 | | 时，需要讨论左右极限</font>；</p>
+</li>
+<li><p>$\lim\limits_{x \to \infty}arctanx=\begin{cases}\frac{Π}{2}\\ {-\frac{Π}{2}}\end{cases}$ ：极限不存在；</p>
+<p>$\lim\limits_{x \to +\infty}arccotx=\begin{cases}0 \\ Π \end{cases}$ ：极限不存在；</p>
+</li>
+<li><p>$\lim\limits_{x \to 0}[x]=\begin{cases}-1 \\ 0 \end{cases}$ ：<font color="yellow">[x] 向左走</font>，极限不存在；</p>
+</li>
+<li><p>$\lim\limits_{x \to +\infty}sinx=\begin{cases}-1 \\ 1 \end{cases}$ ：震荡函数，极限不存在；</p>
+</li>
+<li><p>$\lim\limits_{x \to 0}cos\frac{1}{x}=\begin{cases}1 \\ -1 \end{cases}$ ：极限不存在；</p>
+</li>
+</ol>
+<p><font color="red">结论</font>：</p>
+<ol>
+<li>存在 + 存在 = 存在；</li>
+<li>存在 + 不存在 = 不存在；</li>
+<li>不存在 + 不存在 = 不一定存在；</li>
+<li>存在 * 存在 = 存在；</li>
+<li>存在 * 不存在 = 不一定存在；</li>
+<li>不存在 * 不存在 = 不一定存在； </li>
+</ol>
+<p>【例2】<font color="pink">（2000-1）</font>求极限$\lim\limits_{x\to0}(\frac{2+e^{\frac{1}{x}}}{1+e^{\frac{4}{x}}}+\frac{sinx}{|x|})$</p>
+<p>解：$\lim\limits_{x\to0}(\frac{2+e^{\frac{1}{x}}}{1+e^{\frac{4}{x}}}+\frac{sinx}{|x|})=\lim\limits_{x\to0}\frac{2+e^{\frac{1}{x}}}{1+e^{\frac{4}{x}}}+\lim\limits_{x\to0}\frac{sinx}{|x|}$</p>
+<p>当 $x\rightarrow 0^+$ 时：</p>
+<p>$I_+=\lim\limits_{x\to0^+}\frac{2+e^{\frac{1}{x}}}{1+e^{\frac{4}{x}}}+\lim\limits_{x\to0^+}\frac{sinx}{|x|}=\lim\limits_{x\to0^+}e^{-\frac{3}{x}}+\lim\limits_{x\to0^+}\frac{sinx}{x}=0+1=1$</p>
+<p>当 <script type="math/tex">x\rightarrow 0^-</script> 时：</p>
+<p>$I_-=\lim\limits_{x\to0^-}\frac{2+e^{\frac{1}{x}}}{1+e^{\frac{4}{x}}}+\lim\limits_{x\to0^-}\frac{sinx}{|x|}=2-\lim\limits_{x\to0^-}\frac{sinx}{x}=2-1=1$</p>
+<p>$\therefore I_+= I_- = 1$ </p>
+</li>
+<li><p>有界性：若$\lim\limits_{x\to□}f(x)=A (存在)$，则 $存在 M&gt;0$，当<script type="math/tex">x\rightarrow□</script> 时(局部)，有 $|f(x)|\leq M$，反之不成立，例如：$sinx$</p>
+</li>
+<li><p>保号性：</p>
+<p>若$\lim\limits_{x \to □}f(x)=A&gt;0 \Rightarrow x \rightarrow □，f(x)&gt;0$(局部)；</p>
+<p>若$x \rightarrow □，f(x)&gt;0 \Rightarrow \lim\limits_{x \to □}f(x)\geq 0$；</p>
+<p><font color="red">扩展</font>：</p>
+<p>若 $\lim\limits_{x \to x_0}f(x)&gt;\lim\limits_{x \to x_0}g(x) \Rightarrow 存在 \delta&gt;0，0&lt;|x-x_0|&lt; \delta$ (局部) 时，$f(x)&gt;g(x)$；</p>
+<p>若 $存在\delta&gt;0$，使得 $0&lt;|x-x_0|&lt;\delta$ 时，$f(x)&gt;g(x)$，且 $\lim\limits_{x  \to x_0}f(x)=A，\lim\limits_{x \to x_0}g(x)=B$ 均存在，则 $A \geq B$；</p>
+</li>
+<li><p>数列极限与子列极限的关系：数列收敛于 a，则子列收敛于 a，反之不成立；</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.1.2.1.png" alt></p>
+<p>【例3】<font color="pink">（2015-1）</font>设 ${x_n}$ 是数列，下列命题中不正确的是（    D    ）</p>
+<p>（A）若$\lim\limits_{n\to\infty}x_n=a$，则$\lim\limits_{n\to\infty}x_{2n}=\lim\limits_{n\to\infty}x_{2n+1}=a$</p>
+<p>（B）若$\lim\limits_{n\to\infty}x_{2n}=\lim\limits_{n\to\infty}x_{2n+1}=a$，则$\lim\limits_{n\to\infty}x_n=a$</p>
+<p>（C）若$\lim\limits_{n\to\infty}x_n=a$，则$\lim\limits_{n\to\infty}x_{3n}=\lim\limits_{n\to\infty}x_{3n+1}=a$</p>
+<p>（D）若$\lim\limits_{n\to\infty}x_{3n}=\lim\limits_{n\to\infty}x_{3n+1}=a$，则$\lim\limits_{n\to\infty}x_n=a$</p>
+<p><font color="green">解题思路</font>：数列收敛于 a，则各个子列均收敛于 a；反之所有的子数列都收敛于 a，则数列收敛于 a；</p>
+<p>$\lim\limits_{n\to\infty}x_{3n}=\lim\limits_{n\to\infty}x_{3n+1}=a$，缺少$\lim\limits_{n\to\infty}x_{3n+2}=a$</p>
+</li>
+<li><p>函数极限与数列极限的关系</p>
+</li>
+</ol>
+<h4 id="3-两个重要极限"><a href="#3-两个重要极限" class="headerlink" title="3.    两个重要极限"></a>3.    两个重要极限</h4><ol>
+<li><p>$\lim\limits_{x \to 0}\frac{sinx}{x}=1$，推广为：$\lim\limits_{♥ \to 0}\frac{sin♥}{♥}=1$；例如：$\lim\limits_{x\to2}\frac{sin(x-2)}{x-2}=1$；</p>
+<p>注意：自变量变化过程中♥是否相同并同时趋近于0；</p>
+</li>
+<li><p>$\lim\limits_{x \to 0}(1+x)^{\frac{1}{x}}=e，\lim\limits_{x \to \infty}(1+\frac{1}{x})^x=e，\lim\limits_{n \to \infty}(1+\frac{1}{n})^n=e$，推广为：$\lim\limits_{♥ \to 0}(1+♥)^{\frac{1}{♥}}=e^{♥\cdot\frac{1}{♥}}$。</p>
+</li>
+</ol>
+<p>【例4】求极限$\lim\limits_{x\to\infty}[\frac{x^2}{(x-a)(x+b)}]^x$</p>
+<p>解：$\lim\limits_{x\to\infty}[\frac{x^2}{(x-a)(x+b)}]^x=\lim\limits_{x\to\infty}[\frac{(x-a)(x+b)}{x^2}]^{-x}=\lim\limits_{x\to\infty}[(1-\frac{a}{x})(1+\frac{b}{x})]^{-x}=\lim\limits_{x\to\infty}(1-\frac{a}{x})^{-x}\cdot\lim\limits_{x\to\infty}(1+\frac{b}{x})^{-x}=e^a\cdot e^{-b}=e^{a-b}$</p>
+<h3 id="2-函数极限计算：必考"><a href="#2-函数极限计算：必考" class="headerlink" title="2.    函数极限计算：必考"></a>2.    函数极限计算：必考</h3><h4 id="1-四则运算法则"><a href="#1-四则运算法则" class="headerlink" title="1.    四则运算法则"></a>1.    四则运算法则</h4><p>如果$\lim f(x)=A，\lim g(x)=B$，那么：</p>
+<ol>
+<li>$\lim[f(x) \pm g(x)]=\lim f(x) \pm \lim g(x)=A \pm B$</li>
+<li>$\lim [f(x) \cdot g(x)]=\lim f(x) \cdot \lim g(x)=A \cdot B$</li>
+<li>$\lim \frac{f(x)}{g(x)}=\frac{\lim f(x)}{lim g(x)}=\frac{A}{B}(B \neq 0)$</li>
+<li>$\lim f(x)^{g(x)}=A^B(A&gt;0)$</li>
+</ol>
+<p><font color="red">补充概念</font>：<font color="red">未定式必考</font>。</p>
+<p>设 ${a_n}，{b_n}，{c_n}$ 均为非负数列，且$\lim\limits_{n\to\infty}a_n=0，\lim\limits_{n\to\infty}b_n=1，\lim\limits_{n\to\infty}c_n=\infty，\lim\limits_{n\to\infty}d_n=\infty$，则</p>
+<ol>
+<li><p>$\lim\limits_{n\to\infty}(a_n+b_n)=0+1=1，\lim\limits_{n\to\infty}(b_n+c_n)=\infty+1=\infty，\lim\limits_{n\to\infty}(c_n+d_n)=\begin{cases}-\infty (不存在) \\ -\infty+\infty (未定式①) \\ +\infty (不存在)\end{cases}$</p>
+</li>
+<li><p>$\lim\limits_{n\to\infty}(a_n \cdot b_n)=0 \cdot 1=0，\lim\limits_{n\to\infty}(b_n \cdot c_n)=1 \cdot \infty=\infty(不存在)$</p>
+<p>$\lim\limits_{n\to\infty}(a_n \cdot c_n)=0 \cdot \infty(未定式②)\Rightarrow\frac{0}{\frac{1}{\infty}}=\frac{0}{0}(未定式③)\Rightarrow \frac{\infty}{\frac{1}{0}}=\frac{\infty}{\infty}(未定式④)$</p>
+</li>
+<li><p>$\lim\limits_{n\to\infty}(b_n)^{a_n}=1^0=1，\lim\limits_{n\to\infty}(b_n)^{c_n}=1^{\infty}(未定式⑤:一般考小题)，0^0(未定式⑥)，\infty^0(未定式⑦)$</p>
+</li>
+</ol>
+<p><font color="red">注意：</font>不存在$\Rightarrow \begin{cases}\infty \\震荡\begin{cases}有界，eg:n \rightarrow \infty，(-1)^n；x \rightarrow \infty, sinx;\\无界，eg:x \rightarrow \infty，x \cdot sinx；\end{cases}\end{cases}$$</p>
+<p>【自练】设数列 $x_n$ 与 $y_n$ 满足 $\lim\limits_{n\to\infty}x_ny_n=0$，则下列断言正确的是（    D    ）</p>
+<p>（A）若 $x_n$ 发散，则 $y_n$ 必然发散</p>
+<p>（B）若 $x_n$ 无界，则 $y_n$ 必无界</p>
+<p>（C）若 $x_n$ 有界，则 $y_n$ 必为无穷小</p>
+<p>（D）若 $\frac{1}{x_n}$ 为无穷小，则 $y_n$ 必为无穷小</p>
+<p><font color="green">解析</font>：</p>
+<ol>
+<li><p>解法一：</p>
+<p>A：当取 $x_n=n，x_n\rightarrow \infty$，若 $y_n$ 发散，则 $\infty \cdot \infty \neq 0$；</p>
+<p>B：当取 $x_n=n，x_n \rightarrow \infty$ 为无界变量，$y_n=\frac{1}{n^2}，y_n \rightarrow 0$ 有界，且满足$\lim\limits_{n\to\infty}x_ny_n=0$；</p>
+<p>C：与B选项相反；</p>
+<p>D：$\frac{1}{x_n}$ 为无穷小 $\Rightarrow x_n$ 无穷大，$\lim\limits_{n\to\infty}x_ny_n=\lim\limits_{n\to\infty}\frac{y_n}{\frac{1}{x_n}}=0，\therefore y_n$为无穷小量；</p>
+</li>
+<li><p>解法二：</p>
+<p>根据关系定理：$\lim\limits_{x\to□}f(x)=A，x \rightarrow □，f(x)=A+\alpha(x)，\lim\limits_{x\to□}\alpha(x)=0$</p>
+<p>$\lim\limits_{n\to\infty}x_ny_n=0=0+\alpha(\lim\limits_{n\to\infty}\alpha=0) \Leftrightarrow y_n=\frac{1}{x_n}(0+\alpha) \Rightarrow y_n$ 为无穷小量；</p>
+</li>
+</ol>
+<h4 id="2-无穷小运算性质"><a href="#2-无穷小运算性质" class="headerlink" title="2.    无穷小运算性质"></a>2.    无穷小运算性质</h4><p>【例5】求极限 $\lim\limits_{n\to\infty}(1+\frac{1}{n})^{(-1)^nsinn}$</p>
+<p>解：$\lim\limits_{n\to\infty}(1+\frac{1}{n})^{(-1)^nsinn}=\lim\limits_{n\to\infty}(1+\frac{1}{n})^{n\cdot\frac{1}{n}(-1)^nsinn}=e^{\lim\limits_{n\to\infty}\frac{1}{n}\cdot(-1)^n\cdot sinn}=e^0=1$</p>
+<h4 id="3-无穷小比较"><a href="#3-无穷小比较" class="headerlink" title="3.    无穷小比较"></a>3.    无穷小比较</h4><p>若 $\lim\limits_{x\to□}\frac{\alpha(x)}{\beta(x)}=0$，则称 $\alpha(x)$ 是比 $\beta(x)$ 高阶无穷小，记为 $o(\beta(x))$；</p>
+<p>若 $\lim\limits_{x \to □}\frac{\alpha(x)}{\beta(x)}=\infty$，则称 $\alpha(x)$ 是比 $\beta(x)$ 低阶无穷小；</p>
+<p>若 $\lim\limits_{x\to□}\frac{\alpha(x)}{\beta(x)}=c\neq0$，则称 $\alpha(x)$ 是比 $\beta(x)$ 同阶无穷小；</p>
+<p>若 $\lim\limits_{x\to□}\frac{\alpha(x)}{\beta(x)}=1$，则称 <script type="math/tex">\alpha(x)</script> 是比 <script type="math/tex">\beta(x)</script> 等价无穷小，记为 $\alpha(x)$ ~ $\beta(x)$；</p>
+<p>若 $\lim\limits_{x\to□}\frac{\alpha(x)}{[\beta(x)]^k}=0$，则称 $\alpha(x)$ 是比 $\beta(x)$ K阶无穷小；</p>
+<p><font color="red">【小结】：</font>等价无穷小因子代换：当 $□ \rightarrow 0$ 时，</p>
+<p>$sin□$ ~ $□$，    $arcsin□$ ~ $□$，    $tan□$ ~ $□$，    $arctan□$ ~ $□$，    $e^□-1$ ~ $□$，    $a^□-1$ ~ $□lna$，    $ln(1+□)$ ~ $□$,    $log_a(1+□)$ ~ $\frac{□}{lna}$，    $1-cos□$ ~ $\frac{1}{2}□^2$，    $(1+□)^m-1$ ~ $m□$</p>
+<p>【例6】当 $x \rightarrow 0^+$ 时，下面与 $\sqrt{x}$ 等价无穷小的时是（    B    ）</p>
+<p>（A）$1-e^{\sqrt{x}}$</p>
+<p>（B）$ln\frac{1+x}{1-\sqrt{x}}$</p>
+<p>（C）$\sqrt{1+\sqrt{x}}-1$</p>
+<p>（D）$1-cos\sqrt{x}$</p>
+<p><font color="green">解析</font>：</p>
+<p>A：$\lim\limits_{x\to0^+}(1+e^{\sqrt{x}})=-\lim\limits_{x\to0+}(e^{\sqrt{x}}-1)=-\sqrt{x}，\lim\limits_{x\to0^+}\frac{-\sqrt{x}}{\sqrt{x}}=-1$，因此 $1-e^{\sqrt{x}}$ 是 $\sqrt{x}$ 的同阶无穷小；</p>
+<p>B：$\lim\limits_{x\to0^+}ln\frac{1+x}{1-\sqrt{x}}=\lim\limits_{x\to0^+}ln(1+x)-\lim\limits_{x\to0^+}(1-\sqrt{x})=\lim\limits_{x\to0^+}(x+\sqrt{x})=\sqrt{x}，\lim\limits_{x\to0^+}\frac{\sqrt{x}}{\sqrt{x}}=1$，因此 $ln\frac{1+x}{1-\sqrt{x}}$ 是 $\sqrt{x}$ 的等价无穷小；</p>
+<p>C：$\lim\limits_{x\to0^+}(\sqrt{1+\sqrt{x}}-1)=\frac{1}{2}\sqrt{x}，\lim\limits_{x\to0^+}\frac{\frac{1}{2}\sqrt{x}}{\sqrt{x}}=\frac{1}{2}$，因此 $\sqrt{1+\sqrt{x}}-1$ 是 $\sqrt{x}$ 的同阶无穷小；</p>
+<p>D：$\lim\limits_{x\to0^+}(1-cos\sqrt{x})=\frac{1}{2}x，\lim\limits_{x\to0^+}\frac{\frac{1}{2}x}{\sqrt{x}}=\infty$，因此  $1-cos\sqrt{x}$ 是 $\sqrt{x}$ 的低阶无穷小；</p>
+<p>【例7】求极限 $\lim\limits_{x\to0^+}\frac{1-\sqrt{cosx}}{x(1-cos\sqrt{x})}$</p>
+<p>解：$\lim\limits_{x\to0^+}\frac{1-\sqrt{cosx}}{x(1-cos\sqrt{x})}=\lim\limits_{x\to0^+}\frac{(1-\sqrt{cosx})(1+\sqrt{cosx})}{x(1-cos\sqrt{x})(1+cos\sqrt{x})}=\lim\limits_{x\to0^+}\frac{1-cosx}{2x \cdot \frac{1}{2}x}=\lim\limits_{x\to0^+}\frac{\frac{1}{2}x^2}{x^2}=\frac{1}{2}$</p>
+<p>【自练】<font color="pink">（2007-2）</font>求极限 $\lim\limits_{x\to0}\frac{arctanx-sinx}{x^3}$</p>
+<p>解：$\lim\limits_{x\to0}\frac{arctanx-sinx}{x^3}=\lim\limits_{x\to0}\frac{x-\frac{1}{3}x^3-(x-\frac{1}{6}x^3)}{x^3}=\lim\limits_{x\to0}\frac{-\frac{1}{6}x^3}{x^3}=-\frac{1}{6}$</p>
+<p>【自练】<font color="pink">（1996-2）</font>求极限 $\lim\limits_{x\to\infty}x[sinln(1+\frac{3}{x})-sinln(1+\frac{1}{x})]$</p>
+<p>解：</p>
+<p>解法一：</p>
+<p>$\lim\limits_{x\to\infty}x[sinln(1+\frac{3}{x})-sinln(1+\frac{1}{x})]=\lim\limits_{x\to\infty}x[ln(1+\frac{3}{x})-ln(1+\frac{1}{x})]=\lim\limits_{x\to\infty}x(\frac{3}{x}-\frac{1}{x})=\lim\limits_{x\to\infty}x \cdot \frac{2}{x}=2$</p>
+<p>解法二：</p>
+<p>$\lim\limits_{x\to\infty}x[sinln(1+\frac{3}{x})-sinln(1+\frac{1}{x})]=\lim\limits_{x\to\infty}x(sin\frac{3}{x}-sin\frac{1}{x})=\lim\limits_{x\to\infty}x \cdot \frac{2}{x}=2$</p>
+<p>【自练】<font color="pink">（1997-1）</font>求极限 $\lim\limits_{x\to0}\frac{3sinx+x^2cos\frac{1}{x}}{(1+cosx)ln(1+x)}$</p>
+<p>解：</p>
+<p>解法一：$\lim\limits_{x\to0}\frac{3sinx+x^2cos\frac{1}{x}}{(1+cosx)ln(1+x)}=\lim\limits_{x\to0}\frac{3x}{2x}=\frac{3}{2}$</p>
+<p>解法二：$\lim\limits_{x\to0}\frac{3sinx+x^2cos\frac{1}{x}}{(1+cosx)ln(1+x)}=\lim\limits_{x\to0}\frac{3sinx+x^2cos\frac{1}{x}}{2x}=\frac{1}{2}\lim\limits_{x\to0}(\frac{3sinx}{x}+\frac{x^2cos\frac{1}{x}}{x})=\frac{3}{2}$</p>
+<p><font color="green">解析：</font>$\lim\limits_{x\to0}x^2cos\frac{1}{x}=0$</p>
+<h4 id="4-洛必达法则：不推荐使用"><a href="#4-洛必达法则：不推荐使用" class="headerlink" title="4.    洛必达法则：不推荐使用"></a>4.    洛必达法则：不推荐使用</h4><p><font color="red">注意</font>：</p>
+<ol>
+<li>求导变量 X 需为连续函数，<font color="yellow">不适用于数列极限</font>；</li>
+<li>$\frac{0}{0}，\frac{\infty}{\infty}$ 型未定式，分子分母同时求导；</li>
+<li>导完必检查，后推前，若求导后极限不存在，则说明不可用该方法（若导完之后极限为无穷大时，可以使用洛必达法则）；</li>
+</ol>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.2.4.1.jpg" alt></p>
+<p><font color="red">扩展补充</font>：</p>
+<ol>
+<li><p>和差化积公式：</p>
+<p>$sin\alpha+sin\beta=2sin\frac{\alpha+\beta}{2}cos\frac{\alpha-\beta}{2}$</p>
+<p>$sin\alpha-sin\beta=2sin\frac{\alpha-\beta}{2}cos\frac{\alpha+\beta}{2}$</p>
+<p>$cos\alpha+cos\beta=2cos\frac{\alpha+\beta}{2}cos\frac{\alpha-\beta}{2}$</p>
+<p>$cos\alpha-cos\beta=2sin\frac{\alpha+\beta}{2}sin\frac{\alpha-\beta}{2}$</p>
+</li>
+<li><p>积化和差公式：</p>
+<p>$sin\alpha sin\beta=\frac{1}{2}[sin(\alpha+\beta)+sin(\alpha-\beta)]$</p>
+<p>$cos\alpha sin\beta=\frac{1}{2}[sin(\alpha+\beta)-sin(\alpha-\beta)]$</p>
+<p>$cos\alpha cos\beta=\frac{1}{2}[cos(\alpha+\beta)+cos(\alpha-\beta)$</p>
+<p>$sin\alpha cos\beta=\frac{1}{2}[cos(\alpha+\beta)-cos(\alpha-\beta)$</p>
+</li>
+<li><p>设 $\alpha_1，\alpha_2，\beta_1，\beta_2$ 均为 $x \rightarrow x_0$ 时的无穷小量，且 $\alpha_1 \sim \alpha_2，\beta_1 \sim \beta_2，\lim\limits_{x\to x_0}\frac{\alpha}{\beta}$ 存在且不等于 -1，则有 $\alpha+\beta\sim\alpha_1+\beta_1$</p>
+</li>
+</ol>
+<p>【例8】<font color="pink">（1999-2）</font>求极限 $\lim\limits_{x\to0}\frac{\sqrt{1+tan}-\sqrt{1+sinx}}{xln(1+x)-x^2}$</p>
+<p>解：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+I&=\lim\limits_{x\to0}\frac{\sqrt{1+tan}-\sqrt{1+sinx}}{xln(1+x)-x^2} \\
+&=\lim\limits_{x\to0}\frac{(\sqrt{1+tan}-\sqrt{1+sinx})(\sqrt{1+tan}+\sqrt{1+sinx})}{(xln(1+x)-x^2)(\sqrt{1+tan}+\sqrt{1+sinx})} \\
+&=\frac{1}{2}\lim\limits_{x\to0}\frac{tanx-sinx}{xln(1+x)-x^2} \\
+&=\frac{1}{2}\lim\limits_{x\to0}\frac{tanx(1-cosx)}{x[ln(1+x)-x]} \\
+&=\frac{1}{2}\lim\limits_{x\to0}\frac{1-cosx}{ln(1+x)-x} \\
+&=\frac{1}{4}\lim\limits_{x\to0}\frac{x^2}{ln(1+x)-x} \\
+&=\frac{1}{4}\lim\limits_{x\to0}\frac{2x}{\frac{1}{1+x}-1}    (洛必达法则) =\frac{1}{4}\lim\limits_{x\to0}\frac{2x}{\frac{1}{1+x}-\frac{1+x}{1+x}}=\frac{1}{4}\lim\limits_{x\to0}\frac{2x}{\frac{1-(1+x)}{1+x}}=\frac{1}{4}\lim\limits_{x\to0}\frac{2x(1+x)}{-x}=-\frac{1}{2}\lim\limits_{x\to0}(1+x) \\
+&=-\frac{1}{2}
+\end{aligned}</script><p>【例9】求极限 $\lim\limits_{x\to+\infty}\frac{e^x-e^{-x}}{e^x+e^{-x}}$</p>
+<p>解：$I=\lim\limits_{x\to+\infty}\frac{e^x-e^{-x}}{e^x+e^{-x}}=\lim\limits_{x\to+\infty}\frac{1+x+\frac{1}{2}x^2+\frac{1}{6}x^3-(1-x+\frac{1}{2}x^2-\frac{1}{6}x^3)}{1+x+\frac{1}{2}x^2+\frac{1}{6}x^3+(1-x+\frac{1}{2}x^2-\frac{1}{6}x^3)}=\lim\limits_{x\to+\infty}\frac{\frac{1}{3}x^3}{2+x^2}=+\infty$</p>
+<p><font color="green">解析：</font>洛必达必死，使用展开四项；</p>
+<p>【自练】下列各题计算过程正确的是（    D    ）</p>
+<p>（A）数列极限 $\lim\limits_{b\to\infty}\frac{lnn-1}{n}=\lim\limits_{n\to\infty}\frac{(lnn-1)’}{n’}=\lim\limits_{n\to\infty}\frac{1}{n}=0$</p>
+<p>（B）$\lim\limits_{x\to1}\frac{sinΠx}{x^2-1}=\lim\limits_{x\to1}\frac{ΠcosΠx}{2x}=\lim\limits_{x\to1}\frac{-Π^2sinΠx}{2}=0$</p>
+<p>（C）$\lim\limits_{x\to\infty}\frac{x+sinx}{x-sinx}=\lim\limits_{x\to\infty}\frac{1+cosx}{1-cosx}$ 不存在</p>
+<p>（D）$\lim\limits_{x\to0}\frac{x+sinx}{x-sinx}=\lim\limits_{x\to0}\frac{1+cosx}{1-cosx}=\infty$</p>
+<p><font color="green">解析</font>：</p>
+<p>A：数列极限不能使用洛必达法则；</p>
+<p>B：$\lim\limits_{x\to1}\frac{ΠcosΠx}{2x}，2x\rightarrow 2$，此时已不是 $\frac{0}{0}，\frac{\infty}{\infty}$ 型，不能再使用洛必达法则；</p>
+<p>C：$\lim\limits_{x\to\infty}\frac{1+cosx}{1-cosx}$ 极限不存在，所以 $\lim\limits_{x\to0}\frac{x+sinx}{x-sinx}$ 不适用洛必达法则；</p>
+<h4 id="5-Max：求极限的首选方法"><a href="#5-Max：求极限的首选方法" class="headerlink" title="5.    Max：求极限的首选方法"></a>5.    Max：求极限的首选方法</h4><ol>
+<li><p>“主矛” <script type="math/tex">\Leftrightarrow</script> 团战先开大，打牌先出炸；</p>
+</li>
+<li><p>“阶级” <script type="math/tex">\Leftrightarrow</script> “无穷小比阶”</p>
+<p>“阶级” <script type="math/tex">\Leftrightarrow</script> “无穷大比阶”</p>
+<p>例如：$\lim\limits_{x\to\infty}\frac{x^2+x}{x^2}=1；\lim\limits_{x\to\infty}\frac{x^2-x^3}{2x+x^4}=0；当\alpha，\beta，r &gt;0，则 e^{\alpha x}&gt;&gt;x^{\beta}&gt;&gt;log_a{r}$</p>
+</li>
+<li><p>“用笔画” <script type="math/tex">\Leftrightarrow</script> 三行决定论</p>
+</li>
+</ol>
+<p><font color="red">【PS经典攻略】：归幂之后低次留，高指低对低次走</font>。</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.2.5.1.png" alt></p>
+<p><font color="red">小结：</font>当 $x\rightarrow 0$ 时；</p>
+<p>$sinx=x-\frac{1}{6}x^3$</p>
+<p>$arcsinx=x+\frac{1}{6}x^3$</p>
+<p>$tanx=x+\frac{1}{3}x^3$</p>
+<p>$arctanx=x-\frac{1}{3}x^3$</p>
+<p>$cosx=1-\frac{1}{2}x^2+\frac{1}{24}x^4$</p>
+<p>$e^x=1+x+\frac{1}{2}x^2+\frac{1}{6}x^3$</p>
+<p>$ln(1+x)=x-\frac{1}{2}x^2+\frac{1}{3}x^3$</p>
+<p>$(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(1-\alpha)}{2}x^2$</p>
+<p><font color="red">注意：</font>$(a+b)^m=a^m+C_m^1a^{m-1}b^1+C_m^2a^{m-2}b^2+……+C_m^mb^m$</p>
+<p>$\frac{1}{1-x}=\sum\limits_{n=0}^\infty x^n=1+x+x^2+…+x^n+…，（-1&lt;x&lt;1）$</p>
+<p>$\frac{1}{1+x}=\sum\limits_{n=0}^\infty(-1)^nx^n=1-x+x^2-…+(-1)^nx^n+…，（-1&lt;x&lt;1）$</p>
+<p>$ln(1+x)=\sum\limits_{n=1}^\infty(-1)^{n-1}\frac{x^n}{n}=x-\frac{1}{2}x^2+\frac{1}{3}x^3-…+(-1)^{n-1}\frac{x^n}{n}+…，（-1&lt;x\leq1）$</p>
+<p>$sinx=\sum\limits_{n=0}^\infty(-1)^n\frac{x^{2n+1}}{(2n+1)!}=x-\frac{1}{3!}x^3+\frac{1}{5!}x^5-…+(-1)^n\frac{x^{2n+1}}{(2n+1)!}+…（-\infty&lt;x&lt;+\infty）$</p>
+<p>$cosx=\sum\limits_{n=0}^\infty(-1)^n\frac{x^{2n}}{(2n)!}=1-\frac{1}{2!}x^2+\frac{1}{4!}x^4-…+(-1)^n\frac{x^{2n}}{(2n)!}+…，（-\infty&lt;x&lt;+\infty）$</p>
+<p>$e^x=\sum\limits_{n=0}^\infty\frac{x^n}{n!}=1+x+\frac{1}{2!}x^2+…+\frac{x^n}{n!}+…，（-\infty&lt;x&lt;+\infty）$</p>
+<p>$(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+…+\frac{\alpha(\alpha-1)…(\alpha-n+1)}{n!}x^n+…，（-1&lt;x&lt;1）$ 在端点 $x=\pm 1$ 处的收敛性依 $\alpha$ 的不同而异。</p>
+<p><font color="red">总结</font>：</p>
+<ol>
+<li><p>$\lim\limits_{x\to0^+}x^{\alpha}(lnx)^{\beta}=0，(\alpha&gt;0，\beta&gt;0)$</p>
+</li>
+<li><p>$\lim\limits_{x\to0}x^2\cdot e^{\frac{1}{x}}=\begin{cases}0, &amp;x\rightarrow o^- \\ \infty, &amp;x\rightarrow 0^+\end{cases}$</p>
+</li>
+<li><p>换底公式：$u(x)^{v(x)}=e^{v(x)ln{u(x)}}$</p>
+</li>
+<li><p><font color="purple">转换过程：</font>$(\frac{2+cosx}{3})^x-1\sim e^{xln(\frac{2+cosx}{3})}-1\sim xln(\frac{2+cosx}{3})$</p>
+</li>
+</ol>
+<p>【例10】<font color="pink">（2014-3）</font>设 <script type="math/tex">p(x)=a+bx+cx^2+dx^3</script>，当 <script type="math/tex">x \rightarrow 0</script>时，若 <script type="math/tex">p(x)-tanx</script> 是比 <script type="math/tex">x^3</script> 高阶无穷小，则下列选项错误的是（    D    ）</p>
+<p>（A）a=0</p>
+<p>（B）b=1</p>
+<p>（C）c=0</p>
+<p>（D）d=<script type="math/tex">\frac{1}{6}</script></p>
+<p><font color="green">解析</font>：</p>
+<p>$\because \lim\limits_{x\to0}\frac{p(x)-tanx}{x^3}=\lim\limits_{x\to0}\frac{a+bx+cx^2+dx^3-(x+\frac{1}{3}x^3)}{x^3}=\lim\limits_{x\to0}\frac{a+(b-1)x+cx^2+(d-\frac{1}{3})x^3}{x^3}=0$</p>
+<p>$\therefore a=0，b=1，c=0，d=\frac{1}{3}$</p>
+<p>【例11】设常数 $m,n\neq0$，则 $\lim\limits_{x\to0}\frac{arctanmx-arcsinx}{tanmx-sinnx}=$?</p>
+<p>解：$I=\lim\limits_{x\to0}\frac{arctanmx-arcsinx}{tanmx-sinnx}=\lim\limits_{x\to0}\frac{mx-\frac{1}{3}(mx)^3-[nx+\frac{1}{6}(nx)^3]}{mx+\frac{1}{3}(mx)^3-[nx-\frac{1}{6}(nx)^3]}=\lim\limits_{x\to0}\frac{(m-n)x-(\frac{1}{3}m^3+\frac{1}{6}n^3)x^3}{(m-n)x+(\frac{1}{3}m^3+\frac{1}{6}n^3)x^3}$</p>
+<ol>
+<li>若 $m\neq n，I=1$</li>
+<li>若 $m=n，I=-1$</li>
+</ol>
+<p>$\therefore I=$ 不存在；</p>
+<p>【例12】<font color="pink">（2013）</font>求极限 $\lim\limits_{x\to0}\frac{ln(1+x)ln(1-x)-ln(1-x2)}{x^4}$</p>
+<p>解：</p>
+<p>$ln(1+x)=x-\frac{1}{2}x^2+\frac{1}{3}x^3+o(x^3)$</p>
+<p>$ln(1-x)=-x-\frac{1}{2}x^2-\frac{1}{3}x^3+O(x^3)$</p>
+<p>$ln(1-x^2)=-x^2-\frac{1}{2}x^4+O(x^4)$</p>
+<p>$\begin{aligned}I&amp;=\lim\limits_{x\to0}\frac{ln(1+x)ln(1-x)-ln(1-x2)}{x^4}\\<br>&amp;=\lim\limits_{x\to0}\frac{(x-\frac{1}{2}x^2+\frac{1}{3}x^3)(-x-\frac{1}{2}x^2-\frac{1}{3}x^3)-(-x^2-\frac{1}{2}x^4)+O(x^4)}{x^4} \\<br>&amp;=\lim\limits_{x\to0}\frac{-x^2+\frac{1}{2}x^3-\frac{1}{3}x^4-\frac{1}{2}x^3+\frac{1}{4}x^4-\frac{1}{3}x^4+x^2+\frac{1}{2}x^4+O(x^4)}{x^4}\\<br>&amp;=\lim\limits_{x\to0}\frac{\frac{1}{12}x^4+O(x^4)}{x^4}\\<br>&amp;=\frac{1}{12}\\<br>\end{aligned}$</p>
+<p>【自练】当 $x\rightarrow 0$ 时，$1-cosxcos2xcos3x$ 是 $ax^n$ 的等价无穷小，求 $a，n$</p>
+<p>解：</p>
+<p>$cosx=1-\frac{1}{2}x^2+\frac{1}{24}x^4+O(x^4)$</p>
+<p>$cos2x=1-2x^2+\frac{2}{3}x^4+O(x^4)$</p>
+<p>$cos3x=1-\frac{9}{2}x^2+\frac{27}{8}x^4+O(x^4)$</p>
+<p>$\because I=\lim\limits_{x\to0}\frac{1-cosxcos2xcos3x}{ax^n}=\lim\limits_{x\to0}\frac{1-(1-\frac{1}{2}x^2+\frac{1}{24}x^4)(1-2x^2+\frac{2}{3}x^4)(1-\frac{9}{2}x^2+\frac{27}{8}x^4)}{ax^n}=\lim\limits_{x\to0}\frac{7x^2}{ax^n}=1$</p>
+<p>$\therefore a=7，n=2$</p>
+<p>【自练】<font color="pink">（2003）</font>求极限 $\lim\limits_{x\to0}\frac{1}{x^3+ln(1-x^4)}[(\frac{2+cosx}{3})^x-1]$</p>
+<p>解：</p>
+<p>$I=\lim\limits_{x\to0}\frac{1}{x^3+ln(1-x^4)}[(\frac{2+cosx}{3})^x-1]=\lim\limits_{x\to0}\frac{1}{x^3+ln(1-x^4)}\cdot xln(\frac{2+cosx}{3})=\lim\limits_{x\to0}\frac{xln(\frac{2+1-\frac{1}{2}x^2}{3})}{x^3}=\lim\limits_{x\to0}\frac{ln(1-\frac{1}{6}x^2)}{x^2}=-\frac{1}{6}$</p>
+<p><font color="purple">转换过程：</font>$(\frac{2+cosx}{3})^x-1\sim e^{xln(\frac{2+cosx}{3})}-1\sim xln(\frac{2+cosx}{3})$</p>
+<p>【自练】已知 $\lim\limits_{x\to0}\frac{2arctanx-ln{\frac{1+x}{1-x}}}{x^k}=c\neq0(k&gt;0)$，确定参数 $c，k$</p>
+<p>解：$I=\lim\limits_{x\to0}\frac{2arctanx-ln{\frac{1+x}{1-x}}}{x^k}=\lim\limits_{x\to0}\frac{2arctanx-ln(1+x)+ln(1-x)}{x^k}=\lim\limits_{x\to0}\frac{2x-\frac{2}{3}x^3-x+\frac{1}{2}x^2-\frac{1}{3}x^3-x-\frac{1}{2}x^2-\frac{1}{3}x^3}{x^k}=\lim\limits_{x\to0}\frac{-\frac{4}{3}x^3}{x^k}=c$</p>
+<p>$\therefore c=-\frac{4}{3}，k=3$</p>
+<p>【自练】$\lim\limits_{x\to0}\frac{atanx+b(1-cosx)}{cln(1-2x)+d(1-e^{-x^2})}=2$，其中 $a^2+c^2\neq0$，则必有（    D    ）</p>
+<p>（A）b=4d</p>
+<p>（B）b=-4d</p>
+<p>（C）a=4c</p>
+<p>（D）a=-4c</p>
+<p><font color="green">解析</font>：</p>
+<p>$I=\lim\limits_{x\to0}\frac{atanx+b(1-cosx)}{cln(1-2x)+d(1-e^{-x^2})}=\lim\limits_{x\to0}\frac{ax+\frac{1}{3}ax^3+\frac{1}{2}bx^2-\frac{1}{24}bx^4}{-2cx-2cx^2-\frac{8}{3}cx^3+dx^2-\frac{1}{2}dx^4}=\lim\limits_{x\to0}\frac{ax+\frac{1}{2}bx^2+\frac{1}{3}ax^3-\frac{1}{24}bx^4}{-2cx+(d-2c)x^2+\frac{8}{3}cx^3-\frac{1}{2}dx^4}=2$</p>
+<p>$\because a^2+c^2\neq0；\therefore a\neq0，c\neq 0$</p>
+<p>$\because \lim\limits_{x\to0}\frac{ax}{-2cx}=2，\therefore \frac{a}{-2c}=2\Leftrightarrow a=-4c$</p>
+<p>【自练】已知 $f(x)=e^{2x}ln(1+x)+ax+bx2$，设 $x\rightarrow 0$ 时，$f(x)=O(x^2)$，求$a，b$，并求 $f(x)$ 关于 $x$ 的无穷小阶数。</p>
+<p>解：$\lim\limits_{x\rightarrow 0}f(x)=\lim\limits_{x\to0}(1+2x+2x^2)(x-\frac{1}{2}x^2)+ax+bx^2=\lim\limits_{x\to0}(x+2x^2-\frac{1}{2}x^2+ax+bx^2)+O(x^2)=\lim\limits_{x\to0}[(1+a)x+(\frac{3}{2}+b)x^2]+O(x^2)=O(x^2)$</p>
+<p>$\therefore a=-1，b=-\frac{3}{2}$</p>
+<p>$f(x)$ 是比 $x$ 三次方的高阶无穷小，$f(x)$ 是 $x$ 的三阶无穷小；</p>
+<p>【例13】<font color="pink">（1997-2）</font>求极限 $\lim\limits_{x\to-\infty}\frac{\sqrt{4x^2+x-1}+x+1}{\sqrt{x^2+sinx}}$</p>
+<p>解：$I=\lim\limits_{x\to-\infty}\frac{\sqrt{4x^2+x-1}+x+1}{\sqrt{x^2+sinx}}=\lim\limits_{x\to-\infty}\frac{\sqrt{4+\frac{1}{x}-\frac{1}{x^2}}+1+\frac{1}{x}}{\sqrt{1+\frac{sinx}{x^2}}}=\lim\limits_{x\to-\infty}\frac{\sqrt4+1+0}{\sqrt1}=3$</p>
+<p>【例14】求极限 $\lim\limits_{x\to+\infty}\frac{x^3+x^2+1}{2^x+x^3}(sinx+cosx)$</p>
+<p>解：$I=\lim\limits_{x\to+\infty}\frac{x^3+x^2+1}{2^x+x^3}(sinx+cosx)=0$</p>
+<p><font color="green">解析：</font>当 $a&gt;1，x\rightarrow +\infty$ 时，指数函数的增长速度远远大于幂函数的增长速度；</p>
+<p>【例15】求极限 $\lim\limits_{x\to+\infty}\frac{ln(x+e^x)+cosx}{x^2-arctanx\cdot lnx}$</p>
+<p>解：</p>
+<p>当 $x\rightarrow +\infty，ln(x+e^x)+cosx \sim x，x^2-arctanx\cdot lnx\sim x^2$</p>
+<p>$\therefore I=\lim\limits_{x\to+\infty}\frac{ln(x+e^x)+cosx}{x^2-arctanx\cdot lnx}=0$ </p>
+<p>【例16】求极限 $\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$</p>
+<p>解：$I=\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]=\lim\limits_{x\to+\infty}[x^2(\frac{1}{x}+\frac{1}{2x^2})-x]=\lim\limits_{x\to+\infty}(x+\frac{1}{2}-x)=\frac{1}{2}$</p>
+<p><font color="red">总结：</font>$\infty-\infty$ 用提 “Max” 法；</p>
+<p>解法二(提 “Max” 法)：$I=\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]=\lim\limits_{x\to+\infty}x^2[(e^{\frac{1}{x}}-1)-\frac{1}{x}]=\lim\limits_{x\to+\infty}\frac{e^{\frac{1}{x}}-1-\frac{1}{x}}{\frac{1}{x^2}}=\lim\limits_{x\to+\infty}\frac{1+\frac{1}{x}+\frac{1}{2x^2}-1-\frac{1}{x}}{\frac{1}{x^2}}=\frac{1}{2}$</p>
+<p>【自练】<font color="pink">（2014）</font>求极限 $\lim\limits_{x\to0}(\frac{1}{(sinx)^2}-\frac{(cosx)^2}{x^2})$</p>
+<p>解：$I=\lim\limits_{x\to0}(\frac{1}{(sinx)^2}-\frac{(cosx)^2}{x^2})=\lim\limits_{x\to0}[\frac{x^2-(cosx)^2(sinx)^2}{x^2(sinx)^2}]=\lim\limits_{x\to0}\frac{x^2-\frac{1}{4}(sin2x)^2}{x^4}=\lim\limits_{x\to0}\frac{x^2-\frac{1}{4}(2x-\frac{4}{3}x^3)^2+O(x^3)}{x^4}=\frac{4}{3}$</p>
+<p>【例17】求极限 $\lim\limits_{x\to0^+}x^{sinx}$</p>
+<p>解：$I=\lim\limits_{x\to0^+}x^{sinx}=\lim\limits_{x\to0^+}e^{sinxlnx}=e^0=1$</p>
+<p><font color="red">总结</font>：</p>
+<ol>
+<li>$\lim\limits_{x\to0^+}xlnx=0$</li>
+<li><script type="math/tex">\frac{0}{0}</script> 型可使用该公式代换，$\lim\limits_{x\to0^+}x^{sinx}=\lim\limits_{x\to0^+}e^{sinxlnx}$</li>
+</ol>
+<p>【例18】求极限 $\lim\limits_{x\to\infty}(x+\sqrt{x^2+1})^{\frac{1}{x}}$</p>
+<p>解：$I=\lim\limits_{x\to\infty}(x+\sqrt{x^2+1})^{\frac{1}{x}}=\lim\limits_{x\to\infty}e^{\frac{ ln(x+\sqrt{x^2+1})}{x}}=e^0=1$</p>
+<p>【例19】<font color="pink">（2016-2/3）</font>求极限 $\lim\limits_{x\to0}(cos2x+2xsinx)^{\frac{1}{x^4}}$</p>
+<p>解：</p>
+<p>解法一：$I=\lim\limits_{x\to0}(cos2x+2xsinx)^{\frac{1}{x^4}}=\lim\limits_{x\to0}e^{\frac{ln(cos2x+2xsinx)}{x^4}}=\lim\limits_{x\to0}e^{\frac{ln(1+cos2x+2xsinx-1)}{x^4}}=\lim\limits_{x\to0}e^{\frac{cos2x+2xsinx-1}{x^4}}=\lim\limits_{x\to0}e^{\frac{1-2x^2+\frac{2}{3}x^4+2x^2-\frac{1}{3}x^4-1}{x^4}}=e^\frac{1}{3}$</p>
+<p>解法二：$I=\lim\limits_{x\to0}(cos2x+2xsinx)^{\frac{1}{x^4}}=\lim\limits_{x\to0}(1-2x^2+\frac{2}{3}x^4+2x^2-\frac{1}{3}x^4)^{\frac{1}{x^4}}=\lim\limits_{x\to0}(1+\frac{1}{3}x^4)^{\frac{1}{x^4}}=\lim\limits_{x\to0}e^{\frac{1}{x^4}\cdot\frac{1}{3}x^4}=e^{\frac{1}{3}}$</p>
+<p>【自练】<font color="pink">（2011）</font>求极限 $\lim\limits_{x\to0}[\frac{ln(1+x)}{x}]^{\frac{1}{e^x-1}}$</p>
+<p>解：$I=\lim\limits_{x\to0}[\frac{ln(1+x)}{x}]^{\frac{1}{e^x-1}}=\lim\limits_{x\to0}[\frac{x-\frac{1}{2}x^2+O(x^2)}{x}]^{\frac{1}{1+x-1+O(x)}}=\lim\limits_{x\to0}[1-\frac{1}{2}x+O(x)]^{\frac{1}{x+O(x)}}=\lim\limits_{x\to0}e^{\frac{1}{x}\cdot ln(1-\frac{1}{2}x)+O(x)}=\lim\limits_{x\to0}e^{\frac{1}{x}\cdot -\frac{1}{2}x}=e^{-\frac{1}{2}}$</p>
+<h3 id="3-数列极限的计算"><a href="#3-数列极限的计算" class="headerlink" title="3.    数列极限的计算"></a>3.    数列极限的计算</h3><h4 id="1-利用函数极限求数列极限"><a href="#1-利用函数极限求数列极限" class="headerlink" title="1.    利用函数极限求数列极限"></a>1.    利用函数极限求数列极限</h4><p>【例20】求极限 $\lim\limits_{n\to\infty}[n(e^{\frac{1}{n}}-1)]^n$</p>
+<p>解：$I=\lim\limits_{n\to\infty}[n(e^{\frac{1}{n}}-1)]^n=\lim\limits_{x\to+\infty}[x(e^{\frac{1}{x}}-1)]^x=\lim\limits_{x\to+\infty}[x(1+\frac{1}{x}+\frac{1}{2x^2}-1]^x=\lim\limits_{x\to+\infty}(1+\frac{1}{2x})^x=\lim\limits_{x\to+\infty}e^{xln(1+\frac{1}{2x})}=\lim\limits_{x\to+\infty}e^{x\cdot \frac{1}{2x}}=e^{\frac{1}{2}}$</p>
+<p>【自练】当 $n\rightarrow +\infty$ 时，$\frac{1+2n^2+3n^3}{1+n^4}$ 是 $\frac{1-2n^2+3n^3}{1-n^5}$ 的（    B    ）</p>
+<p>（A）高阶无穷小</p>
+<p>（B）低阶无穷小</p>
+<p>（C）同阶但不等价无穷小</p>
+<p>（D）等价无穷小</p>
+<p><font color="green">解析</font>：</p>
+<ol>
+<li>当 $n\rightarrow +\infty$ 时，$\frac{1+2n^2+3n^3}{1+n^4} \sim \frac{1}{n}$</li>
+<li>当 $n\rightarrow +\infty$ 时，$\frac{1-2n^2+3n^3}{1-n^5} \sim -\frac{1}{n^2}$</li>
+</ol>
+<p>$\therefore $ 当 $n\rightarrow +\infty$ 时，$\frac{1+2n^2+3n^3}{1+n^4}$ 是 $\frac{1-2n^2+3n^3}{1-n^5}$ 的低阶无穷小。</p>
+<h4 id="2-利用夹逼定理求数列极限：不推荐使用"><a href="#2-利用夹逼定理求数列极限：不推荐使用" class="headerlink" title="2.    利用夹逼定理求数列极限：不推荐使用"></a>2.    利用夹逼定理求数列极限：不推荐使用</h4><p>如果数列 ${x_n}，{y_n}$ 及 ${z_n}$ 满足：</p>
+<ol>
+<li>$存在 n_0 \in N$，当 $n&gt;n_0$ 时，有 $y_n \leq x_n \leq z_n$；</li>
+<li>$\lim\limits_{n \to \infty}y_n=a，\lim\limits_{n \to \infty}z_n=a$$，</li>
+</ol>
+<p>则数列 <script type="math/tex">{x_n}</script> 极限存在，且 <script type="math/tex">\lim\limits_{n \to \infty}x_n=a</script>； </p>
+<p>【例21】    <font color="pink">（1995）</font>问题：</p>
+<ol>
+<li>求极限 $\lim\limits_{n \to \infty}\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+……+\frac{1}{\sqrt{n^2+n}}$，</li>
+<li>求极限 $\lim\limits_{n\to\infty}\frac{1+\frac{1}{n}}{n^2+n+1}+\frac{2+\frac{2}{n}}{n^2+n+2}+……+\frac{n+\frac{n}{n}}{n^2+n+n}$</li>
+</ol>
+<p>解：    <font color="yellow">归纳法</font>：</p>
+<ol>
+<li><p>$\lim\limits_{n\to\infty}\frac{1}{\sqrt{n^2+1}}=\frac{1}{n}，\lim\limits_{n\to\infty}\frac{1}{\sqrt{n^2+n}}=1=\frac{1}{n}$</p>
+<p>$\therefore I=\sum\limits_{i=1}^n\frac{1}{n}=1$</p>
+</li>
+<li><p>$\lim\limits_{n\to\infty}\frac{1+\frac{1}{n}}{n^2+n+1}=\frac{1}{n^2}，\lim\limits_{n\to\infty}\frac{n+\frac{n}{n}}{n^2+n+n}=\frac{n}{n^2}$</p>
+<p>$\therefore I=\sum\limits_{i=1}^n\frac{i}{n^2}=\frac{\frac{n(1+n)}{2}}{n^2}=\frac{1}{2}$</p>
+</li>
+</ol>
+<p><font color="green">解析：</font>等差数列求和公式 <script type="math/tex">\frac{n(1+n)}{2}</script></p>
+<p><font color="blue">疑问：</font><script type="math/tex">\underline{该解法与基础复习全书解法存在差异，需注意校对。}</script></p>
+<p>【例22】求极限 $\lim\limits_{n\to\infty}\sqrt[n]{2^n+3^n}$</p>
+<p>解：</p>
+<p>解法一：$I=\lim\limits_{n\to\infty}\sqrt[n]{2^n+3^n}=\lim\limits_{n\to\infty}\sqrt[n]{3^n}=3$</p>
+<p>解法二：$I=\lim\limits_{n\to\infty}\sqrt[n]{2^n+3^n}=\lim\limits_{n\to\infty}e^{\frac{1}{n} \cdot ln(2^n+3^n)}=\lim\limits_{n\to\infty}e^{\frac{1}{n} \cdot nln3}=e^{ln3}=3$</p>
+<p><font color="green">解析</font>：</p>
+<p>$\lim\limits_{n\to\infty}(a^n+b^n+c^n)^{\frac{1}{n}}=Max(a,b,c)$    <font color="yellow">Max</font>。</p>
+<p>$\infty^0，0^0$ 都要换底；</p>
+<p>所</p>
+<h4 id="3-利用单调有界准则求递归数列极限：考研出难题"><a href="#3-利用单调有界准则求递归数列极限：考研出难题" class="headerlink" title="3.    利用单调有界准则求递归数列极限：考研出难题"></a>3.    利用单调有界准则求递归数列极限：考研出难题</h4><p>若 <script type="math/tex">{x_n}</script> 单调有界，数列 <script type="math/tex">{x_n}</script> 必有极限。</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.3.3.1.png" alt></p>
+<p>【例23】设数列 ${x_n}$ 满足 $x_{n+1}=\frac{1}{2}(x_n+\frac{1}{x_n})，x_1&gt;0，(n=1，2，3…)$ 证明数列 ${x_n}$ 极限存在，并求 $\lim\limits_{n\to\infty}x_n$=？</p>
+<p>证明：    </p>
+<p>$x_{n+1}=\frac{1}{2}(x_n+\frac{1}{x_n})\geq1\Rightarrow$ 有下限；</p>
+<p>$x_{n+1}-x_n=\frac{1}{2}(x_n+\frac{1}{x_n})-x_n=\frac{1}{2x_n}-\frac{1}{2}x_n=\frac{1-x_n^2}{2x_n}\leq 0$</p>
+<p>$\therefore {x_n}$ 单调递减；$\therefore \lim\limits_{n\to\infty}x_n$ 存在；</p>
+<p>$x_{n+1}=\frac{1}{2}(x_n+\frac{1}{x_n})$ 两边取极限 $\Rightarrow A=\frac{1}{2}(A+\frac{1}{A}) \Rightarrow A=1$</p>
+<p>$\Rightarrow \lim\limits_{n\to\infty}x_n=1$</p>
+<p><font color="green">解析：</font>$\frac{1}{2}(x_n+\frac{1}{x_n}) \geq 1$ 均值不等式；$a+b\geq2\cdot\sqrt{ab}$</p>
+<p>【自练】设 $a&gt;0，x_1&gt;0，x_{n+1}=\frac{1}{3}(2x_n+\frac{a}{x_n^2})，(n=1,2,……)$，证明 $\lim\limits_{n\to\infty}x_n$ 存在并求该极限。</p>
+<p>解：</p>
+<p>$x_{n+1}=\frac{1}{3}(2x_n+\frac{a}{x_n^2})=x_{n+1}=\frac{1}{3}(x_n+x_n+\frac{a}{x_n^2}) \geq \sqrt[3]{a} \Rightarrow$ 有下限；</p>
+<p>$x_{n+1}-x_n=\frac{1}{3}(2x_n+\frac{a}{x_n^2})-x_n=\frac{1}{3}(\frac{a}{x_n^2}-x_n)=\frac{a-x_n^2}{3x_n^3} \leq 0$</p>
+<p>$\therefore \Rightarrow {x_n}$ 单调递减，$\Rightarrow {x_n}$ 收敛，$\lim\limits_{n\to\infty}x_n$ 存在；</p>
+<p>$A=\frac{1}{3}(2A+\frac{a}{x^2})\Rightarrow A=\sqrt[3]a$</p>
+<p><font color="green">解析：</font>$a+b+c\geq3\cdot\sqrt[3]{abc}$</p>
+<h3 id="4-极限应用"><a href="#4-极限应用" class="headerlink" title="4.    极限应用"></a>4.    极限应用</h3><h4 id="1-连续"><a href="#1-连续" class="headerlink" title="1.    连续"></a>1.    连续</h4><p><font color="red">总结：</font>连续 $\Leftrightarrow \lim\limits_{\Delta x \to 0}\Delta y=0$ <font color="yellow">(考证明题)</font>或 $\lim\limits_{x \to x_0}f(x)=f(x_0)$<font color="yellow">(考计算题)</font>。</p>
+<p>【例24】<font color="pink">（2008）</font>已知函数 $f(x)$ 连续，且 $\lim\limits_{x\to0}\frac{1-cos[xf(x)]}{(e^{x^2}-1)f(x)}=1$，则 $f(0)=?$</p>
+<p>解：</p>
+<p>$I=\lim\limits_{x\to0}\frac{1-cos[xf(x)]}{(e^{x^2}-1)f(x)}=\lim\limits_{x \to x}\frac{\frac{(xf(x))^2}{2}}{x^2f(x)}=\lim\limits_{x \to 0}\frac{x^2f(x)^2}{2x^2f(x)}=\lim\limits_{x \to 0}\frac{f(x)}{2}=1$</p>
+<p>$\therefore \lim\limits_{x \to 0}f(x)=2$</p>
+<p>【自练】若 $f(x)=\begin{cases}\frac{sin2x+e^{2ax}-1}{x}，&amp; x \neq 0， \\a，&amp; x=0，\end{cases}$ 在$(-\infty，+\infty)$ 上连续，则 $a=?$</p>
+<p>解：$I=\lim\limits_{x \to 0}f(x)=\lim\limits_{x \to 0}\frac{sin2x+e^{2ax}-1}{x}=\lim\limits_{x \to 0}\frac{2x+1+2ax-1}{x}=\lim\limits_{x \to 0}\frac{2x(1+a)}{x}=2(1+a)=a$</p>
+<p>$\therefore a=-2$</p>
+<h4 id="2-间断：必考"><a href="#2-间断：必考" class="headerlink" title="2.    间断：必考"></a>2.    间断：必考</h4><p><font color="red">注意点：</font>只需要讨论无定义点和分段函数分段点<font color="yellow">(计算得出)</font>的极限。</p>
+<p>无定义点一定是间断点。分段点不一定是间断点。</p>
+<ol>
+<li>第一类间断点：$f(x_0-0)，f(x_0+0)$ 均存在<ol>
+<li>$f(x_0-0) \neq f(x_0+0) \Rightarrow$ 跳跃间断点；</li>
+<li>$f(x_0-0) = f(x_0+0) \neq f(x_0) \Rightarrow$ 可去间断点；</li>
+</ol>
+</li>
+<li>第二类间断点：<ol>
+<li>$f(x_0-0)$ 或 $f(x_0+0) = \infty \Rightarrow$ 无穷间断点；</li>
+<li>$f(x_0-0)$ 或 $f(x_0+0)=$ “振荡” $\Rightarrow$ 振荡间断点；</li>
+</ol>
+</li>
+</ol>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/1.1.4.2.1.png" alt></p>
+<p>【例25】<font color="pink">（新考题）</font>函数 $f(x)=\lim\limits_{t \to 0}(1+\frac{sint}{x})^{\frac{x^2}{t}}$ 在 $(-\infty，+\infty)$ 内（    B    ）</p>
+<p>（A）连续</p>
+<p>（B）有可去间断点</p>
+<p>（C）有跳跃间断点</p>
+<p>（D）有无穷间断点</p>
+<p>【例26】<font color="pink">（自编：逆向思维）</font>设 $f(x)=\frac{e^x-b}{(x-a)(x-b)}$ 有无穷间断点 <script type="math/tex">x=e</script>，可去间断点 $x=1$，则 $a=?，b=?$</p>
+<p>解：$\because f(x)=\frac{e^x-b}{(x-a)(x-b)}$ 有可去间断点 $x=1，\Rightarrow \lim\limits_{x \to 1}f(x)=存在$</p>
+<ol>
+<li>若 $a=1，b=e$ ；$\lim\limits_{x\to1}f(x)=\lim\limits_{x\to1}\frac{e-e}{(1-1)(1-e)}=\frac{0}{0}$ 型，存在 $\lim\limits_{x \to 1}f(x)=存在$ 的可能性；</li>
+<li>若 $a=e，b=1$ ；$\lim\limits_{x\to1}f(x)=\lim\limits_{x\to1}\frac{e-1}{(1-e)(1-1)}=\infty\Rightarrow \lim\limits_{x \to 1}f(x)=不存在$</li>
+</ol>
+<p>$\therefore a=1，b=e$；</p>
+<p>【自练】<font color="pink">（2013-3）</font>函数 $f(x)=\frac{|x|^x-1}{x(x+1)ln|x|}$ 的可去间断点的个数为（    C    ）</p>
+<p>（A）0</p>
+<p>（B）1</p>
+<p>（C）2</p>
+<p>（D）3</p>
+<p><font color="green">解析：</font>无定义点一定是间断点。</p>
+<p>$f(x)=\frac{|x|^x-1}{x(x+1)ln|x|} \Rightarrow$ 分子：$ x \neq 0，x \neq -1，x&gt;0$；分母：$x&gt;0且x\neq1$</p>
+<p>$\therefore$ 无定义点为 0，-1，1；</p>
+<ol>
+<li>判断 $x=0$ 时间断点类型：$\lim\limits_{x\to0}f(x)=\lim\limits_{x\to0}\frac{e^{xln{|x|}}-1}{x(x+1)ln{|x|}}=\lim\limits_{x\to0}\frac{xln{|x|}}{x(x+1)ln{|x|}}=\lim\limits_{x\to0}\frac{1}{x+1}=1，\Rightarrow x=0$ 为可去间断点；</li>
+<li>判断 $x=1$ 时间断点类型：$\lim\limits_{x\to1}f(x)=\lim\limits_{x\to1}\frac{e^{xln{|x|}}-1}{x(x+1)ln{|x|}}=\lim\limits_{x\to1}\frac{xln{|x|}}{x(x+1)ln{|x|}}=\lim\limits_{x\to1}\frac{1}{x+1}=\frac{1}{2}，\Rightarrow x=1$ 为可去间断点；</li>
+<li>判断 $x=-1$ 时间断点类型：$\lim\limits_{x\to-1}f(x)=\lim\limits_{x\to-1}\frac{e^{xln{|x|}}-1}{x(x+1)ln{|x|}}=\lim\limits_{x\to-1}\frac{xln{|x|}}{x(x+1)ln{|x|}}=\infty，\Rightarrow x=-1$ 为无穷间断点；</li>
+</ol>
+<p><font color="yellow">注意点：</font>$u(x)^{v(x)}-1=v(x)ln{u(x)}$</p>
+<p>【自练】<font color="pink">【自编】</font>函数 $f(x)=[\frac{1}{1+|x|}]$ 的间断点 $x=?$ 是第 $?$ 类间断点</p>
+<p>解：$f(x)$ 的无定义点为 $[1+|x|]\neq 1，\Rightarrow x \neq 0$</p>
+<p>$\lim\limits_{x\to0}f(x)=0，\Rightarrow x=0$ 是第一类间断点中的可去间断点</p>
+<h4 id="3-渐近线"><a href="#3-渐近线" class="headerlink" title="3.    渐近线"></a>3.    渐近线</h4><ol>
+<li>$\lim\limits_{x \to x_0}f(x)=\infty \Rightarrow x=x_0$ 为一条垂直的渐近线。<font color="red">（垂直渐近线首看无定义点）</font>。</li>
+<li>$\lim\limits_{x\to\pm\infty}f(x)=\begin{cases} a\Rightarrow y=a为一条水平渐近线 \\ \infty \Rightarrow 转到3 \end{cases}$</li>
+<li>$\lim\limits_{x\to\pm\infty}\frac{f(x)}{x}=k；\lim\limits_{x\to\pm\infty}[f(x)-kx]=b \Rightarrow y=kx+b$ 为一条斜渐近线。<font color="red">（kb法）（某一方向上若是有水平渐近线，则不存在斜渐近线）</font>。</li>
+</ol>
+<p>【例27】<font color="pink">（2014）</font>下列曲线中有渐近线的是（    C    ）</p>
+<p>（A）$y=x+sinx$</p>
+<p>（B）$y=x^2+sinx$</p>
+<p>（C）$y=x+sin{\frac{1}{x}}$</p>
+<p>（D）$y=x^2+sin{\frac{1}{x}}$</p>
+<p><font color="green">解析</font>：</p>
+<p>垂直渐近线（找无定义点）：（C）、（D）</p>
+<p>（C）：$\lim\limits_{x \to 0}(x+sin{\frac{1}{x}})=$ 振荡，垂直渐近线不存在；</p>
+<p>（D）：$\lim\limits_{x \to 0}(x^2+sin{\frac{1}{x}})=$ 振荡，垂直渐近线不存在；</p>
+<p>水平渐近线：不存在；</p>
+<p>斜渐近线：</p>
+<ol>
+<li><p>解法一：</p>
+<p>（A）$k=\lim\limits_{x \to \infty}\frac{f(x)}{x}=\lim\limits_{x \to \infty}\frac{x+sinx}{x}=1，b=\lim\limits_{x \to \infty}[f(x)-kx]=\lim\limits_{x \to \infty}[x+sinx-1 \cdot x]=\lim\limits_{x \to \infty}sinx=$ 震荡，斜渐近线不存在；</p>
+<p>（B）$k=\lim\limits_{x \to \infty}\frac{f(x)}{x}=\lim\limits_{x \to \infty}\frac{x^2+sinx}{x}=\infty$，斜渐近线不存在；</p>
+<p>（C）$k=\lim\limits_{x \to \infty}\frac{f(x)}{x}=\lim\limits_{x \to \infty}\frac{x+sin{\frac{1}{x}}}{x}=1，b=\lim\limits_{x \to \infty}[f(x)-kx]=\lim\limits_{x \to \infty}[x+sin{\frac{1}{x}}-1 \cdot x]=\lim\limits_{x \to \infty}sin{\frac{1}{x}}=0，f(x)=1 \cdot x+0=x$</p>
+<p>（D）$\lim\limits_{x \to \infty}\frac{f(x)}{x}=\lim\limits_{x \to \infty}\frac{x^2+sin{\frac{1}{x}}}{x}=\lim\limits_{x \to \infty}x=\infty$，斜渐近线不存在；</p>
+</li>
+<li><p>解法二：”Max” 法，当 $x \Rightarrow \infty$ 时，与 $f(x)=kx+b$ 为同阶无穷大，即为斜渐近线；</p>
+</li>
+</ol>
+<p>【例28】曲线 $y=\frac{x^3}{(x-1)^2}+x^2(e^{\frac{1}{x}}-1)$ 的非铅直渐近线方程为？</p>
+<p>解：$\lim\limits_{x \to \infty}[\frac{x^3}{(x-1)^2}+x^2(e^{\frac{1}{x}}-1)]=\lim\limits_{x \to \infty}[\frac{x(x-1^2)+2x^2-x}{(x-1)^2}+x^2(1+\frac{1}{x}+\frac{1}{2x^2}-1)]=\lim\limits_{x \to \infty}(x+\frac{2x^2-x}{(x-1)^2}+x+\frac{1}{2})=\lim\limits_{x \to \infty}2x+\frac{1}{2}+\frac{2x^2-x}{(x-1)^2}=2x+\frac{5}{2}$</p>
+<p>【自练】<font color="pink">（2016-2）</font>曲线 $y=\frac{x^3}{1+x^2}+arctan(1+x^2)$ 的斜渐近线方程为？</p>
+<p>解：$f(x)=\lim\limits_{x \to \infty}\frac{x^3}{1+x^2}+arctan(1+x^2)=\lim\limits_{x \to \infty}\frac{(1+x^2)x-x}{1+x^2}+arctan(1+x^2)=\lim\limits_{x \to \infty}x-\frac{x}{1+x^2}+arctan(1+x^2)=\lim\limits_{x \to \infty}x+arctan(1+x^2)$</p>
+<ol>
+<li>当 $x \Rightarrow -\infty$ 时，$f(x)=x-\frac{Π}{2}$</li>
+<li>当 $x \Rightarrow +\infty$ 时，$f(x)=x+\frac{Π}{2}$</li>
+</ol>
+<p>【自练】<font color="pink">（1998-2）</font>$y=xln(e+\frac{1}{x})，(x&gt;0)$ 的渐近线方程为？</p>
+<p>解：</p>
+<ol>
+<li>$\lim\limits_{x \to 0^+}xln(e+\frac{1}{x})=0$，无垂直渐近线；</li>
+<li>$\lim\limits_{x \to \infty}xln(e+\frac{1}{x})=\infty$，无水平渐近线；</li>
+<li>$\lim\limits_{x \to \infty}xln(e+\frac{1}{x})=\lim\limits_{x \to \infty}x \cdot ln[e(1+\frac{1}{ex})]=\lim\limits_{x \to \infty}x(1+ln(1+\frac{1}{ex}))=\lim\limits_{x \to \infty}x(1+\frac{1}{ex})=x+\frac{1}{e}$</li>
+</ol>
+<p><font color="green">解析：</font>$logab=loga+logb$</p>
+<p>【自练】<font color="pink">（2000-2）</font>曲线 $y=(2x-1)e^{\frac{1}{x}}$ 的渐近线</p>
+<p>解：$\lim\limits_{x \to \infty}(2x-1)e^{\frac{1}{x}}=\lim\limits_{x \to \infty}(2x-1)(1+\frac{1}{x})=\lim\limits_{x \to \infty}2x-1+2-\frac{1}{x}=2x+1$</p>
+<p>【自练】<font color="pink">（2005-1）</font>曲线 $y=\frac{x^2}{2x+1}$ 的渐近线</p>
+<p>解：$\lim\limits_{x \to \infty}\frac{x^2}{2x+1}=\lim\limits_{x \to \infty}\frac{x(2x+1)-\frac{1}{2}x(2x+1)-\frac{1}{2}x}{2x+1}=\lim\limits_{x \to \infty}x-\frac{1}{2}x-\frac{\frac{1}{2}x}{2x+1}=\frac{1}{2}x-\frac{1}{4}$</p>
+<p>【自练】<font color="pink">（数学竞赛）</font>$\lim\limits_{x \to 0}\frac{(1+x)^{\frac{1}{x}}-(1+2x)^{\frac{1}{2x}}}{sinx}$</p>
+<p>解：$\lim\limits_{x \to 0}\frac{(1+x)^{\frac{1}{x}}-(1+2x)^{\frac{1}{2x}}}{sinx}=\lim\limits_{x \to 0}\frac{e^{\frac{1}{x}ln(1+x)}-e^{\frac{1}{2x}ln(1+2x)}}{sinx}=\lim\limits_{x \to 0}\frac{e^{\frac{1}{x}(x-\frac{1}{2}x^2)}-e^{\frac{1}{2x}(2x-2x^2)}}{x-\frac{1}{6}x^3}=\lim\limits_{x \to 0}\frac{e^{1-\frac{x}{2}}-e^{1-x}}{x-\frac{1}{6}x^3}=\lim\limits_{x \to 0}e^{1-x} \cdot \frac{e^{\frac{x}{2}}-1}{x-\frac{1}{6}x^3}=\lim\limits_{x \to 0}e\frac{\frac{x}{2}}{x}=\frac{e}{2}$</p>
+<p><font color="green">解析：</font>$e^{ab}=e^a+e^b，e^a \cdot e^b=e^{a+b}$</p>
+<p>【自练】$\lim\limits_{x \to 0}(\frac{cosx+cos2x+……+cosnx}{n})^{\frac{1}{x^2}}$</p>
+<p>解：$\lim\limits_{x \to 0}(\frac{cosx+cos2x+……+cosnx}{n})^{\frac{1}{n^2}}=\lim\limits_{x \to 0}e^{\frac{1}{n^2} \cdot ln{\frac{cosx+cos2x+……+cosnx}{n}})}=\lim\limits_{x\to0}e^{\frac{1}{n^2}ln{\frac{1-\frac{1}{2}n^2}{n}}}$</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/%E4%B8%80.%E6%9E%81%E9%99%90%E8%AE%B2%E4%B9%89/" title="一.极限讲义">https://mdgqdjqr.github.io/blog/2022/05/12/高等数学/一.极限讲义/一.极限讲义/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/%E8%80%83%E7%A0%94/" rel="tag"># 考研</a>
+              <a href="/blog/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/03/21/Linux%20%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85/" rel="prev" title="Linux 系统安装软件包">
+      <i class="fa fa-chevron-left"></i> Linux 系统安装软件包
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%8C.%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E8%AE%B2%E4%B9%89/%E4%BA%8C.%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E8%AE%B2%E4%B9%89/" rel="next" title="二.一元函数微分学讲义">
+      二.一元函数微分学讲义 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E9%A2%84%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="nav-text">0.    预备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"><span class="nav-text">1.    函数定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%9F%BA%E6%9C%AC%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0"><span class="nav-text">2.    基本初等函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%87%BD%E6%95%B0%E6%80%A7%E8%B4%A8"><span class="nav-text">3.    函数性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9E%81%E9%99%90%E7%9A%84%E6%A6%82%E5%BF%B5%E4%B8%8E%E6%80%A7%E8%B4%A8"><span class="nav-text">1.    极限的概念与性质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9E%81%E9%99%90%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">1.    极限的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9E%81%E9%99%90%E6%80%A7%E8%B4%A8"><span class="nav-text">2.    极限性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E6%9E%81%E9%99%90"><span class="nav-text">3.    两个重要极限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E8%AE%A1%E7%AE%97%EF%BC%9A%E5%BF%85%E8%80%83"><span class="nav-text">2.    函数极限计算：必考</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97%E6%B3%95%E5%88%99"><span class="nav-text">1.    四则运算法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%97%A0%E7%A9%B7%E5%B0%8F%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-text">2.    无穷小运算性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%97%A0%E7%A9%B7%E5%B0%8F%E6%AF%94%E8%BE%83"><span class="nav-text">3.    无穷小比较</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%B4%9B%E5%BF%85%E8%BE%BE%E6%B3%95%E5%88%99%EF%BC%9A%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8"><span class="nav-text">4.    洛必达法则：不推荐使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-Max%EF%BC%9A%E6%B1%82%E6%9E%81%E9%99%90%E7%9A%84%E9%A6%96%E9%80%89%E6%96%B9%E6%B3%95"><span class="nav-text">5.    Max：求极限的首选方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="nav-text">3.    数列极限的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%A9%E7%94%A8%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E6%B1%82%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90"><span class="nav-text">1.    利用函数极限求数列极限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%A9%E7%94%A8%E5%A4%B9%E9%80%BC%E5%AE%9A%E7%90%86%E6%B1%82%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90%EF%BC%9A%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8"><span class="nav-text">2.    利用夹逼定理求数列极限：不推荐使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%88%A9%E7%94%A8%E5%8D%95%E8%B0%83%E6%9C%89%E7%95%8C%E5%87%86%E5%88%99%E6%B1%82%E9%80%92%E5%BD%92%E6%95%B0%E5%88%97%E6%9E%81%E9%99%90%EF%BC%9A%E8%80%83%E7%A0%94%E5%87%BA%E9%9A%BE%E9%A2%98"><span class="nav-text">3.    利用单调有界准则求递归数列极限：考研出难题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%9E%81%E9%99%90%E5%BA%94%E7%94%A8"><span class="nav-text">4.    极限应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%BF%9E%E7%BB%AD"><span class="nav-text">1.    连续</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%97%B4%E6%96%AD%EF%BC%9A%E5%BF%85%E8%80%83"><span class="nav-text">2.    间断：必考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B8%90%E8%BF%91%E7%BA%BF"><span class="nav-text">3.    渐近线</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

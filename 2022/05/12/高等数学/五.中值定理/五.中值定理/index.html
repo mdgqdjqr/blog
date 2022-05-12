@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五.中值定理">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-12T09:05:43.000Z">
+<meta property="article:modified_time" content="2022-05-12T07:26:35.634Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="考研">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>五.中值定理 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          五.中值定理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-12 17:05:43 / 修改时间：15:26:35" itemprop="dateCreated datePublished" datetime="2022-05-12T17:05:43+08:00">2022-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%AD%A6%E6%9C%AF%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" itemprop="url" rel="index"><span itemprop="name">学术知识积累</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>该文为学习笔记，仅作学习参考，如有错误，望指正！</p>
+<span id="more"></span>
+<p>笔记说明：</p>
+<p><font color="red">红色：</font>表示重点，口诀，结论；</p>
+<p><font color="yellow">黄色：</font>表示注意点；</p>
+<p><font color="green">绿色：</font>表示解题思路，或方案；</p>
+<p><font color="pink">粉色：</font>真题考试时间；</p>
+<h2 id="五-中值定理：必会"><a href="#五-中值定理：必会" class="headerlink" title="五.    中值定理：必会"></a>五.    中值定理：必会</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><font color="red">考题方向</font>：</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 18、19关于 $’\xi’$ 的命题</td>
+</tr>
+<tr>
+<td>2. 方程根个数的讨论</td>
+</tr>
+<tr>
+<td>3. 不等式的证明</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="1-闭区间连续函数性质"><a href="#1-闭区间连续函数性质" class="headerlink" title="1.    闭区间连续函数性质"></a>1.    闭区间连续函数性质</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th>有界性</th>
+<th>$</th>
+<th>f(x)</th>
+<th>\leq M（M &gt; 0）$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>2</th>
+<th>最值定理</th>
+<th>$m \leq f(x) \leq M（m，M分别为最小值和最大值）$<br>$x \in [a,b]$<br><font color="red">闭介最，开罗格，二阶用泰勒；易积阿罗，多个中值多次用；</font>。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>3</th>
+<th>介值定理</th>
+<th>当 $m \leq u \leq M$，则在 <font color="red">[a,b]</font> 内至少存在一点 $\xi$，使得 $f(\xi)=u$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>4</th>
+<th>零点定理</th>
+<th>当 $f(a)f(b) \leq 0$ <font color="red">【f(a)f(b)$\leq$ 0 严格异号，并在（a,b）】</font>时，则在 $(a,b)$ 内至少存在一点 $\xi$，使得 $f(\xi)=0$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>【例1】设 $f(x)$ 是 $[a,b]$ 上的连续函数，$f(a)、f(b)$ 分别是 $f(x)$ 在 $[a,b]$ 上的最大值，最小值，证明：至少存在一点 $\xi \in[a,b]$ 使 $\int_{a}^{b}f(x)dx=f(a)(\xi-a)+f(b)(b-\xi)$</p>
+<p>解：</p>
+<ol>
+<li><p>解法一：</p>
+<p>令 $F(\xi)=\int_{a}^{b}f(x)dx-f(a)(\xi-a)-f(b)(b-\xi)$</p>
+<p>$F(a)=\int_{a}^{b}f(x)dx-f(b)(b-a)\geq 0$</p>
+<p>$F(b)=\int_{a}^{b}f(x)dx-f(a)(b-a) \leq 0$</p>
+<p>由零点定理：$\exist \xi \in [a,b]$ 使 $F(\xi)=0$</p>
+</li>
+<li><p>解法二：</p>
+<p>设 $F(x)=f(a)(x -a)+f(b)(b-x) F(x)$ 在 $[a,b]$ 连续</p>
+<p>$F’(x)=f(a)-f(b) \geq 0 \Rightarrow F(x)$ 单调递增</p>
+<p>$f(b)(b-a) \leq \int_{a}^{b}f(x)dx \leq f(a)(b-a)$</p>
+<p>$\Rightarrow \exist \xi \in [a,b]$ 使 $F(\xi)=\int_{a}^{b}f(x)dx$</p>
+</li>
+</ol>
+<h3 id="2-微分中值定理"><a href="#2-微分中值定理" class="headerlink" title="2.    微分中值定理"></a>2.    微分中值定理</h3><h4 id="1-费马引理：未考过证明题"><a href="#1-费马引理：未考过证明题" class="headerlink" title="1.    费马引理：未考过证明题"></a>1.    费马引理：未考过证明题</h4><p>设 $f(x)$ 在 $x=x_0$ 处可导且取极值，则 $f’(x_0)=0$</p>
+<p>【证明题】设函数 $f(x)$ 在 $u_{(x_0)}$ 内有定义，并且在 $x_0$ 处可导，$\forall x\in u(x_0)$，$f(x) \exist (f(x) &gt; f(x_0))$，$f’(x_0)=0$ $（取极值的必要条件）$</p>
+<p>证明过程：</p>
+<p>​        不妨设 $x \in u_{(x_0)}$ 时取极大值，$f(x) &lt; f(x_0)$</p>
+<p>​        $f_{-}^{‘}(x_0)=\lim\limits_{\Delta x \to 0^{-}} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} \geq 0$</p>
+<p>​        $f_{+}^{‘}(x_0)=\lim\limits_{\Delta x \to 0^{+}} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} \leq 0$</p>
+<p>​        $f^{‘}(x_0)=0 \Rightarrow f_{+}^{‘}(x_0)=f_{-}^{‘}(x_0)$</p>
+<p>​        故 $f_{+}^{‘}(x_0)=f_{-}^{‘}(x_0)=0$</p>
+<h4 id="2-罗尔定理"><a href="#2-罗尔定理" class="headerlink" title="2.    罗尔定理"></a>2.    罗尔定理</h4><p><font color="pink">（2017）</font><font color="purple">（♥小心）</font>：设 $f(x)$ 在 $[a,b]$ 连续，在 $(a,b)$ 内可导，又 $f(a)=f(b)$ 则在 $(a,b)$ 内至少存在一点 $\xi$，使得 $f’(\xi)=0$</p>
+<h4 id="3-拉格朗日中值定理"><a href="#3-拉格朗日中值定理" class="headerlink" title="3.    拉格朗日中值定理"></a>3.    拉格朗日中值定理</h4><p><font color="pink">（2016、2009-1/2/3 考过最难题）</font><font color="purple">（♥ 小心）</font>设 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，则在 $(a,b)$ 内至少存在一点 $\xi$，使得 $f(b)-f(a)=f’(\xi)(b-a)$</p>
+<p>证明：<font color="red">辅助函数构造（原函数法也称微分方程法）</font>。</p>
+<p>​        $\xi &lt;-&gt;x，f’(x)-\frac{f(b)-f(a)}{b-a}=0，f(x)-\frac{F(b)-F(a)}{b-a}x=c=F(x)$</p>
+<p>​        令 $F(x)=f(x)-\frac{F(b)-F(a)}{b-a}x，F(x) 在 [a,b]上连续，(a,b)可导$</p>
+<p>​        $F(a)=f(a)-\frac{F(b)-F(a)}{b-a}a$</p>
+<p>​        $F(b)=f(b)-\frac{F(b)-F(a)}{b-a}b$</p>
+<p>​        $F(b)-F(a)=0$</p>
+<p>​        由 罗尔定理可知，$\exist \xi \in (a,b)$，使得 $F’(\xi)=0$</p>
+<p>​        故 $f(b)-f(a)=f’(\xi)(b-a)$</p>
+<h4 id="4-柯西中值定理"><a href="#4-柯西中值定理" class="headerlink" title="4.    柯西中值定理"></a>4.    柯西中值定理</h4><p><font color="pink">（未考过证明，用罗尔证明）</font>设 $f(x)，g(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，且 $g(x) \neq 0$，则在 $(a,b)$ 内至少存在一点 $\xi$，使得 $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f’(\xi)}{g’(\xi)}$ </p>
+<p>证明：</p>
+<p>​        $\xi &lt;-&gt; x，g’(x)[f(b)-f(a)]-f’(x)[g(b)-g(a)]=0$</p>
+<p>​        $g(x)[f(b)-f(a)]-f(x)[g(b)-g(a)]=c$</p>
+<p>​        令 $F(x)=g(x)[f(b)-f(a)]-f(x)[g(b)-g(a)]$</p>
+<p>​        $F(a)=g(a)[f(b)-f(a)]-f(a)[g(b)-g(a)]$</p>
+<p>​        $F(b)=g(b)[f(b)-f(a)]-f(b)[g(b)-g(a)]$</p>
+<p>​        $F(b)-F(a)=0$</p>
+<p>​        $F(x)$ 在 $[a,b]$ 上连续，$(a,b)$ 内可导，$F(a)=F(b)$</p>
+<p>​        由 罗尔定理 $\exist \xi \in (a,b)$，使得 $F’(\xi)=0$</p>
+<p>​        则 在 $(a,b)$ 内存在一点 $\xi$，使得 $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f’(\xi)}{g’(\xi)}$</p>
+<h4 id="5-泰勒公式"><a href="#5-泰勒公式" class="headerlink" title="5.    泰勒公式"></a>5.    泰勒公式</h4><p>设 $f(x)$ 在 $[a,b]$ 上 $n$ 阶导数连续，在 $(a,b)$ 内 $n+1$ 阶可导，则 </p>
+<p>$\begin{aligned}f(x)=&amp;f(x_0)+f’(x_0)(x-x_0)+\frac{1}{2!}f’’(x_0)(x-x_0)^2+…+\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\\ &amp;\frac{1}{(n+1)!}f^{(n+1)}(\xi)(x-x_0)^{n+1}（此项为余项）\end{aligned}$</p>
+<ol>
+<li><p>带有佩亚诺余项的 $n$ 阶泰勒公式：设 $f(x)$ 在点 $x_0$ 处 $n$ 阶可导（此为条件）</p>
+<p>$f(x)=f(x_0)+f’(x_0)(x-x_0)+\frac{1}{2!}f’’(x_0)(x-x_0)^2+…+\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+O(x^n)$</p>
+</li>
+<li><p>带有拉格朗日余项的 $n$ 阶泰勒公式：$f(x)$ 在 $[a,b]$ 上 $n$ 阶导数连续，在 $(a,b)$ 内 $n+1$ （因余项不同）阶可导（此为条件）</p>
+<p>$\begin{aligned}f(x)=&amp;f(x_0)+f’(x_0)(x-x_0)+\frac{1}{2!}f’’(x_0)(x-x_0)^2+…+\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+\\ &amp;\frac{1}{(n+1)!}f^{(n+1)}(\xi)(x-x_0)^{n+1}\end{aligned}$</p>
+<p><font color="red">注意：</font>$\xi$ 猫在 $x$ 和 $x_0$ 之间</p>
+</li>
+</ol>
+<p><font color="red">【总结】</font>：</p>
+<ol>
+<li>三阶或三阶以上可导条件，$\xi$ 存在证明——拉格型<font color="green">（出题小概率，基本没考过）</font>；</li>
+<li>无穷小型极限，高阶导数——配亚诺型；</li>
+</ol>
+<p><font color="red">注意</font>：</p>
+<p>​        当 $x_0=0$ 时，——&gt; 麦克劳林公式</p>
+<p>​        带有配亚诺的 $n$​ 阶麦克劳林公式：$f(x)=f(x_0)+f’(x_0)(x-x_0)+\frac{1}{2!}f’’(x_0)(x-x_0)^2+…+\frac{1}{n!}f^{(n)}(x_0)(x-x_0)^n+O(x^n)$</p>
+<p>【例2】设 $f(x)$ 在 $[0,1]$ 上二阶可导，$f(0)=f(1)$，证明：存在 $\xi \in (0,1)$，使得 $f’’(\xi)=\frac{2f’(\xi)}{1-\xi}$</p>
+<p>【分析】：</p>
+<p>​        $\xi &lt;-&gt;x，f’’(x)=\frac{2f’(x)}{1-x}$ （解微分方程）</p>
+<p>​        $\frac{f’’(x)}{f’(x)}=\frac{2}{1-x} \Rightarrow lnf’(x)=-2ln(1-x)+lnC$</p>
+<p>​        $lnf’(x)+ln(1-x)^2=lnC \therefore C=(x-1)^2f’(x)$</p>
+<p>【证明】：</p>
+<p>​        令 $F(x)=(x-1)^2f’(x)$</p>
+<p>​        $f(x)$ 在 $[0,1]$ 上连续，$(0,1)$ 内可导</p>
+<p>​        $\because f(0)=f(1)$ 由罗尔定理 $\therefore \exist c \in (0,1)$，使得 $f’(c)=0$</p>
+<p>​        $F(x)$ 在 $[c,1]$ 上连续，$(c,1)$ 内可导</p>
+<p>​        $F(c)=F(1)=0$，由罗尔定理 $\therefore \exist \xi \in(c,1)$，使得 $f’(\xi)=0$</p>
+<p>​        即 $f’’(\xi)=\frac{2f’(\xi)}{1-\xi}$</p>
+<p><font color="red">【结论】</font>：证明 $f’(\xi)+g(\xi)f(\xi)=0$</p>
+<p>​        $\xi \leftrightarrow x，f’(x)+g(x)f(x)=0$（一阶线性齐次微分方程）</p>
+<p>​        $\frac{f’(x)}{f(x)}=-g(x) \Rightarrow lnf(x)=-\int g(x)dx+lnC$</p>
+<p>​        则 $F(x)=C=f(x)e^{\int g(x)dx}$</p>
+<p><font color="red">【补充】</font>：</p>
+<ol>
+<li>$f’(\xi)=\frac{2f(\xi)}{\xi} \Rightarrow F(x)=\frac{f(x)}{x^2}$</li>
+<li>$f’’(\xi)-2f’(\xi)+f(\xi)=0 \Rightarrow F(x)=e^{-x}(f’(x)-f(x))$</li>
+</ol>
+<p>解：$\xi \leftrightarrow x，f’’(x)-2f’(x)+f(x)=0$</p>
+<p>$f(x)=(C_1+C_2x)e^x$ <font color="green">（想求 C 就得求导）</font>.</p>
+<p>$f’(x)=(C_1+C_2+C_2x)e^x$</p>
+<p>$f’(x)-f(x)=C_2e^x$</p>
+<p>$\therefore C_2=e^{-x}(f’(x)-f(x))=F(x)$</p>
+<p>【证明】$f’(\xi)+g(\xi)f(\xi)=h(\xi)$</p>
+<p>解：$\xi \leftrightarrow x，f’(x)+g(x)f(x)=h(x)$ （一阶线性非齐次方程）</p>
+<p>【自练】$f’(\xi)+f(\xi)=1$</p>
+<p>解：$\xi \leftrightarrow x，f’(x)+f(x)=1$</p>
+<p>$[e^xf(x)]’=e^x \Rightarrow e^xf(x)=e^x+C$</p>
+<p>$\Rightarrow F(x)=C=e^x[f(x)-1]$</p>
+<p>【例3】设 $f(x)$ 在 $[a,b]$ 上连续，在 $(a,b)$ 内可导，试证存在 $\xi \in (a,b)，\eta \in (a,b)$ ，使得 $f’(\xi)=\frac{a+b}{2\eta}f’(\eta)$</p>
+<p>【分析】：</p>
+<p>​        $\exist \xi \in(a,b)（拉格）\Rightarrow f’(\xi)=\frac{f(b)-f(a)}{b-a}$</p>
+<p>​        $f’(\xi)=\frac{a+b}{2\eta}f’(\eta)$ （两变量用分离变量）</p>
+<p>​        $f’(\xi)=\frac{f(b)-f(a)}{b-a}$    拉格</p>
+<p>​        $\frac{f’(\eta)}{2\eta}=\frac{f(b)-f(a)}{b-a}$    柯西    <font color="red">（柯西中往往 $f(\xi)$ 为抽象，$g(\xi)$ 为幂函数，指函数）</font>.</p>
+<p>​        $f’(\xi)=\frac{a+b}{2\eta}f’(\eta)$</p>
+<p>​        <font color="red">注意：</font> 致命漏洞 $\xi=\eta=\frac{a+b}{2}$</p>
+<p>解：$\exist \xi \in (a,b)$</p>
+<p>拉格 $\Rightarrow f’(\xi)=\frac{f(b)-f(a)}{b-a}（拉格）$</p>
+<p>​        $\Rightarrow \frac{f’(\eta)}{2\eta}=\frac{f(b)-f(a)}{b^2-a^2}（柯西）$</p>
+<p>$\Rightarrow f’(\xi)=\frac{a+b}{2\eta}f’(\eta)$</p>
+<h3 id="3-积分中值定理"><a href="#3-积分中值定理" class="headerlink" title="3.    积分中值定理"></a>3.    积分中值定理</h3><ol>
+<li><p>积分中值定理 <font color="red">（数一小心会考）</font>：设 $f(x)$ 在 $[a,b]$ 上连续，则在 <font color="red">[</font>a,b<font color="red">]</font> 内至少有一点 $\xi$，使得 $\int_{a}^{b}f(x)dx=f(\xi)(b-a)$ <font color="red">（2008-2）</font>。</p>
+</li>
+<li><p>积分中值定理加强版：设 $f(x)$ 在 $[a,b]$ 上连续，则在 <font color="red">(</font>$a,b$<font color="red">)</font> 内至少存在一点 $\xi$，使得 $\int_{a}^{b}f(x)dx=f(\xi)(b-a)$ （需先证明）</p>
+<p>【例4】<font color="pink">（2010-3）</font>函数 $f(x)$ 在 $[0,3]$ 上连续，在 $(0,3)$ 内存在二阶导数，且 $2f(0)=\int_{0}^{2}f(x)dx=f(2)+f(3)$</p>
+<ol>
+<li>证明：存在 $\eta \in (0,2)$，使 $f(\eta)=f(0)$；</li>
+<li><p>证明：存在 $\xi \in (0,3)$，使 $f’’(\xi)=0$；</p>
+</li>
+<li><p>【证明】：</p>
+<p>设 $F(x)=\int_{0}^{x}f(t)dt$</p>
+<p>$\int_{0}^{2}f(x)dx=F(2)-F(0) （拉格）\Rightarrow F’(\xi)(2-0)=f’(\xi)(2-0) \xi \in (0,2)$</p>
+<p>$\Rightarrow \int_{0}^{2}f(x)dx=2f(\eta)=2f(0)$</p>
+<p>$\Rightarrow f(\eta)=f(0)，\eta \in (0,2)$</p>
+</li>
+<li><p>【证明】：</p>
+<p>$f(x)$ 在 $[2,3]$ 最小值为 $m$，最大值为 $M$</p>
+<p>$m \leq f(x) \leq M，m \leq \frac{f(2)+f(3)}{2} \leq M （介值）\Rightarrow \exist \xi_0 \in [2,3]，f(\xi_0)=\frac{f(2)+f(3)}{2}$</p>
+<p>$f(0)=f(\eta)=f(\xi_0) \Rightarrow 0&lt;\eta&lt;2\leq \xi_0 \leq 3$</p>
+<p>$（罗尔）\Rightarrow \exist \xi_1 \in (0,\eta)，\xi_2 \in (\eta,\xi_0)$ 使得 $f’(\xi_1)=0，f’(\xi_2)=0$</p>
+<p>$（罗尔）\Rightarrow \exist \xi \in(\xi_1,\xi_2)&lt;(0,3)$，使得 $f’’(\xi)=0$</p>
+</li>
+</ol>
+<p><font color="red">积分符号想脱掉，想起中值和比较；等式形式用中值，不等形式用比较；</font>.</p>
+</li>
+<li><p>补充：</p>
+<p>若 $f(x)$ 在 $[a,b]$ 连续，$a<x_1<x_2<...<x_n<b，c_i>0，i=1,2,…,n$，则在区间 $[x_1,x_n]$ 内 $\exist \xi$ 满足 $f(\xi)=\frac{c_1f_1(x)+C_2f_2(x)+…+c_nf_n(x)}{c_1+c_2+…+c_n}$</x_1<x_2<...<x_n<b，c_i></p>
+<p><font color="red">闭介最，若取 $c_1=c_2=…=c_n=1，f(\xi)=\frac{f_1(x_1)+f_2(x_2)+…+f_n(x_n)}{n}$</font>.</p>
+<p>【例】：$\frac{f(0)+f(1)+4f(3)}{6}=f(\xi)，\frac{f(0)+f(1)+2f(3)}{4}=f(\xi)$</p>
+</li>
+</ol>
+<h3 id="4-方程根的讨论"><a href="#4-方程根的讨论" class="headerlink" title="4.    方程根的讨论"></a>4.    方程根的讨论</h3><p>存在性——零点定理、罗尔定理<font color="pink">（2017）</font>;</p>
+<p>唯一性——单调性；</p>
+<p>个数判断——函数性态 <font color="red">（罗尔定理逆否命题不能用）</font>；</p>
+<p>【例5】<font color="pink">（2008-2）</font>设函数 $f(x)=x^2(x-1)(x-2)$，则 $f’(x)$ 的零点个数为（    D    ）</p>
+<p>A. 0</p>
+<p>B. 1</p>
+<p>C. 2</p>
+<p>D. 3</p>
+<p><font color="green">解析：</font><font color="red">方程根的个数 $\Leftrightarrow$ 函数零点个数 $\Leftrightarrow$ 曲线交点个数</font>；</p>
+<p>【自练】$f(x)=(x-1)(x-2)^2(x-3)$</p>
+<p>【例6】<font color="pink">（2017-1/2）</font>设函数 $f(x)$ 在区间 $[0,1]$ 上具有 2 阶导数，且 $f(1)&gt;0，\lim\limits_{x \to 0^+}\frac{f(x)}{x}&lt;0$，证明：</p>
+<ol>
+<li>方程 $f(x)=0$ 在区间 $(0,1)$ 内至少存在一个实根；</li>
+<li><p>方程 $f(x)f’’(x)+[f’(x)]^2=0$ 在区间 $(0,1)$ 内至少存在两个不同实根；</p>
+</li>
+<li><p>【证明】：</p>
+<p>由 $\lim\limits_{x \to 0^+}\frac{f(x)}{x}<0（保号）\Rightarrow \exist \delta>0$，当 $x_1 \in (0,0+\delta)$ 时，有 $\frac{f(x_1)}{x_1}&lt;0$</0（保号）\Rightarrow></p>
+<p>$\Rightarrow f(x_1)<0，f(1)>0（零点）\Rightarrow \exist \xi_1 \in (x,1)&lt;(0,1)$</0，f(1)></p>
+<p>$f(\xi_1)=0 \Rightarrow f(x)=0$，在区间 $(0,1)$ 内至少存在一个实根</p>
+</li>
+<li><p>【证明】：</p>
+<p>$f(x)f’’(x)+[f’(x)]^2=[f(x)f’(x)]=0$</p>
+<p>令 $F(x)=f(x)f’(x)$</p>
+<p>由 1 可知 $f(\xi_1)=0 \Rightarrow F(\xi_1)=0$</p>
+<p>$\lim\limits_{x \to 0^+}\frac{f(x)}{x}&lt;0（简易）\Rightarrow \lim\limits_{x \to 0^+}f(x)=0=f(0) \Rightarrow F(0)=0$</p>
+<p>$f(0)=f(\xi_1)=0（罗尔）\Rightarrow \exist \xi_2 \in (0,\xi_1)，f’(\xi_2)=0 \Rightarrow F(\xi_2)=0$</p>
+<p>由 $F(0)=0，F(\xi_2)=0（罗尔）\Rightarrow \exist \eta_1 \in (0,\xi_2)$，使 $F’(\eta_1)=0$</p>
+<p>同理：$\exist \eta_2 \in (\xi_2,\xi_1)$，使 $F’(\eta_2)=0，\eta_1 \neq \eta_2$</p>
+<p>故方程 $f(x)f’’(x)+[f’(x)]^2=0$ 在区间 $(0,1)$ 内至少存在两个不同实根</p>
+</li>
+</ol>
+<h3 id="5-不等式的证明——单调性、凹凸性"><a href="#5-不等式的证明——单调性、凹凸性" class="headerlink" title="5.    不等式的证明——单调性、凹凸性"></a>5.    不等式的证明——单调性、凹凸性</h3><ol>
+<li><p><font color="red">【注意】：证明不等式 $\Leftrightarrow$ 求函数最值</font>；</p>
+<p>【例7】<font color="pink">（2012-1/2/3）</font>证明 $xln\frac{1+x}{1-x}+cosx\geq1+\frac{x^2}{2}（-1&lt;x&lt;1）$</p>
+<p>解：令 $f(x)=xln\frac{1+x}{1-x}+cosx-1-\frac{x^2}{2}$</p>
+<p>$f’(x)=ln\frac{1+x}{1-x}+\frac{2x}{1-x}-sinx-x$</p>
+<p>$f’’(x)=\frac{4}{(1-x^2)^2}-1-cosx$</p>
+<p>当 $-1&lt;x&lt;1$ 时，$\frac{4}{(1-x^2)^2}\geq 4，1+cosx \leq 2$</p>
+<p>$f’’(x) \geq 2&gt;0$，则 $f’(0)=0$</p>
+<p>$x \in (-1,0)$ 时，$f’(x)&lt;f’(0)=0$</p>
+<p>$x \in (0,1)$ 时，$f’(x) &gt; f’(0)=0$</p>
+<p>故 $f(0)$ 是 $f(x)$ 最小值，$f(0)=0，f(x) \geq f(0)=0$</p>
+</li>
+<li><p>凹凸性；</p>
+<p>解：令 $f(x)=xln\frac{1+x}{1-x}+cosx-1-\frac{x^2}{2}，f(0)=0$</p>
+<p>$f’(x)=ln\frac{1+x}{1-x}+\frac{2x}{1-x}-sinx-x，f’(0)=0$</p>
+<p>$f’’(x)=\frac{4}{(1-x^2)^2}-1-cosx\geq2&gt;0$</p>
+<p>故 $x=0$ 是 $f(x)$ 极小值，也是极小值点，$f(x)\geq f(0)=0$</p>
+</li>
+<li><p>奇偶性；</p>
+<p>记 $f(x)=xln\frac{1+x}{1-x}+cosx-1-\frac{x^2}{2}，f(x)$ 为偶函数</p>
+<p>当 $0 \leq x \leqq 1，f’(x)=ln\frac{1+x}{1-x}+\frac{2x}{1-x}-sinx-x\geq x-sinx \geq 0$</p>
+<p>$f(x)$ 单调递增，$f(0)=0，f(x)\geq f(0)=0$ </p>
+</li>
+</ol>
+<p>【自练】<font color="pink">（未出过）</font>：</p>
+<ol>
+<li>设 $x \in (0,1)$，证明 $(1-x)e^x &lt; (1-\frac{x}{2})^x$</li>
+<li>设 $x \in (0,1)$，证明 $\sqrt{\frac{1-x}{1+x}}&lt;\frac{ln(1-x)}{arcsinx}$</li>
+</ol>
+<p>【例8】<font color="pink">（2006-2/3）</font>证明：当 $0<a<b<\pi$ 时，$bsinb+2cosb+\pi b>asina+2cosa+\pi a$</a<b<\pi$></p>
+<p>解：设 $F(x)=xsinx+2cosx+\pi x（x\in(0,\pi)）$</p>
+<p>$F’(x)=sinx+xcosx-2sinx+\pi=xcosx-sinx+\pi，F’(\pi)=0$</p>
+<p>$F’’(x)=-xsinx&lt;0$</p>
+<p>$\therefore F’(x)&gt;F’’(\pi)\geq0 \Rightarrow F(x)$ 单调递增</p>
+<p>$\therefore F(b)&gt;F(a) \Rightarrow$ 则 $bsinb+2cosb+\pi b &gt;asina+2cosa +\pi a$</p>
+<p>【例9】<font color="pink">（2010-1/2/3）</font>：</p>
+<ol>
+<li>比较 $\int_{0}^{1}|lnt|[ln(1+t)]^ndt$ 与 $\int_{0}^{1}t^n|lnt|dt（n=1,2,…）$ 的大小，说明理由。</li>
+<li>$U_n=\int_0^1|lnt|[ln(1+t)]^ndt（n=1,2,…）$，求极限 $\lim\limits_{n \to \infty}U_n$</li>
+</ol>
+<p>解：</p>
+<ol>
+<li><p>当 $0\leq t \leq 1$ 时，$ln(1+t) \leq t$</p>
+<p>$|lnt|[ln(1+t)]^n \leq t^n|lnt|$</p>
+<p>$\int_{0}^{1}|lnt|[ln(1+t)]^ndt \leq \int_0^1t^n|lnt|dt$</p>
+</li>
+<li><p>由第 1 问可知</p>
+<p>$\begin{aligned}0 \leq U_n &amp;=\int_0^1|lnt|[ln(1+t)]^ndt \leq \int_0^1 |lnt|t^ndt \\ &amp;=-[\frac{1}{n+1}t^{n+1}lnt|_0^1 -\int_0^1\frac{t^n}{n+1}dt] \\ &amp;=\int_0^1\frac{t^n}{n+1}dt \\ &amp;=\frac{t^{n+1}}{(n+1)^2}|_0^1 \\ &amp;=\frac{1}{(n+1)^2}\end{aligned}$</p>
+</li>
+</ol>
+<p>由夹逼定理 $\Rightarrow \lim\limits_{n \to \infty}U_n=0$</p>
+<p>【例10】<font color="pink">（2010-2）</font>设函数 $f(x)$ 在 $[0,1]$ 上连续，$(0,1)$ 可导，且 $f(0)=0，f(1)=\frac{1}{3}$，证明 $\exist \xi \in (0,\frac{1}{2})，\eta \in (\frac{1}{2},1)$ 使 $f’(\xi)+f’(\eta)=\xi^2+\eta^2$</p>
+<p>【分析】：</p>
+<p>​        $f’(\xi)-\xi^2+f’(\eta)-\eta^2=0$</p>
+<p>​        $\Rightarrow [f(x)-\frac{1}{3}x^3]’|_{\xi=x}=[f(x)-\frac{1}{3}x^3]’|_{x=\eta}=0$</p>
+<p>解：令 $F(x)=f(x)-\frac{1}{3}x^3，F(0)=0，F(1)=0$</p>
+<p>$（拉格2次）\Rightarrow$</p>
+<p>​        $F(\frac{1}{2})-F(0)=\frac{1}{2}F’(\xi)，\xi \in (0,\frac{1}{2})$</p>
+<p>​        $F(1)-F(\frac{1}{2})=\frac{1}{2}F’(\eta)，\eta \in (\frac{1}{2},1)$</p>
+<p>$1+2=F(1)-F(0)=0=\frac{1}{2}[f’(\xi)+F’(\eta)]$</p>
+<p>$\Rightarrow f’(\xi)+f’(\eta)=\xi^2+\eta^2$</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/" title="五.中值定理">https://mdgqdjqr.github.io/blog/2022/05/12/高等数学/五.中值定理/五.中值定理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/%E8%80%83%E7%A0%94/" rel="tag"># 考研</a>
+              <a href="/blog/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" rel="prev" title="四.微分方程">
+      <i class="fa fa-chevron-left"></i> 四.微分方程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AD.%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/%E5%85%AD.%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/" rel="next" title="六.多元函数微分学">
+      六.多元函数微分学 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94-%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86%EF%BC%9A%E5%BF%85%E4%BC%9A"><span class="nav-text">五.    中值定理：必会</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%97%AD%E5%8C%BA%E9%97%B4%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0%E6%80%A7%E8%B4%A8"><span class="nav-text">1.    闭区间连续函数性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%BE%AE%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">2.    微分中值定理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%B4%B9%E9%A9%AC%E5%BC%95%E7%90%86%EF%BC%9A%E6%9C%AA%E8%80%83%E8%BF%87%E8%AF%81%E6%98%8E%E9%A2%98"><span class="nav-text">1.    费马引理：未考过证明题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%BD%97%E5%B0%94%E5%AE%9A%E7%90%86"><span class="nav-text">2.    罗尔定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">3.    拉格朗日中值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9F%AF%E8%A5%BF%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">4.    柯西中值定理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F"><span class="nav-text">5.    泰勒公式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%A7%AF%E5%88%86%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-text">3.    积分中值定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%96%B9%E7%A8%8B%E6%A0%B9%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="nav-text">4.    方程根的讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E4%B8%8D%E7%AD%89%E5%BC%8F%E7%9A%84%E8%AF%81%E6%98%8E%E2%80%94%E2%80%94%E5%8D%95%E8%B0%83%E6%80%A7%E3%80%81%E5%87%B9%E5%87%B8%E6%80%A7"><span class="nav-text">5.    不等式的证明——单调性、凹凸性</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

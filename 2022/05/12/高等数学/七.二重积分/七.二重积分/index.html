@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="七.二重积分">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.1.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.2.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.3.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.3.2.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.3.3.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.1.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.1.2.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.1.3.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.2.1.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.2.2.jpg">
+<meta property="og:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.2.3.jpg">
+<meta property="article:published_time" content="2022-05-12T09:07:43.000Z">
+<meta property="article:modified_time" content="2022-05-12T07:45:48.040Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="考研">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.1.1.jpg">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>七.二重积分 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          七.二重积分
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-12 17:07:43 / 修改时间：15:45:48" itemprop="dateCreated datePublished" datetime="2022-05-12T17:07:43+08:00">2022-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%AD%A6%E6%9C%AF%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" itemprop="url" rel="index"><span itemprop="name">学术知识积累</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>该文为学习笔记，仅作学习参考，如有错误，望指正！</p>
+<span id="more"></span>
+<p>笔记说明：</p>
+<p><font color="red">红色：</font>表示重点，口诀，结论；</p>
+<p><font color="yellow">黄色：</font>表示注意点；</p>
+<p><font color="green">绿色：</font>表示解题思路，或方案；</p>
+<p><font color="pink">粉色：</font>真题考试时间；</p>
+<h2 id="七-二重积分"><a href="#七-二重积分" class="headerlink" title="七.    二重积分"></a>七.    二重积分</h2><h3 id="1-二重积分概念"><a href="#1-二重积分概念" class="headerlink" title="1.    二重积分概念"></a>1.    二重积分概念</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1.    定义"></a>1.    定义</h4><p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.1.1.jpg" alt></p>
+<p>$\iint\limits_{D}f(x,y)d_{\sigma}=\lim\limits_{\lambda \to 0}\sum\limits_{i=1}^nf(\xi_i,\eta_i)\Delta\sigma_i（\lambda=max \Delta \sigma_i）$</p>
+<p>【例1】<font color="pink">（2010-1/2）</font>$\lim\limits_{n \to \infty}\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}\frac{n}{(n+i)(n^2+j^2)}=$（        ）</p>
+<p>A.    $\int_{0}^{1}dx\int_{0}^{x}\frac{1}{(1+x)(1+y^2)}dy$</p>
+<p>B.    $\int_{0}^{1}dx\int_{0}^{x}\frac{1}{(1+x)(1+y)}dy$</p>
+<p>C.    $\int_{0}^{1}dx\int_{0}^{1}\frac{1}{(1+x)(1+y)}dy$</p>
+<p>D.    $\int_{0}^{1}\int_{0}^{1}\frac{1}{(1+x)(1+y^2)}dy$</p>
+<p><font color="green">解析</font>：</p>
+<ol>
+<li>$I=\lim\limits_{n \to \infty}\sum\limits_{i=1}^{n}\sum\limits_{j=1}^{n}\frac{n}{(n+i)(n^2+j^2)}\frac{1}{n}\frac{1}{n}=\int_{0}^{1}[\int_{0}^{1}\frac{1}{(1+x)(1+y^2)}dy]dx=\int_{0}^{1}\frac{1}{1+x}dx\int_{0}^{1}\frac{1}{1+y^2}dy=ln2 \cdot \frac{\pi}{4}$</li>
+<li>$I=\lim\limits_{n \to \infty}\sum\limits_{i=1}^{n}\frac{1}{n+i}\sum\limits_{j=1}^{n}\frac{n}{n^2+j^2}=\lim\limits_{n \to \infty}\sum\limits_{i=1}^{n}\frac{1}{1+\frac{i}{n}}\frac{1}{n} \sum\limits_{j=1}^{n}\frac{1}{1+(\frac{i}{n})^2}\frac{1}{n}=\int_{0}^{1}\frac{1}{1+x}dx\int_{0}^{1}\frac{1}{1+y^2}dy=\int_{0}^{1}dx\int_{0}^{1}\frac{1}{(1+x)(1+y^2)}dy$</li>
+</ol>
+<h4 id="2-几何意义"><a href="#2-几何意义" class="headerlink" title="2.    几何意义"></a>2.    几何意义</h4><p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.2.1.jpg" alt></p>
+<p><font color="red">【注】</font>：</p>
+<p>$\iint\limits_{D}[\alpha f(x,y)+\beta g(x,y)]d_{\sigma}=\alpha \iint\limits_{D}f(x,y)d_{\sigma}+\beta \iint\limits_{D}g(x,y)d_{\sigma}$</p>
+<p>$\iint\limits_{D}f(x,y)d_{\sigma}=\iint\limits_{D_1}f(x,y)d_{\sigma}+\iint\limits_{D_2}f(x,y)d_{\sigma}（D=D_1+D_2）$</p>
+<p>$f(x,y)=1$，则 $\iint\limits_{D}1d_{\sigma}=\iint\limits_{D}d_{\sigma}=A$</p>
+<p>$f(x,y) \leq g(x,y)$，则 $\iint\limits_{D}f(x,y)d_{\sigma} \leq \iint\limits_{D}g(x,y)d_{\sigma}$，特别的 $|\iint\limits_{D}f(x,y)d_{\sigma}| \leq \iint\limits_{D}|f(x,y)|d_{\sigma}$ （积分比较定理）</p>
+<p>$m \leq f(x,y) \leq M$，则 $mA \leq \iint\limits_{D}f(x,y)d_{\sigma} \leq MA（没出过）$</p>
+<p>$\iint\limits_{D}f(x,y)d_{\sigma}=f(\xi,\eta) \cdot A，（\xi,\eta）\in D，（二重积分中值定理：考不到）$</p>
+<p>【例2】设 $D=\{(x,y)|x\geq0,0 \leq y \leq \sqrt{1-x^2}\}$，则 $\iint\limits_{D}\sqrt{1-x^2-y^2}dxdy=$?</p>
+<p>解：令 $z=\sqrt{1-x^2-y^2} \Rightarrow x^2+y^2+z^2=1$</p>
+<p>$V=\frac{1}{8}\frac{4}{3}\pi 1^3=\frac{1}{8}\frac{4}{3}\pi R^3=\frac{\pi}{6}$</p>
+<h4 id="3-对称性"><a href="#3-对称性" class="headerlink" title="3.    对称性"></a>3.    对称性</h4><ol>
+<li><p>若 D 关于 <font color="red">x</font> 轴对称，则 $\iint\limits_{D}f(x,y)dxdy=\begin{cases} 0, &amp; f(x,-y)=-f(x,y) \\ 2\iint\limits_{D_1}f(x,y)dxdy, &amp; f(x,-y)=f(x,y)\end{cases}$，看 <font color="red">y</font>；</p>
+</li>
+<li><p>若 D 关于 <font color="red">y</font> 轴对称，则 $\iint\limits_{D}f(x,y)dxdy=\begin{cases} 0, &amp; f(-x,y)=-f(x,y) \\ 2\iint\limits_{D_1}f(x,y)dxdy, &amp; f(-x,y)=f(x,y)\end{cases}$，看 <font color="red">x</font>；</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.3.1.jpg" alt></p>
+</li>
+<li><p>若 D 关于 <font color="red">原点</font> 对称，则 $\iint\limits_{D}f(x,y)dxdy=\begin{cases} 0, &amp; f(-x,-y)=-f(x,y) （奇） \\ 2\int\limits_{D_1}f(x,y)dxdy, &amp; f(-x,-y)=f(x,y)（偶）\end{cases}$</p>
+</li>
+<li><p>若 D 关于 <font color="red">y=x轴</font> 对称，则 </p>
+<p>$\iint\limits_{D_1}f(x,y)dxdy=\iint\limits_{D_2}f(y,x)dxdy$ <font color="red">轮换对称性</font>；</p>
+<p>$\iint\limits_{D}f(x,y)dxdy=\iint\limits_{D}f(y,x)dxdy$</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.3.2.jpg" alt></p>
+</li>
+</ol>
+<p>【例3】<font color="pink">（2009-1）</font>如图，正方形 $\{(x,y)|\ |x| \leq 1，|y| \leq 1\}$ 被其对角线划分为四个区域 $D_{k}(k=1,2,3,4)$，$I_{k}=\iint\limits_{D_{k}}ycosxdxdy$，则 $\max\limits_{1 \leq k \leq 4}\{I_{k}\}=$（    A    ）</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.1.3.3.jpg" style="zoom:25%;"></p>
+<p>A.    $I_{1}$</p>
+<p>B.    $I_{2}$</p>
+<p>C.    $I_{3}$</p>
+<p>D.    $I_{4}$</p>
+<p><font color="green">解析：</font>$I_{2}=I_{4}=0$</p>
+<p>【例4】<font color="pink">（2016-3）</font>设 $J_{i}=\iint\limits_{D_{i}}\sqrt[3]{x-y}dxdy（i=1,2,3）$，其中 $D_{1}=\{(x,y) | 0 \leq x \leq 1，0 \leq y \leq 1\}$，$D_{2}=\{(x,y) | 0 \leq x \leq1，0 \leq y \leq \sqrt{x}\}$，$D_{3}=\{(x,y)|0 \leq x \leq 1，x^{2} \leq y \leq 1\}$，则 （    B    ）</p>
+<p>A.    $J_{1}&lt;J_{2}&lt;J_{3}$</p>
+<p>B.    $J_{3}&lt;J_{1}&lt;J_{2}$</p>
+<p>C.    $J_2&lt;J_3&lt;J_1$</p>
+<p>D.    $J_2&lt;J_1&lt;J_3$</p>
+<p><font color="green">解析</font>：</p>
+<p>$J_{1}=\iint\limits_{D_{1}}\sqrt[3]{x-y}dxdy=\iint\limits_{D}\sqrt[3]{y-x}dydx =（反折）\frac{1}{2}\iint\limits_{D}dydx=0$</p>
+<h3 id="2-二重积分计算"><a href="#2-二重积分计算" class="headerlink" title="2.    二重积分计算"></a>2.    二重积分计算</h3><h4 id="1-直角坐标系"><a href="#1-直角坐标系" class="headerlink" title="1.    直角坐标系"></a>1.    直角坐标系</h4><p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.1.1.jpg" style="zoom:50%;"></p>
+<p>$A(x)=\int_{\varphi_{1}(x)}^{\varphi_2(x)}f(x,y)dy$</p>
+<p>$V=\int_{a}^{b}A(x)dx=\int_{a}^{b}[\int_{\varphi_{1}(x)}^{\varphi_{2}(x)}f(x,y)dy]dx=\int_{a}^{b}dx\int_{\varphi_{1}(x)}^{\varphi_{2}(x)}f(x,y)dy$</p>
+<p><font color="red">【结记】：</font>后积先定限（常数限），限内画条线，先交下限写，后交上限见；</p>
+<ol>
+<li><p>先 y 后 x：$\iint\limits_{D}f(x,y)d_{\sigma}=\int_{a}^{b}dx\int_{\varphi_{1}(x)}^{\varphi_{2}(x)}f(x,y)dy$</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.1.2.jpg" alt></p>
+</li>
+<li><p>先 x 后 y：$\iint\limits_{D}f(x,y)d_{\sigma}=\int_{c}^{d}dy\int_{\psi_1(y)}^{\psi_{2}(y)}f(x,y)dx$</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.1.3.jpg" alt></p>
+</li>
+</ol>
+<p>【例5】交换二次积分的积分次序：$\int_{0}^{\pi}dx\int_{sinx}^{1}f(x,y)dy=$？</p>
+<p>解：$\int_{0}^{\pi}dx\int_{sinx}^{1}f(x,y)dy=\iint\limits_{D_1}+\iint\limits_{D_2}=\int_{0}^{1}dy\int_{0}^{arcsiny}f(x,y)dx+\int_{0}^{1}dy\int_{\pi-arcsiny}^{\pi}f(x,y)dx$</p>
+<p>【例6】<font color="pink">（2015-2/3）</font>计算二重积分 $\iint\limits_{D}x(x+y)dxdy$，其中 $D=\{(x,y)|x^2+y^2 \leq 2，y \geq x^2\}$</p>
+<p>解：</p>
+<p>$\begin{aligned}I&amp;=2\iint\limits_{D_{1}}x^2dxdy \\ &amp;=2\int_{0}^{1}x^{2}dx\int_{x^{2}}^{\sqrt{2-x^{2}}}dy \\ &amp;=2\int_{0}^{1}x^{2}(\sqrt{2-x^2}-x^2)dx \\ &amp;=2\int_{0}^{1}x^2\sqrt{2-x^2}dx-2\int_{0}^{1}x^{4}dx \\ &amp;=\frac{2}{5}\end{aligned}$</p>
+<p>$\begin{aligned}2\int_{0}^{1}x^2\sqrt{2-x^2}dx-\frac{2}{5} &amp;=（令x=\sqrt{2}sint）2\int_{0}^{\frac{\pi}{4}}2sin^2t \cdot \sqrt{2}cost \cdot \sqrt{2}costdt-\frac{2}{5} \\ &amp;=8\int_{0}^{\frac{\pi}{4}}sin^2t \cdot cos^2tdt-\frac{2}{5} \\ &amp;=2\int_{0}^{\frac{\pi}{4}}sin^{2}2tdt-\frac{2}{5} \\ &amp;=\int_{0}^{\frac{\pi}{4}}sin^{2}2td_{2t}-\frac{2}{5} \\ &amp;=\int_{0}^{\frac{\pi}{2}}sin^{2}udu-\frac{2}{5} \\ &amp;=\frac{1}{2}\frac{\pi}{2}-\frac{2}{5} \\ &amp;=\frac{\pi}{4}-\frac{2}{5} \end{aligned}$</p>
+<h4 id="2-极坐标系"><a href="#2-极坐标系" class="headerlink" title="2.    极坐标系"></a>2.    极坐标系</h4><ol>
+<li><p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.2.1.jpg" style="zoom:50%;"></p>
+</li>
+<li><p>$\iint\limits_{D}f(rcos\theta,rsin\theta)rd_{r}d_{\theta}=\int_{\alpha}^{\beta}d_{\theta}\int_{0}^{\varphi(\theta)}f(rcos\theta,rsin\theta)rd_{r}$</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.2.2.jpg" style="zoom:50%;"></p>
+</li>
+<li><p>$\iint\limits_{D}f(rcos\theta,rsin\theta)rd_{r}d_{\theta}=\int_{\alpha}^{\beta}d_{\theta}\int_{\varphi_{1}(\theta)}^{\varphi_2(\theta)}f(rcos\theta,rsin\theta)rd_{r}$</p>
+<p><img src="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/1.7.2.2.3.jpg" style="zoom:50%;"></p>
+</li>
+</ol>
+<p>【例7】$\int_{-\sqrt{2}}^{0}dx\int_{-x}^{\sqrt{4-x^{2}}}(x^{2}+y^{2})^{\frac{1}{2}}dy+\int_{0}^{2}dx\int_{\sqrt{2x-x^{2}}}^{\sqrt{4-x^{2}}}(x^{2}+y^{2})^{\frac{1}{2}}dy=$？</p>
+<p>解：$I=\iint\limits_{D_1}+\iint\limits_{D_2}=\int_{0}^{\frac{\pi}{2}}d_{\sigma}\int_{2cos\theta}^{2}r \cdot rd_{r}+\int_{\frac{\pi}{2}}^{\frac{3}{4}\pi}d_{\sigma}\int_{0}^{2}r \cdot rd_{r}=2\pi \cdot \frac{16}{p}$</p>
+<p>【例8】<font color="pink">（没考过）</font>$I=\int_{arctan\frac{1}{4}}^{\frac{\pi}{4}}d_{\theta}\int_{\frac{1}{\sqrt{sin\theta cos\theta}}}^{\frac{2}{cos\theta}}f(rcos\theta,rsin\theta)rd_{r}$ 在直角坐标下的二次积分为？</p>
+<p>解：$I=\int_{1}^{2}dx\int_{\frac{1}{x}}^{x}f(x,y)dy$</p>
+<p>【例9】计算 $\int_{0}^{+\infty}dx\int_{0}^{x}\frac{1}{(1+x^2+y^2)^2}dy$</p>
+<p>解：</p>
+<p>$\begin{aligned}I&amp;=\int_{0}^{\frac{\pi}{4}}d_{\theta}\int_{0}^{+\infty}\frac{1}{(1+r^2)^2}rdr \\ &amp;=\int_{0}^{\frac{\pi}{4}}d_{\theta}\int_{0}^{+\infty}\frac{1}{(1+r^2)^2}d_{r^2+1} \\ &amp;=\frac{\pi}{4} \cdot \frac{1}{2} \int_{0}^{+\infty}\frac{1}{(1+r^2)^2}d_{r^2+1} \\ &amp;=\frac{\pi}{8} \cdot (-\frac{1}{1+r^2})|_{0}^{+\infty} \\ &amp;=\frac{\pi}{8} \end{aligned}$</p>
+<p>【例10】<font color="pink">（2016-1）</font>已知平面区域 $D=\{(r,0)|2\leq r\leq 2(1+cos\theta，-\frac{\pi}{2} \leq \theta \leq \frac{\pi}{2}\}$，计算二重积分 $\iint\limits_{D}sdxdy$。</p>
+<p>解：</p>
+<p>$\begin{aligned} \iint\limits_{D}xdxdy&amp;=2\iint\limits_{D_1}xdxdy \\ &amp;=2\int_{0}^{\frac{\pi}{2}}d_{\theta}\int_{2}^{2(1+cos\theta)}rcos\theta rd_{r} \\ &amp;=2\int_{0}^{\frac{\pi}{2}}\frac{r^3}{3}|_{2}^{2(1+cos\theta)}cos\theta d_{\theta} \\ &amp;=\frac{16}{3}\int_{0}^{\frac{\pi}{2}}(cos^4\theta+3cos^3\theta+3cos^2\theta)d_{\theta} \\ &amp;=\frac{16}{3}(\frac{3}{4}\frac{1}{2}\frac{\pi}{2}+3\frac{2}{3}1+3\frac{1}{2}\frac{\pi}{2}) \\ &amp;=\frac{32}{3}+5\pi \end{aligned}$</p>
+<p><font color="green">解析：</font>$(1+cos\theta)^3=1+3cos\theta+3cos^2\theta+cos^3\theta$</p>
+<p>【例11】<font color="pink">（2011-1/2）</font>已知函数 $f(x,y)$ 具有二阶连续偏导数，且 $f(1,y)=0$，$f(x,1)=0$，$\iint\limits_{D}f(x,y)dxdy=a$，其中 $D=\{(x,y)|0\leq x \leq 1,0\leq y\leq 1\}$，计算二重积分 $I=\iint\limits_{D}xyf_{xy}’’(x,y)dxdy$</p>
+<p>解：$I=\int_{0}^{1}dx\int_{0}^{1}xyf_{xy}’’(x,y)dy=\int_{0}^{1}x[yf_x’(x,y)|_{0}^{1}-\int_{0}^{1}f_x’(x,y)dy]$</p>
+<p>由 $f(1,y)=0，f(x,1)=0 \Rightarrow f_x’(x,1)=0$</p>
+<p>$\begin{aligned} I&amp;=-\int_{0}^{1}xdx\int_{0}^{1}f_x’(x,y)dy \\ &amp;=-\int_{0}^{1}dy\int_{0}^{1}xf_x’(x,y)dx（交换积分次序）\\ &amp;=-\int_{0}^{1}[xf(x,y)|_{0}^{1}-\int_{0}^{1}f(x,y)dx]dy \\ &amp;=\int_{0}^{1}\int_{0}^{1}f(x,y)dxdy \\ &amp;=\iint\limits_{D}f(x,y)dxdy \\ &amp;=a \end{aligned}$</p>
+<p>【自练】设函数 $f(x,y)$ 具有 2 阶连续偏导数，且满足 $\frac{\partial ^2f}{\partial x^2}-\frac{\partial ^2 f}{\partial y^2}=0$，$f(x,2x)=x$，$f_x’(x,2x)=x^2$，求 $f_{xx}’’(x,2x)$、$f_{xy}’’(x,y)$、$f_{yy}’’(x,2x)$</p>
+<p>解：$\because f(x,2x)=x$，求 $x$ 的导数</p>
+<p>$\Rightarrow f_x’(x,2x) \cdot 1+f_y’(x,2x) \cdot 22=1$</p>
+<p>$\Rightarrow f_y’(x,2x)=\frac{1-x^2}{2}$</p>
+<p>$1 \cdot f_{yx}’’+2 \cdot f_{yy}’’=-x$</p>
+<p>$1 \cdot f_{xx}’’+2 \cdot f_{xy}’’=2x$</p>
+<p>$f_{xx}’’=f_{yy}’’$</p>
+<p>$f_{xx}’’(x,2x)=f_{22}’’(x.2x)=-\frac{4}{3}x$</p>
+<p>$f_{xy}’’(x,2x)=f_{yx}’’(x,2x)=\frac{5}{3}x$</p>
+<p>【自练】<font color="pink">计算二重积分 $I=\iint\limits_{D}r^2sin\theta\sqrt{1-r^2cos2\theta}d_{r}d_{\theta}$，其中 $D=\{(r,\theta)|0\leq r \leq sec\theta，0 \leq \theta \leq \frac{\pi}{4}\}$</font></p>
+<p>解：极 -&gt; 直</p>
+<p>$\begin{aligned}I&amp;=\iint\limits_{D}rsin\theta\sqrt{1-r^2(cos^2\theta-sin^2\theta)}rd_{r}d_{\theta} \\ &amp;=\iint\limits_{D}y\sqrt{1-x^2+y^2}dxdy \\ &amp;=\int_{0}^{1}dx\int_{0}^{x}\sqrt{1-x^2+y^2}d_{(1-x^2+y^2)} \\ &amp;=\int_{0}^{1}\frac{1}{3}(1-x^2+y^2)^{\frac{3}{2}}|_{0}^{x} \\ &amp;=\frac{1}{3}\int_{0}^{1}[1-(1-x^2)^{\frac{3}{2}}]dx \\ &amp;=（令x=sint）\frac{1}{3}\int_{0}^{\frac{\pi}{2}}1-\sqrt[3]{1-sin^2t}\cdot costdt+\frac{1}{3} \\ &amp;=\frac{1}{3} \cdot \frac{\pi}{16} \end{aligned}$</p>
+<h3 id="3-二重积分应用（数一）"><a href="#3-二重积分应用（数一）" class="headerlink" title="3.    二重积分应用（数一）"></a>3.    二重积分应用（数一）</h3><ol>
+<li>曲面的面积：$A=\iint\limits_{D_{xy}}\sqrt{1+(\frac{\partial z}{\partial x})^2+(\frac{\partial z}{\partial y})^2}dxdy$</li>
+<li>质心：$\overline{\text{x}}=\frac{1}{A}\iint\limits_{D}xd_{\sigma}，\overline{\text{y}}=\frac{1}{A}\iint\limits_{D}yd_{\sigma}$</li>
+<li>转动惯量：$I_x=\iint\limits_{D}y^2\mu(x,y)d_{\sigma}，I_y=\iint\limits_{D}x^2\mu(x,y)d_{\sigma}$</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/" title="七.二重积分">https://mdgqdjqr.github.io/blog/2022/05/12/高等数学/七.二重积分/七.二重积分/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/%E8%80%83%E7%A0%94/" rel="tag"># 考研</a>
+              <a href="/blog/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AD.%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/%E5%85%AD.%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/" rel="prev" title="六.多元函数微分学">
+      <i class="fa fa-chevron-left"></i> 六.多元函数微分学
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/" rel="next" title="八.无穷级数">
+      八.无穷级数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83-%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86"><span class="nav-text">七.    二重积分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86%E6%A6%82%E5%BF%B5"><span class="nav-text">1.    二重积分概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89"><span class="nav-text">1.    定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-text">2.    几何意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%AF%B9%E7%A7%B0%E6%80%A7"><span class="nav-text">3.    对称性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86%E8%AE%A1%E7%AE%97"><span class="nav-text">2.    二重积分计算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%9B%B4%E8%A7%92%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-text">1.    直角坐标系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%9E%81%E5%9D%90%E6%A0%87%E7%B3%BB"><span class="nav-text">2.    极坐标系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86%E5%BA%94%E7%94%A8%EF%BC%88%E6%95%B0%E4%B8%80%EF%BC%89"><span class="nav-text">3.    二重积分应用（数一）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

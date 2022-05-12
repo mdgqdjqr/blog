@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="八.无穷级数">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-12T09:08:43.000Z">
+<meta property="article:modified_time" content="2022-05-12T07:27:02.942Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="考研">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>八.无穷级数 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          八.无穷级数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-12 17:08:43 / 修改时间：15:27:02" itemprop="dateCreated datePublished" datetime="2022-05-12T17:08:43+08:00">2022-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%AD%A6%E6%9C%AF%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" itemprop="url" rel="index"><span itemprop="name">学术知识积累</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>该文为学习笔记，仅作学习参考，如有错误，望指正！</p>
+<span id="more"></span>
+<p>笔记说明：</p>
+<p><font color="red">红色：</font>表示重点，口诀，结论；</p>
+<p><font color="yellow">黄色：</font>表示注意点；</p>
+<p><font color="green">绿色：</font>表示解题思路，或方案；</p>
+<p><font color="pink">粉色：</font>真题考试时间；</p>
+<h2 id="八-无穷级数：数一必考答题，小题不好把握"><a href="#八-无穷级数：数一必考答题，小题不好把握" class="headerlink" title="八.    无穷级数：数一必考答题，小题不好把握"></a>八.    无穷级数：数一必考答题，小题不好把握</h2><h3 id="1-级数概念"><a href="#1-级数概念" class="headerlink" title="1.    级数概念"></a>1.    级数概念</h3><h4 id="1-级数定义：没招做不出时就用定义"><a href="#1-级数定义：没招做不出时就用定义" class="headerlink" title="1.    级数定义：没招做不出时就用定义"></a>1.    级数定义：没招做不出时就用定义</h4><p>$U_1+U_2+U_3+…+U_n+…=\sum\limits_{n=1}^{\infty}U_n$，称为无穷级数，简称级数。</p>
+<h4 id="2-级数收敛性"><a href="#2-级数收敛性" class="headerlink" title="2.    级数收敛性"></a>2.    级数收敛性</h4><p>部分和 $S_n=\sum\limits_{i=1}^{n}u_i=u_1+u_2+u_3+…+u_n$</p>
+<p>若 $\lim\limits_{n \to \infty}S_n=S$ 存在，则级数收敛，反之发散。</p>
+<p>【例1】判断级数 $\sum\limits_{n=1}^{\infty}\frac{1}{\sqrt{n+1}+\sqrt{n}}$ 的敛散性</p>
+<p>分析：利用级数定义判别，通过列项求和</p>
+<ol>
+<li>将通项拆成：$V_{n+1}-V_n$</li>
+<li>求前 $n$ 项和：$S_n=(V_2-V_1)+(V_3-V_2)+…+(V_{n+1}-V_n)=V_{n+1}-V_1$</li>
+<li>求 $\lim\limits_{n \to \infty}S_n=\lim\limits_{n \to \infty}V_{n+1}-V_n$</li>
+</ol>
+<p>解：$\sum\limits_{n=1}^{\infty}\frac{\sqrt{n+1}-\sqrt{n}}{(\sqrt{n+1}+\sqrt{n})(\sqrt{n+1}-\sqrt{n})}=\sum\limits_{n=1}^{\infty}\sqrt{n+1}-\sqrt{n}$</p>
+<p>$S_n=(\sqrt2-1)+(\sqrt3-\sqrt2)+…+(\sqrt{n+1}-\sqrt{n})=\sqrt{n+1}-1$</p>
+<p>$\lim\limits_{n \to \infty}\sqrt{n+1}-1=\infty$</p>
+<p>$\therefore$ 级数 $\sum\limits_{n=1}^{\infty}\frac{1}{\sqrt{n+1}+\sqrt{n}}$发散</p>
+<p>【自练】判断级数 $\sum\limits_{n=2}^{\infty}\frac{1}{n(n+1)}$ 的敛散性</p>
+<p>解：$U_n=\frac{1}{n}-\frac{1}{n+1}$</p>
+<p>$S_n=(\frac{1}{2}-\frac{1}{3})+(\frac{1}{3}-\frac{1}{4})+…+(\frac{1}{n}-\frac{1}{n+1})=\frac{1}{2}-\frac{1}{n+1}$</p>
+<p>$\lim\limits_{n \to \infty}S_n=\lim\limits_{n \to \infty}(\frac{1}{2}-\frac{1}{n+1})=\frac{1}{2}$</p>
+<p>$\therefore$ 收敛</p>
+<h4 id="3-级数性质"><a href="#3-级数性质" class="headerlink" title="3.    级数性质"></a>3.    级数性质</h4><ol>
+<li><p>设 $k$ 为常数且 $k \neq 0$，则级数 $\sum\limits_{n=1}^{\infty}ku_n$ 与 $\sum\limits_{n=1}^{\infty}u_n$ 有相同的敛散性，即 $\sum\limits_{n=1}^{\infty}u_n=S \Leftrightarrow \sum\limits_{n=1}^{\infty}ku_n=kS$</p>
+</li>
+<li><p>设 $\sum\limits_{n=1}^{\infty}u_n=s，\sum\limits_{n=1}^{\infty}v_n=\sigma$，则 $\sum\limits_{n=1}^{\infty}(u_n \pm v_n)=s \pm \sigma$</p>
+<p><font color="red">【注意】</font>：</p>
+<p>若 $\sum\limits_{n=1}^{\infty}u_n$ 收敛，$\sum\limits_{n=1}^{\infty}v_n$ 发散，则 $\sum\limits_{n=1}^{\infty}(u_n \pm v_n)$ 发散；</p>
+<p>若 $\sum\limits_{n=1}^{\infty}u_n$ 与 $\sum\limits_{n=1}^{\infty}v_n$ 均发散，则 $\sum\limits_{n=1}^{\infty}(u_n \pm v_n)$ 的敛散性不确定；</p>
+</li>
+<li><p>设级数 $\sum\limits_{n=1}^{\infty}u_n$，去掉、加上或改变（次序）有限项不影响其敛散性，收敛时，其和可能改变（量级不变）</p>
+</li>
+<li><p>若级数 $\sum\limits_{n=1}^{\infty}u_n$ 收敛，则对其各项任意加括号所得新级数仍收敛于原级数的和</p>
+<p><font color="red">【注意】</font>：</p>
+<p>设级数 $\sum\limits_{n=1}^{\infty}u_n$，若对其各项加括号所得新级数发散，则原级数必发散</p>
+<p>若级数 $\sum\limits_{n=1}^{\infty}u_n$，对其各项任意加括号所得新级数收敛，则原级数敛散性不确定</p>
+</li>
+<li><p>若级数 $\sum\limits_{n=1}^{\infty}u_n$ 收敛 $\Rightarrow$ 则 $\lim\limits_{n \to \infty}u_n=0$</p>
+<p><font color="red">【注意】：</font>若 $\lim\limits_{n \to \infty}u_n \neq 0$，则 $\sum\limits_{n=1}^{\infty}u_n$ 发散</p>
+</li>
+</ol>
+<p>【例2】判断级数 $\sum\limits_{n=1}^{\infty}\frac{2n^2+3n+1}{3n^2-2n+1}$ 的敛散性</p>
+<p>解：$\lim\limits_{n \to \infty}\frac{2n^2+3n+1}{3n^2-2n+1}=\frac{2}{3} \neq 0$</p>
+<p>$\therefore$ $\sum\limits_{n=1}^{\infty}\frac{2n^2+3n+1}{3n^2-2n+1}$ 发散</p>
+<h3 id="2-数项级数判敛"><a href="#2-数项级数判敛" class="headerlink" title="2.    数项级数判敛"></a>2.    数项级数判敛</h3><h4 id="1-正项级数：-sum-limits-n-1-infty-u-n（u-n-geq-0）-万万不行时用"><a href="#1-正项级数：-sum-limits-n-1-infty-u-n（u-n-geq-0）-万万不行时用" class="headerlink" title="1.    正项级数：$\sum\limits_{n=1}^{\infty}u_n（u_n \geq 0）$ 万万不行时用"></a>1.    正项级数：$\sum\limits_{n=1}^{\infty}u_n（u_n \geq 0）$ 万万不行时用</h4><ol>
+<li><p>收敛充要条件：$\sum\limits_{n=1}^{\infty}u_n$ 收敛 $\Leftrightarrow \{S_n\}$ 有界</p>
+<p>【例3】<font color="pink">（2012-2）</font>设 $a_n &gt; 0（n=1,2,…），S_n=a_1+a_2+…+a_n$，则数列 $\{S_n\}$ 有界是数列 $\{a_n\}$ 收敛的 $\underline{\text{充分}}$ 条件</p>
+<p> 解：$\{S_n\}$ 有界 $\Rightarrow \lim\limits_{n \to \infty}S_n=s \exists$ （$\{S_n\}$ 收敛）</p>
+<p>$\lim\limits_{n \to \infty}a_n=\lim\limits_{n \to \infty}S_n-S_{n-1}=s-s=0 \Rightarrow \{a_n\}$ 收敛 </p>
+</li>
+<li><p>比较判敛法：<font color="red">首选 2，再选 1</font>；</p>
+<ol>
+<li><p><font color="pink">（2016）</font>比较判别的一般形式</p>
+<p>设 $u_n \leq v_n$，若 $\sum\limits_{n=1}^{\infty}v_n$ 收敛，则 $\sum\limits_{n=1}^{\infty}u_n$ 收敛；若 $\sum\limits_{n=1}^{\infty}u_n$ 发散，则 $\sum\limits_{n=1}^{\infty}v_n$ 发散</p>
+<p><font color="red">小  大：大敛小则敛，小散大必散</font>；</p>
+<p>【例4】判别级数 $\sum\limits_{n=1}^{\infty}\int_{0}^{\frac{1}{n}}\frac{\sqrt{x}}{1+x^2}dx$ 的敛散性</p>
+<p>解：$0 &lt; \int_{0}^{\frac{1}{n}}\frac{\sqrt{x}}{1+x^2}dx &lt; \int_{0}^{\frac{1}{n}}\sqrt{x}dx=\frac{2}{3}x^{\frac{3}{2}}|_{0}^{\frac{1}{n}}=\frac{2}{3}n^{-\frac{3}{2}}$</p>
+<p>$\lim\limits_{n \to \infty}\frac{2}{3}\frac{1}{n^{\frac{3}{2}}}$ 收敛，则 $\sum\limits_{n=1}^{\infty}\int_{0}^{\frac{1}{n}}\frac{\sqrt{x}}{1+x^2}dx$ 收敛</p>
+</li>
+<li><p><font color="pink">（2014）</font>比较判别的极限形式：设 $u_n&gt;0，v_n&gt;0$，若 $\lim\limits_{n \to \infty}\frac{v_n}{u_n}=A$，则</p>
+<ol>
+<li>$0&lt;A&lt;+\infty$ 时，$\sum\limits_{n=1}^{\infty}u_n$ 与 $\sum\limits_{n=1}^{\infty}v_n$ 同敛散；</li>
+<li>$A=0$ 时，若 $\sum\limits_{n=1}^{\infty}u_n$ 收敛，则 $\sum\limits_{n=1}^{\infty}v_n$ 收敛；</li>
+<li>$A=+\infty$ 时，若 $\sum\limits_{n=1}^{\infty}v_n$ 收敛，则 $\sum\limits_{n=1}^{\infty}u_n$ 收敛；</li>
+</ol>
+</li>
+</ol>
+<p>【例5】设 $a_n&gt;0，p&gt;1$，且 $\lim\limits_{n \to \infty}[n^p(e^{\frac{1}{n}}-1)a_n]=1$，若级数 $\sum\limits_{n=1}^{\infty}a_n$ 收敛，则 p 的取值范围是?</p>
+<p>解：$\lim\limits_{n \to \infty}[n^p(e^{\frac{1}{n}}-1)a_n]=\lim\limits_{n \to \infty}[n^p \cdot \frac{1}{n} a_n]=\lim\limits_{n \to \infty}[n^{p-1} \cdot a_n]=\lim\limits_{n \to \infty}\frac{a_n}{\frac{1}{n^{p-1}}}$</p>
+<p>$\therefore p\leq 2发散；p&gt;2收敛$</p>
+<p>【例6】判别级数 $\sum\limits_{n=1}^{\infty}\frac{lnn}{n^{\frac{4}{3}}}$ 的敛散性</p>
+<p>分析：$\lim\limits_{n \to \infty}\frac{ln\frac{n}{n}}{\frac{1}{n^p}}=A \neq 0$</p>
+<p>解：$\lim\limits_{n \to \infty}\frac{lnn}{n^{\frac{4}{3}-p}}$</p>
+<p>$\frac{4}{3}-p&gt;0 \Rightarrow p&lt;\frac{4}{3}$</p>
+<p>保证收敛 $p&gt;1$</p>
+<p>$\therefore 1&lt;p&lt;\frac{4}{3}$</p>
+</li>
+<li><p>比较判别法 <font color="red">证明过程考不到</font>：$\lim\limits_{n \to \infty}\frac{u_{n+1}}{u_n}=\rho\begin{cases} <1 &收敛 \\>1 &amp; 发散 \\ =1 &amp; 失效\end{cases}$</1></p>
+<p>【例7】判别级数 $\sum\limits_{n=1}^{\infty}\frac{n^2 \cdot 3^n}{(n+1)!}$ 的敛散性</p>
+<p>解：$\lim\limits_{n \to \infty}\frac{(n+1)^2 \cdot 3^{n+1}}{(n+2)!} \cdot \frac{(n+1)!}{n^2 \cdot 3^n}=\lim\limits_{n \to \infty}\frac{3n^2}{n^3}=0$</p>
+</li>
+<li><p>根值判别法（柯西）：$\lim\limits_{n \to \infty}\sqrt[n]{u_n}=\rho\begin{cases} <1 &收敛 \\>1 &amp; 发散 \\ =1 &amp; 失效\end{cases}$</1></p>
+<p>【例8】判别级数 $\sum\limits_{n=1}^{\infty}2^{-n+(-1)^n}$ 的敛散性</p>
+<p>解：$\lim\limits_{n \to \infty}\sqrt[n]{u_n}=\lim\limits_{n \to \infty}2^{\frac{-n+(-1)^n}{n}}=2^{\lim\limits_{n \to \infty}\frac{-n+(-1)^n}{n}}=2^{-1} \Rightarrow$ 原函数收敛</p>
+</li>
+<li><p>重要级数<font color="red">好朋友</font>：</p>
+<ol>
+<li><p><font color="red">无穷等比级数</font>：$\sum\limits_{n=1}^{\infty}aq^{n-1}\begin{cases} |q|&lt;1 &amp; 收敛 \\ |q|\geq 1 &amp; 发散 \end{cases}$</p>
+</li>
+<li><p>$\sum\limits_{n=1}^{\infty}\frac{1}{n^p}\begin{cases} p&gt;1 &amp; 收敛 \\ p \leq 1 &amp; 发散 \end{cases}$</p>
+<p><font color="red">p 级数</font>：$\int_{1}^{+\infty}\frac{1}{x^p}=\begin{cases} p&gt;1 &amp; 收敛 \\ p \leq 1 &amp; 发散\end{cases}$</p>
+<p><font color="red">调和级数</font>：$\sum\limits_{n=1}^{\infty}\frac{1}{n}$ 发散</p>
+</li>
+<li><p>$\sum\limits_{n=1}^{\infty}(-1)^{n-1}\frac{1}{n^p}\begin{cases} p&gt;1 &amp; 绝对收敛 \\ 0&lt;p\leq 1 &amp; 条件收敛 \end{cases}$</p>
+</li>
+<li><p>$\sum\limits_{n=2}^{\infty}\frac{1}{n^{\alpha}ln\beta n}\begin{cases} \alpha &gt;1 或 \alpha=1，\beta&gt;1 &amp; 收敛 \\ 其他 &amp; 发散 \end{cases}$</p>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>正项级数敛散性判别程序：</strong></p>
+<ol>
+<li>$\lim\limits_{n \to \infty}u_n\begin{cases} \neq0 \Rightarrow 发散 \\ =0 \Rightarrow 转到 2 \end{cases}$</li>
+<li>$u_n \begin{cases} 含有\ n!\ 或关于\ n\ 的若干个银子的连乘积，用比值法 \\ 含有以\ n\ 为指数幂的银子，用根植法 \end{cases}$，若 $\rho=1\ \Rightarrow$ 转到 3</li>
+<li>比较判别法的一般形式或极限形式</li>
+<li>回归收敛定义</li>
+</ol>
+<p>【例9】判别级数 $\sum\limits_{n=1}^{\infty}\frac{a^n}{1+a^{2n}}（a&gt;0）$ 的敛散性</p>
+<p>解：</p>
+<ol>
+<li>$a=1\ U_n=\frac{1}{2} \neq 0\ \Rightarrow$ 发散</li>
+<li>$a \neq 1\ \rho=\lim\limits_{n \to \infty}\sqrt[n]{\frac{a^n}{1+a^{2n}}}=\begin{cases} \lim\limits_{n \to \infty}\frac{a}{a^2}=\frac{1}{a}<1 & 收敛 \rightarrow a>1 \\ \lim\limits_{n \to \infty}\frac{a}{a^2}=\frac{1}{a}&gt;1 &amp; 发散 &amp;\Rightarrow 0&lt;a&lt;1 \end{cases}$</1></li>
+</ol>
+<h4 id="2-交错级数"><a href="#2-交错级数" class="headerlink" title="2.    交错级数"></a>2.    交错级数</h4><p>莱布尼茨判别法：若交错级数 $\sum\limits_{n=1}^{\infty}(-1)^{n-1}u_n（u_n&gt;0）$ 满足</p>
+<ol>
+<li>$u_n \geq u_{n+1}（n=1,2,3,…）$</li>
+<li>$\lim\limits_{n \to \infty}u_n=0$，则级数收敛</li>
+</ol>
+<p>【例10】判别级数 $\sum\limits_{n=1}^{\infty}\frac{(-1)^{n-1}}{n-lnn}$ 的敛散性</p>
+<p>解：</p>
+<ol>
+<li><p>解法一：</p>
+<p>$U_n=\frac{1}{n-lnn}$</p>
+<p>设 $f(x)=x-lnx，f’(x)=1-\frac{1}{x} \geq 0\ \Rightarrow f(x)=x-lnx（单调增加）\Rightarrow \frac{1}{x-lnx}（单调减少）$</p>
+<p>$\therefore$ 级数收敛</p>
+</li>
+<li><p>解法二：</p>
+<p>$\lim\limits_{n \to \infty}u_n=\lim\limits_{n \to \infty}\frac{1}{n-lnn}=0$</p>
+<p>更具莱布尼茨判别法，级数收敛</p>
+</li>
+</ol>
+<h4 id="3-任意项级数-sum-limits-n-1-infty-u-n-（可正、可负、可零）"><a href="#3-任意项级数-sum-limits-n-1-infty-u-n-（可正、可负、可零）" class="headerlink" title="3.    任意项级数 $\sum\limits_{n=1}^{\infty}u_n$（可正、可负、可零）"></a>3.    任意项级数 $\sum\limits_{n=1}^{\infty}u_n$（可正、可负、可零）</h4><p>判敛方法：加绝对值转换成正项级数，用正项级数判别程序判别：</p>
+<ol>
+<li>若 $\sum\limits_{n=1}^{\infty}|u_n|$ 收敛，则 $\sum\limits_{n=1}^{\infty}u_n$ 绝对收敛</li>
+<li>若 $\sum\limits_{n=1}^{\infty}u_n$ 收敛，而 $\sum\limits_{n=1}^{\infty}|u_n|$ 发散，则 $\sum\limits_{n=1}^{\infty}u_n$ 条件收敛</li>
+</ol>
+<p>【例11】<font color="pink">（重出江湖：2016）</font>级数 $\sum\limits_{n=1}^{\infty}(\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}})sin(n+k)（k为常数）$（    A    ）</p>
+<p>A.    绝对收敛</p>
+<p>B.    条件收敛</p>
+<p>C.    发散</p>
+<p>D.    收敛性与 k 有关</p>
+<p><font color="green">解析</font>：</p>
+<ol>
+<li><p>$|(\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}})sin(n+k)| \leq \frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}}$</p>
+<p>$U_n=\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}}=\frac{\sqrt{n+1}-\sqrt{n}}{\sqrt{n}\sqrt{n+1}}=\frac{1}{\sqrt{n}\sqrt{n+1}(\sqrt{n+1}+\sqrt{n})}=\frac{1}{2n\sqrt{n}}=\frac{1}{2n^{\frac{3}{2}}}$</p>
+</li>
+<li><p>$S_n=\frac{1}{\sqrt{1}}-\frac{1}{\sqrt{2}}+\frac{1}{\sqrt{2}}-\frac{1}{\sqrt{3}}+…+\frac{1}{\sqrt{n}}-\frac{1}{\sqrt{n+1}}=1-\frac{1}{\sqrt{n+1}}$</p>
+<p>$\lim\limits_{n \to \infty}S_n=1 \Rightarrow$ 绝对收敛</p>
+</li>
+</ol>
+<h3 id="3-幂级数：大题"><a href="#3-幂级数：大题" class="headerlink" title="3.    幂级数：大题"></a>3.    幂级数：大题</h3><h4 id="1-收敛域"><a href="#1-收敛域" class="headerlink" title="1.    收敛域"></a>1.    收敛域</h4><p><strong>幂级数</strong>：各项都是幂函数的函数项级数，形如 $\sum\limits_{n=0}^{\infty}a_n(x-x_0)^n=a_0+a_1(x-x_0)+a_2(x-x_0)^2+…+a_n(x-x_0)^n+…$</p>
+<p>当 $x_0=0$ 时，$\sum\limits_{n=0}^{\infty}a_nx^n=a_0+a_1x+a_2x^2+…+a_nx^n+…$</p>
+<p><strong>收敛域</strong>：幂级数所有收敛点的集合</p>
+<h4 id="2-阿贝尔定理：喜欢考"><a href="#2-阿贝尔定理：喜欢考" class="headerlink" title="2.    阿贝尔定理：喜欢考"></a>2.    阿贝尔定理：喜欢考</h4><p>当幂级数 $\sum\limits_{n=0}^{\infty}a_nx^n$ 在 $x=x_0（x_0 \neq 0）$ 处收敛时，对于满足 $|x|&lt;|x_0|$ 的一切 $x$，幂级数绝对收敛；</p>
+<p>当幂级数 $\sum\limits_{n=0}^{\infty}a_nx^n$ 在 $x=x_0（x_0 \neq 0）$ 处发散时，对于满足 $|x|&gt;|x_0|$ 的一切 $x$，幂级数发散；</p>
+<p>【例12】<font color="pink">（2008-1）</font>已知幂级数 $\sum\limits_{n=1}^{\infty}a_n(x+2)^n$ 在 $x=0$ 处收敛，在 $x=-4$ 处发散，则幂级数 $\sum\limits_{n=0}^{\infty}a_n(x-3)^n$ 的收敛域为 $\underline{\text{(1,5]}}$</p>
+<h4 id="3-收敛域求法"><a href="#3-收敛域求法" class="headerlink" title="3.    收敛域求法"></a>3.    收敛域求法</h4><ol>
+<li><p>加绝对：将通项加绝对值变为正项级数，$\sum\limits_{n=1}^{\infty}u_n(x)\ \rightarrow\ \sum\limits_{n=1}^{\infty}|u_n(x)|$</p>
+</li>
+<li><p>用比根（收敛区间）：用正项级数比值判别法或根值判别法计算出收敛区间</p>
+<p>$\lim\limits_{n \to \infty}|\frac{u_{n+1}(x)}{u_n(x)}|=\rho(x)，\lim\limits_{n \to \infty}\sqrt[n]{|u_n(x)|}=\rho(x)$</p>
+<p>令 $\rho(x)&lt;1\ \Rightarrow$ 收敛区间为 $(a,b)$，不考虑端点值，收敛半径 $R=\frac{b-a}{2}$</p>
+</li>
+<li><p>代点算 $(a,b)$ <font color="red">非常严格</font>：单独验证级数在断电处的敛散性，得出收敛域</p>
+<p>令 $x=a，\sum\limits_{n=1}^{\infty}u_n(x)\ \rightarrow\ \sum\limits_{n=1}^{\infty}u_n(a)$；</p>
+<p>令 $x=b，\sum\limits_{n=1}^{\infty}u_n(x)\ \rightarrow\ \sum\limits_{n=1}^{\infty}u_n(b)$</p>
+<p>判敛 $\Rightarrow \sum\limits_{n=1}^{\infty}u_n(x)$ 的收敛域为 $[a,b]，(a,b)，[a,b)，(a,b]$</p>
+</li>
+</ol>
+<p>【例13】幂级数 $\sum\limits_{n=1}^{\infty}\frac{n^n}{(n+1)^{n+1}}x^{2n}$ 的收敛域为 $(-1,1)$</p>
+<ol>
+<li><p>解法一：</p>
+<p>$\sum\limits_{n=1}^{\infty}|\frac{n^n}{(n+1)^{n+1}}x^{2n}|$</p>
+<p>$\rho(x)=\lim\limits_{n \to \infty}\sqrt[n]{|\frac{n^n}{(n+1)^{n+1}}x^{2n}|}=\lim\limits_{n \to \infty}\frac{n}{(n+1)^{1+\frac{1}{n}}}x^2=\lim\limits_{n \to \infty}\frac{n}{n+1}\frac{1}{(n+1)^{\frac{1}{n}}}x^2=x^2&lt;1\ \Rightarrow$ 收敛区间 $(-1,1)$</p>
+</li>
+<li><p>解法二：</p>
+<p>当 $x= \pm 1$ 时</p>
+<p>$\sum\limits_{n=1}^{\infty}\frac{n^n}{(n+1)^{n+1}}$ 发散 $[\sum\limits_{n=1}^{\infty}\frac{n^n}{(n+1)^{n+1}}=\sum\limits_{n=1}^{\infty}\frac{1}{n}发散]$</p>
+<p>收敛域 $(-1,1)$</p>
+</li>
+</ol>
+<h4 id="4-幂级数运算性质"><a href="#4-幂级数运算性质" class="headerlink" title="4.    幂级数运算性质"></a>4.    幂级数运算性质</h4><ol>
+<li><p>幂级数 $\sum\limits_{n=0}^{\infty}a_nx^n$ 的和函数 $s(x)$ 在其收敛域 $L$ 上连续</p>
+</li>
+<li><p>幂级数 $\sum\limits_{n=0}^{\infty}a_nx^n$ 的和函数 $s(x)$ 在其收敛域 $I$ 上可积</p>
+<p>且 $\int_{0}^{x}s(x)dx=\int_{0}^{x}[\sum\limits_{n=0}^{\infty}a_nx^n]dx=\sum\limits_{n=0}^{\infty}\int_{0}^{x}a_nx^ndx=\sum\limits_{n=0}^{\infty}\frac{a_n}{n+1}x^{n+1}（x \in I）$</p>
+<p>积分后幂级数收敛半径不变，收敛域不变或变大</p>
+</li>
+<li><p>幂级数 $\sum\limits_{n=0}^{\infty}a_nx^n$ 的和函数 $s(x)$ 在其收敛区间 $(-R,R)$ 内可导</p>
+<p>且 $s’(x)=(\sum\limits_{n=0}^{\infty}a_nx^n)’=\sum\limits_{n=0}^{\infty}(a_nx^n)’=\sum\limits_{n=1}^{\infty}na_nx^{n-1}（|x|&lt;R）$</p>
+<p>求导后幂级数收敛半径不变，收敛域不变或变小</p>
+</li>
+</ol>
+<p>【例14】<font color="pink">（1997，2015-1/3）</font>若级数 $\sum\limits_{n=1}^{\infty}a_n$ 条件收敛，则 $x=\sqrt{3}$ 与 $x=3$ 依次为幂级数 $\sum\limits_{n=1}^{\infty}na_n(x-1)^n$ 的（    B    ）</p>
+<p>A.    收敛点，收敛点</p>
+<p>B.    收敛点，发散点</p>
+<p>C.    发散点，收敛点</p>
+<p>D.    发散点，发散点</p>
+<h4 id="5-幂级数展开求和：六脉神剑（10’大题）"><a href="#5-幂级数展开求和：六脉神剑（10’大题）" class="headerlink" title="5.    幂级数展开求和：六脉神剑（10’大题）"></a>5.    幂级数展开求和：六脉神剑（10’大题）</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>$\frac{1}{1-x}=\sum\limits_{n=0}^{\infty}x^n=1+x+x^2+…+x^n+…$</th>
+<th>$(-1&lt;x&lt;1)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$\frac{1}{1+x}=\sum\limits_{n=0}^{\infty}(-1)^nx^n=1-x+x^2-…+(-1)^nx^n+…$</td>
+<td>$(-1&lt;x&lt;1)$</td>
+</tr>
+<tr>
+<td>$ln(1+x)=\sum\limits_{n=1}^{\infty}(-1)^{n-1}\frac{x^n}{n}=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+…+(-1)^{n-1}\frac{x^n}{n}+…$</td>
+<td>$(-1&lt;x\leq 1)$</td>
+</tr>
+<tr>
+<td>$sinx=\sum\limits_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+…+(-1)^n\frac{x^NaN}{(2n+1)!}+…$</td>
+<td>$(-\infty&lt;x&lt;\infty)$</td>
+</tr>
+<tr>
+<td>$cosx=\sum\limits_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!}=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+…+(-1)^n\frac{x^{2n}}{(2n)!}+…$</td>
+<td>$(-\infty&lt;x&lt;+\infty)$</td>
+</tr>
+<tr>
+<td>$e^x=\sum\limits_{n=0}^{\infty}\frac{x^n}{n!}=1+x+\frac{x^2}{2!}+…+\frac{x^n}{n!}+…$</td>
+<td>$(-\infty&lt;x&lt;+\infty)$</td>
+</tr>
+<tr>
+<td>$(1+x)^{\alpha}=1+\alpha x+\frac{\alpha(\alpha-1)}{2!}x^2+…+\frac{\alpha(\alpha-1)…(\alpha-n+1)}{n!}x^n+…$<br>再端点 $x=\pm 1$ 处的收敛性依 $\alpha$ 的不同而不同</td>
+<td>$(-1&lt;x&lt;1)$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><font color="red">【结记】：</font>级数展开求和之——“六脉神剑”——拼凑法</p>
+<ol>
+<li><p>整式型<font color="red">下减上加</font>：$\begin{cases} \sum\limits_{n=0}^{\infty}x^n=\frac{1}{1-x} &amp; (-1,1) \\ \sum\limits_{n=0}^{\infty}(n+1)x^n=\frac{1}{(1-x)^2} &amp; (-1,1) \\ \sum\limits_{n=0}^{\infty}(n+2)(n+1)x^n=\frac{2}{(1-x)^3} &amp; (1-,1) \end{cases}$</p>
+<p>【自练】<font color="pink">（2015-3）</font>$\sum\limits_{n=0}^{\infty}(n+3)(n+1)x^n$ 求收敛域，和函数？</p>
+<p>解：$\sum\limits_{n=0}^{\infty}(n+3)(n+1)x^n=\sum\limits_{n=0}^{\infty}(n+2)(n+1)x^n+\sum\limits_{n=0}^{\infty}(n+1)x^n=\frac{1}{(1-x)^3}+\frac{1}{(1-x)^2}$</p>
+<p>【自练】$\sum\limits_{n=0}^{\infty}(4n^2+4n+1)x^n$</p>
+<p>解：$\sum\limits_{n=0}^{\infty}(4n^2+4n+1)x^n=\sum\limits_{n=0}^{\infty}4(n+2)(n+1)x^n+8(n+1)+1$</p>
+</li>
+<li><p>分式型：$\begin{cases} \sum\limits_{n=1}^{\infty}\frac{x^n}{n}=-ln(1-x) \\ \sum\limits_{n=1}^{\infty}\frac{(-1)^{n-1}x^{2n-1}}{2n-1}=arctanx \\ \sum\limits_{n=1}^{\infty}\frac{x^{2n-1}}{2n-1}=\frac{1}{2}ln(\frac{1+x}{1-x}) \end{cases}$</p>
+</li>
+<li><p>新：$\begin{cases} \sum\limits_{n=0}^{\infty}\frac{x^{n+1}}{n+1}=-ln(1-x) &amp; [-1,1) \\ \sum\limits_{n=0}^{\infty}\frac{x^{2n+1}}{2n+1}=\frac{1}{2}ln(\frac{1+x}{1-x}) &amp; (-1,1) \\ \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{2n+1}=arctanx &amp; [-1,1] \end{cases}$</p>
+</li>
+<li><p>阶乘型：$\begin{cases} \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n+1}}{(2n+1)!}=sinx &amp; (-\infty,+\infty) \\ \sum\limits_{n=0}^{\infty}\frac{(-1)^nx^{2n}}{2n!}=cos &amp; (-\infty,+\infty) \\ \sum\limits_{n=0}^{\infty}\frac{x^n}{n!}=e^x &amp; (-\infty,+\infty) \end{cases}$</p>
+</li>
+</ol>
+<p>【例15】<font color="pink">（2007-3）</font>将函数 $f(x)=\frac{1}{x^2-3x-4}$ 展开成 $x-1$ 的幂级数，并指出其收敛域</p>
+<p>解：</p>
+<p>$\begin{aligned}f(x)&amp;=\frac{1}{(x-4)(x+1)} \\ &amp;=\frac{1}{5}(\frac{1}{x-4}-\frac{1}{x+1}) \\ &amp;=-\frac{1}{15}\frac{1}{1-\frac{x-1}{3}}-\frac{1}{10}\frac{1}{1+\frac{x-1}{2}} \\ &amp;=-\frac{1}{15}\sum\limits_{n=0}^{\infty}(\frac{x-1}{3})^n-\frac{1}{10}\sum\limits_{n=0}^{\infty}(-\frac{x-1}{2})^n \\ &amp;=-\frac{1}{15}\sum\limits_{n=0}^{\infty}\frac{(x-1)^n}{3^n}-\frac{1}{10}\sum\limits_{n=0}^{\infty}(-1)^n(\frac{x-1}{2})^n \end{aligned}$</p>
+<p>$\therefore \begin{cases} |\frac{x-1}{3}|&lt;1 \\ |-\frac{x-1}{2}|&lt;1 \end{cases}\ \Rightarrow 1-&lt;x&lt;3$</p>
+<p>【例16】将函数 $y=ln(1-x-2x^2)$ 展开成 $x$ 的幂级数，并指出其收敛区间</p>
+<p>【例17】<font color="pink">（2012-1）</font>求幂级数 $\sum\limits_{n=0}^{\infty}\frac{4n^2+4n+3}{2n+1}x^{2n}$ 的收敛域及和函数</p>
+<p>解：收敛域 $(-1,1)$</p>
+<p>$\sum\limits_{n=0}^{\infty}\frac{(2n+1)^2+2}{2n+1}$</p>
+<p>$S(x)=\begin{cases} S_1(x)=\sum\limits_{n=0}^{\infty}\frac{(2n+1)^2}{2n+1}x^{2n}=\sum\limits_{n=0}^{\infty}(2n+1)x^{2n}=\sum\limits_{n=0}^{\infty}[2(n+1)-1]x^{2n}=2\frac{1}{(1-x^2)^2}(x^2)^n-\frac{1}{1-x^2} \\ S_2(x)=\sum\limits_{n=0}^{\infty}\frac{2}{2n+1}x^{2n}=2\sum\limits_{n=0}^{\infty}\frac{x^{2n}}{2n+1}=2\sum\limits_{n=1}^{\infty}\frac{x^{2n-2}}{2n-1}=\frac{1}{x}ln(\frac{1+x}{1-x}) \end{cases}$</p>
+<p>$S(x)=\begin{cases} \frac{1+x^2}{(1-x^2)^2}+\frac{1}{x}ln(\frac{1+x}{1-x}) &amp; (-1,0)V(0,1) \\ 3 &amp; x=0\end{cases}$</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/%E5%85%AB.%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0/" title="八.无穷级数">https://mdgqdjqr.github.io/blog/2022/05/12/高等数学/八.无穷级数/八.无穷级数/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/%E8%80%83%E7%A0%94/" rel="tag"># 考研</a>
+              <a href="/blog/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/%E4%B8%83.%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/" rel="prev" title="七.二重积分">
+      <i class="fa fa-chevron-left"></i> 七.二重积分
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B9%9D.%E6%95%B0%E4%B8%80%E4%B8%93%E5%9C%BA/%E4%B9%9D.%E6%95%B0%E4%B8%80%E4%B8%93%E5%9C%BA/" rel="next" title="九.数一专场">
+      九.数一专场 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB-%E6%97%A0%E7%A9%B7%E7%BA%A7%E6%95%B0%EF%BC%9A%E6%95%B0%E4%B8%80%E5%BF%85%E8%80%83%E7%AD%94%E9%A2%98%EF%BC%8C%E5%B0%8F%E9%A2%98%E4%B8%8D%E5%A5%BD%E6%8A%8A%E6%8F%A1"><span class="nav-text">八.    无穷级数：数一必考答题，小题不好把握</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%BA%A7%E6%95%B0%E6%A6%82%E5%BF%B5"><span class="nav-text">1.    级数概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%BA%A7%E6%95%B0%E5%AE%9A%E4%B9%89%EF%BC%9A%E6%B2%A1%E6%8B%9B%E5%81%9A%E4%B8%8D%E5%87%BA%E6%97%B6%E5%B0%B1%E7%94%A8%E5%AE%9A%E4%B9%89"><span class="nav-text">1.    级数定义：没招做不出时就用定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%BA%A7%E6%95%B0%E6%94%B6%E6%95%9B%E6%80%A7"><span class="nav-text">2.    级数收敛性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%BA%A7%E6%95%B0%E6%80%A7%E8%B4%A8"><span class="nav-text">3.    级数性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%95%B0%E9%A1%B9%E7%BA%A7%E6%95%B0%E5%88%A4%E6%95%9B"><span class="nav-text">2.    数项级数判敛</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%AD%A3%E9%A1%B9%E7%BA%A7%E6%95%B0%EF%BC%9A-sum-limits-n-1-infty-u-n%EF%BC%88u-n-geq-0%EF%BC%89-%E4%B8%87%E4%B8%87%E4%B8%8D%E8%A1%8C%E6%97%B6%E7%94%A8"><span class="nav-text">1.    正项级数：$\sum\limits_{n&#x3D;1}^{\infty}u_n（u_n \geq 0）$ 万万不行时用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BA%A4%E9%94%99%E7%BA%A7%E6%95%B0"><span class="nav-text">2.    交错级数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BB%BB%E6%84%8F%E9%A1%B9%E7%BA%A7%E6%95%B0-sum-limits-n-1-infty-u-n-%EF%BC%88%E5%8F%AF%E6%AD%A3%E3%80%81%E5%8F%AF%E8%B4%9F%E3%80%81%E5%8F%AF%E9%9B%B6%EF%BC%89"><span class="nav-text">3.    任意项级数 $\sum\limits_{n&#x3D;1}^{\infty}u_n$（可正、可负、可零）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%B9%82%E7%BA%A7%E6%95%B0%EF%BC%9A%E5%A4%A7%E9%A2%98"><span class="nav-text">3.    幂级数：大题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%94%B6%E6%95%9B%E5%9F%9F"><span class="nav-text">1.    收敛域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%98%BF%E8%B4%9D%E5%B0%94%E5%AE%9A%E7%90%86%EF%BC%9A%E5%96%9C%E6%AC%A2%E8%80%83"><span class="nav-text">2.    阿贝尔定理：喜欢考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%94%B6%E6%95%9B%E5%9F%9F%E6%B1%82%E6%B3%95"><span class="nav-text">3.    收敛域求法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%B9%82%E7%BA%A7%E6%95%B0%E8%BF%90%E7%AE%97%E6%80%A7%E8%B4%A8"><span class="nav-text">4.    幂级数运算性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%B9%82%E7%BA%A7%E6%95%B0%E5%B1%95%E5%BC%80%E6%B1%82%E5%92%8C%EF%BC%9A%E5%85%AD%E8%84%89%E7%A5%9E%E5%89%91%EF%BC%8810%E2%80%99%E5%A4%A7%E9%A2%98%EF%BC%89"><span class="nav-text">5.    幂级数展开求和：六脉神剑（10’大题）</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

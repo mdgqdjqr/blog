@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+<link rel="stylesheet" href="/blog/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"mdgqdjqr.github.io","root":"/blog/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="四.微分方程">
+<meta property="og:url" content="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/index.html">
+<meta property="og:site_name" content="史小胖の博客">
+<meta property="og:description" content="该文为学习笔记，仅作学习参考，如有错误，望指正！">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-12T09:04:43.000Z">
+<meta property="article:modified_time" content="2022-05-12T07:49:29.954Z">
+<meta property="article:author" content="史小胖">
+<meta property="article:tag" content="考研">
+<meta property="article:tag" content="数学">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>四.微分方程 | 史小胖の博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">史小胖の博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">《与尔共勉》<br>告诉那些为梦想而追逐的人<br>不要因为一次失败<br>就放弃对于希望达到目标的追求<br>不要因为几天下雨<br>就认为太阳不会出来<br>告诉那些爱情的追求者<br>不要被拒绝就不再表达自己的爱情<br>告诉那些创业者<br>不要因为失败不再追求自己的事业<br>因为大数定律告诉我们<br>单个事件的结果是偶然<br>大量事件的结果才够真实！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/blog/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/blog/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/blog/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">3</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/blog/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">25</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/header.jpeg">
+      <meta itemprop="name" content="史小胖">
+      <meta itemprop="description" content="啥也不是，就写点笔记吧~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="史小胖の博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          四.微分方程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-12 17:04:43 / 修改时间：15:49:29" itemprop="dateCreated datePublished" datetime="2022-05-12T17:04:43+08:00">2022-05-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E5%AD%A6%E6%9C%AF%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" itemprop="url" rel="index"><span itemprop="name">学术知识积累</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>该文为学习笔记，仅作学习参考，如有错误，望指正！</p>
+<span id="more"></span>
+<p>笔记说明：</p>
+<p><font color="red">红色：</font>表示重点，口诀，结论；</p>
+<p><font color="yellow">黄色：</font>表示注意点；</p>
+<p><font color="green">绿色：</font>表示解题思路，或方案；</p>
+<p><font color="pink">粉色：</font>真题考试时间；</p>
+<h2 id="四-微分方程"><a href="#四-微分方程" class="headerlink" title="四.    微分方程"></a>四.    微分方程</h2><h3 id="0-基本概念"><a href="#0-基本概念" class="headerlink" title="0.    基本概念"></a>0.    基本概念</h3><p>微分方程：$F(x,y,y’,y’’,…,y^{(n)}=0$</p>
+<p>微分方程的阶：最高阶导数</p>
+<p>$y$ 最高阶导数 $\begin{cases} n=1，一阶 \\ n \geq 2，高阶（数一、数二） \end{cases}$</p>
+<p>微分方程的<font color="red">通解</font>：解中含任意常数 <font color="red">（个数=阶数）</font>。</p>
+<p>微分方程的<font color="red">特解</font>：确定任意常数。</p>
+<p><font color="red">【小结】</font>：离齐线伯全欧降，按类用法全扫光，二阶线性让我狂，算子大法放光芒。</p>
+<h3 id="1-一阶微分方程"><a href="#1-一阶微分方程" class="headerlink" title="1.    一阶微分方程"></a>1.    一阶微分方程</h3><h4 id="1-可分离变量方程"><a href="#1-可分离变量方程" class="headerlink" title="1.    可分离变量方程"></a>1.    可分离变量方程</h4><p>$y’=\frac{dy}{dx}=f(x)g(y) \Rightarrow \int\frac{dy}{g(y)}=\int f(x)dx$ <font color="red">你左边我右边，我们一起积分吧</font>。</p>
+<p>【例1】<font color="pink">（2006-1/2）</font>微分方程 $y’=\frac{y(1-x)}{x}$ 的通解是？</p>
+<p>解：$\frac{dy}{dx}=\frac{y(1-x)}{x} \Rightarrow \frac{dy}{y}=\frac{1-x}{x}dx$</p>
+<p>对上式两端积分：$\int \frac{1}{y}dy=\int\frac{1-x}{x}dx \Rightarrow ln|y|=ln|x|-x+lnc$ <font color="red">（隐式解）</font>。</p>
+<p>$\therefore y=cxe^{-x}$ <font color="red">（显式解）</font>。</p>
+<h4 id="2-齐次方程"><a href="#2-齐次方程" class="headerlink" title="2.    齐次方程"></a>2.    齐次方程</h4><p>$\frac{dy}{dx}=f(\frac{y}{x})$ <font color="pink">（2014年最近一次考）</font>；</p>
+<p><font color="red">【分析】</font>：令 $u=\frac{y}{x}$，则 $y=ux$</p>
+<p>$\Rightarrow \frac{dy}{dx}=\frac{du}{dx}x+u\cdot 1$</p>
+<p>$\Rightarrow \frac{du}{dx} \cdot x=f(u)-u$</p>
+<p>$\Rightarrow \frac{du}{f(u)-u}=\frac{dx}{x}$</p>
+<p>$\Rightarrow \int\frac{1}{f(u)-u}du=ln|x|+C$</p>
+<p>【例2】<font color="pink">（2007-3）</font>微分方程 $\frac{dy}{dx}=\frac{y}{x}-\frac{1}{2}(\frac{y}{x})^3$ 满足 $y|_{x=1}=1$ 的解为?</p>
+<p>解：令 $u=\frac{y}{x}，y=ux，\frac{dy}{dx}=u+x\frac{dy}{dx}$</p>
+<p>$u+x \cdot \frac{dy}{dx} = u-\frac{1}{2}u^3$</p>
+<p>$\frac{du}{dx} \cdot x=-\frac{1}{2}u^3$</p>
+<p>$\int -2\frac{1}{u^3}du=\int \frac{1}{x}dx$</p>
+<p>$u^{-2}=ln|x|+lnC$</p>
+<p>$y|_{x=1}=1，\Rightarrow lnC=1$</p>
+<p>$\therefore u=\frac{1}{\sqrt{lnx+1}} \Rightarrow y=\frac{x}{\sqrt{lnx+1}}$</p>
+<h4 id="3-一阶线性方程"><a href="#3-一阶线性方程" class="headerlink" title="3.    一阶线性方程"></a>3.    一阶线性方程</h4><p>$y’+p(x)y=q(x)$ <font color="red">找积分因子</font>。</p>
+<p>线性：数乘 和 加法；</p>
+<p>分析：凑积分因子 $e^{\int p(x)dx}$</p>
+<p>​        $\Rightarrow e^{\int p(x)dx}(y’+p(x)y)=e^{\int p(x)dx}q(x)$</p>
+<p>​        $\Rightarrow [y \cdot e^{\int p(x)dx}]’=e^{\int p(x)dx} \cdot q(x)$</p>
+<p>​        $\Rightarrow y=e^{-\int p(x)dx}[e^{\int p(x)dx}\cdot q(x)dx+C]$</p>
+<p>理解型分析：$e^{\int p(x)dx} \cdot y’+e^{\int p(x)dx} \cdot p(x) \cdot y=q(x) \cdot e^{\int p(x)dx}$</p>
+<p>​        $\frac{d}{dx}[e^{\int p(x)dx} \cdot y]=q(x) \cdot e^{\int p(x)dx}$</p>
+<p>【例3】微分方程 $y’+y=e^{-x}cosx$ 满足条件 $y(0)=0$ 的解为？</p>
+<p>解：</p>
+<ol>
+<li><p>解法一：</p>
+<p>$\begin{aligned} y&amp;=e^{-\int p(x)dx}[\int e^{\int p(x)dx} \cdot q(x)dx+C] \\ &amp;=e^{-\int dx}[\int e^{\int dx}e^{-x}cosxdx+C] \\ &amp;=e^{-x+c}[\int e^{x+c}e^{-x}cosxdx+C] \\ &amp;=e^{-x+c}[\int cosxdx+C] \\ &amp;=e^{-x+c_3} \cdot sinx+ce^{-x+c_3} \end{aligned}$</p>
+<p>$\because y(0)=0，\therefore c=c_3=0$</p>
+<p>$\therefore y=e^{-x}sinx$</p>
+</li>
+<li><p>解法二：</p>
+<p>$e^x \cdot y’+e^x \cdot y=e^{-x} \cdot cosx \cdot e^{x}$</p>
+<p>$(e^{x}y)’=e^{-x} \cdot cosx \cdot e^{x}=cosx$</p>
+<p>$e^xy=sinx+C$</p>
+<p>$\because y(0)=0，\therefore C=0，\therefore y=e^{-x}sinx$</p>
+</li>
+</ol>
+<h4 id="4-伯努利方程（数一）"><a href="#4-伯努利方程（数一）" class="headerlink" title="4.    伯努利方程（数一）"></a>4.    伯努利方程（数一）</h4><p>$\frac{dy}{dx}+p(x)y=q(x)y^n（n\neq 0，n\neq  1）$</p>
+<p><font color="red">【分析】</font>：令 $z=y^{1-n}\Rightarrow \frac{dz}{dx}=(1-n)y^{-n}\frac{dy}{dx} \Rightarrow \frac{dz}{dx}+(1-n)p(x)z=(1-n)q(9x)$</p>
+<h4 id="5-全微分方程（数一）"><a href="#5-全微分方程（数一）" class="headerlink" title="5.    全微分方程（数一）"></a>5.    全微分方程（数一）</h4><p>$P(x,y)dx+Q(x,y)dy=0(\frac{のP}{のy}=\frac{のQ}{のx}) \Rightarrow \int_{x_0}^{x}P(t,y_0)dt+\int_{y_0}^{y}Q(x_0,u)du=C$</p>
+<h4 id="6-可降阶方程（数一、数二）"><a href="#6-可降阶方程（数一、数二）" class="headerlink" title="6.    可降阶方程（数一、数二）"></a>6.    可降阶方程（数一、数二）</h4><ol>
+<li><p>不显含 y：$y’’=f(x,y’)$</p>
+<p><font color="red">【分析】</font>：令 $y’=p \Rightarrow p’=f(x,p)$</p>
+</li>
+<li><p>不显含 x：$y’’=f(y,y’)$</p>
+<p><font color="red">【分析】</font>：令 $y’=p \Rightarrow y’’=p\frac{dp}{dy} \Rightarrow p\frac{dp}{dy}=f(y,p)$</p>
+</li>
+</ol>
+<h3 id="2-高阶线性微分方程（必考）"><a href="#2-高阶线性微分方程（必考）" class="headerlink" title="2.    高阶线性微分方程（必考）"></a>2.    高阶线性微分方程（必考）</h3><h4 id="1-二阶常系数线性齐次方程"><a href="#1-二阶常系数线性齐次方程" class="headerlink" title="1.    二阶常系数线性齐次方程"></a>1.    二阶常系数线性齐次方程</h4><p>齐次方程：$y’’+py’+qy=0$</p>
+<p>其特征方程：${\lambda}^2+p\lambda+q=0$ <font color="red">要求齐通回到高中</font>。</p>
+<ol>
+<li><p>$\Delta=p^2-4q&gt;0，\lambda_1 \neq \lambda_2，通解 y=C_1 e^{\lambda_1 x}+C_2 e^{\lambda_2 x}$</p>
+</li>
+<li><p>$\Delta =p^2-4q=0，\lambda_1=\lambda_2，通解 y=(C_1+C_2x)e^{\lambda_1 x}$</p>
+</li>
+<li><p>$\Delta =p^2-4q&lt;0，\lambda_{1,2}=\frac{-p \pm \sqrt{4q-p^2i}}{2}=\alpha \pm \beta i，通解 y=e^{\alpha x}(C_1cos\beta x+C_2sin\beta x)$</p>
+<p><font color="red">推导过程考不到</font>；</p>
+</li>
+</ol>
+<p>【例4】<font color="pink">（2017-1）</font>微分方程 $y’’+2y’+3y=0$ 的通解是多少？</p>
+<p>解：$y’’+2y’+3y=0$</p>
+<p>特征方程：$\lambda^2+2\lambda+3=0 \Rightarrow \lambda=-1\pm\sqrt{2}i$</p>
+<p>$\therefore y=e^{-x}(C_1cos\sqrt{2}x+C_2sin\sqrt{2}x)$</p>
+<p>【自练】（数一）三阶常系数线性齐次微分方程 $y’’’-2y’’+y’-2y=0$ 的通解是多少？</p>
+<p>解：$y’’’-2y’’+y’-2y=0$</p>
+<p>特征方程：$\lambda^3-2\lambda^2+\lambda-2=0 \Rightarrow \lambda=2,i,-i$</p>
+<p>$\therefore y=C_1e^{2x}+C_2cosx+C_3sinx$</p>
+<h4 id="2-二阶常系数线性非齐次方程：-y’’-py’-qy-f-x"><a href="#2-二阶常系数线性非齐次方程：-y’’-py’-qy-f-x" class="headerlink" title="2.    二阶常系数线性非齐次方程：$y’’+py’+qy=f(x)$"></a>2.    二阶常系数线性非齐次方程：$y’’+py’+qy=f(x)$</h4><p>非齐次方程通解=齐次方程通解+一个非齐次方程特解 $y^*(x)$</p>
+<p><font color="red">算子大法（主求非齐特），符号：D（表求导），$\frac{1}{D}$（表积分）</font>。</p>
+<p><font color="red">规则</font>：</p>
+<ol>
+<li><p>$f(x)=e^{kx}$ ——见 D 就换 K</p>
+<p>【自练】<font color="pink">（2007-1/2）</font>$y’’-4y’+3y=2e^{2x}$</p>
+<p>解：$y^*=\frac{1}{D^2-4D+3}(2e^{2x})=-2e^{2x}$</p>
+<p>【自练】<font color="pink">（1992）</font>$y’’+2y’-3y=e^{-3x}$</p>
+<p>解：$y^*=\frac{1}{D^2+2D-3}(e^{-3x})=x\frac{1}{2D+2}e^{-3x}(分母为0时，则提一个导一个)=-\frac{x}{4}e^{-3x}$</p>
+<p>【自练】<font color="pink">（1990）</font>$y’’+4y’+4y=e^{-2x}$</p>
+<p>解：$y^*=\frac{1}{D^2+4D+4}(e^{-2x})=x\frac{1}{2D+4}e^{-2x}=x^2\frac{1}{2}e^{-2x}$</p>
+<p>【自练】$3y’’+4y’-5y=9$</p>
+<p>解：$y^*=\frac{1}{3D^2+4D-5}(9e^{0x})=-\frac{9}{5}$</p>
+</li>
+<li><p>$f(x)=sinx/cosx$ ——见 $D^2$ 就换 $-a^2$</p>
+<p>【自练】$y’’-y=sinx$</p>
+<p>解：$y^*=\frac{1}{D^2-1}sinx=-\frac{1}{2}sinx$</p>
+<p>【自练】$y’’+4y=cos2x$</p>
+<p>解：$y^*=\frac{1}{D^2+4}cos2x=x\frac{1}{2D}sin2x=\frac{1}{4}xsin2x$</p>
+<p>【自练】$y’’-6y’+9y=cosx$</p>
+<p>解：</p>
+<p>$\begin{aligned}y^*&amp;=\frac{1}{D^2-6D+9}cosx（能代就代） \\ &amp;=\frac{1}{8-6D}cosx \\ &amp;=\frac{8+6D}{(8-6D)(8+6D)}cosx \\ &amp;=\frac{8+6D}{64-36D^2}cosx \\ &amp;=\frac{1}{100}(8cosx-6sinx)\end{aligned}$</p>
+<p>【自练】$2y’’’+y’’-3y’+y=sinx$</p>
+<p>解：$y^*=\frac{1}{2D^3+D^2-3D+1}sinx=\frac{1}{-2D-1-3D+1}sinx=-\frac{1}{5}\frac{1}{D}sinx=\frac{1}{5}cosx$</p>
+</li>
+<li><p>$f(x)=Pn(x)$—— $1$ 见疯猴</p>
+<p><font color="red">无穷递增等比数列：$a_1+a_1q+a_1q^2+…+a_1q^n+…（|q|&lt;1）\Rightarrow S=\frac{a_1}{1-q}$</font>。</p>
+<p>【自练】$y’’+y=-2x$</p>
+<p>解：$y^*=\frac{1}{D^2+1}(-2x)=(1-D^2)(-2x)=-2x$</p>
+<p>【自练】$y’’+y’=x^2$</p>
+<p>解：$y^*=\frac{1}{D^2+D}x^2=\frac{1}{D}\frac{1}{D+1}x^2=\frac{1}{D}(1-D)x^2=\frac{1}{D}(x^2-2x)=\frac{1}{3}x^3-x^2$</p>
+</li>
+<li><p>$f(x)=e^{kx} y(x)$——移心大法</p>
+<p><font color="red">原理</font>：$y^*=\frac{1}{F(D)}e^{kx}y(x)=e^{kx}\frac{1}{F(D+k)}y(x)$（k 为女生的眼泪）</p>
+<p>【自练】$y’’-2y’+5y=e^xsin2x$</p>
+<p>解：</p>
+<p>$\begin{aligned} y^*&amp;=\frac{1}{D^2-2D+5}e^xsin2x \\ &amp;=e^{x}\frac{1}{(D+1)^2-2(D+1)+5}sin2x \\ &amp;=e^x\frac{1}{D^2+4}sin2x \\ &amp;=e^x x\frac{1}{2D}sin2x \\ &amp;=-\frac{1}{4}xe^xsin2x \end{aligned}$</p>
+</li>
+<li><p>$f(x)=P_n(x)sinax/cosax$——欧拉变换</p>
+</li>
+</ol>
+<p>【例5】求微分方程 $y’’+y=5e^{2x}+2sinx$ 的通解</p>
+<p>解：$\lambda^2+1=0 \Rightarrow \lambda=\pm i，\therefore y=C_1cosx+C_2sinx$</p>
+<p>$\begin{aligned} y^* &amp;=\frac{1}{D^2+1}(5e^{2x}+2sinx) \\&amp;=\frac{1}{D^2+1}(5e^{2x})+\frac{1}{D^2+1}(2sinx)=e^{2x}+x\frac{1}{2D}(2sinx)=e^{2x}-xcosx \end{aligned}$</p>
+<p>$\therefore y=C_1cosx+C_2sinx+e^{2x}-xcosx$</p>
+<p>【例6】求微分方程 $y’’-3y’+2y=2xe^x$ 的通解</p>
+<p>解：$\lambda^2-3\lambda+2=0 \therefore  \lambda=1,2 \Rightarrow y=C_1e^{x}+C_2e^{2x}$</p>
+<p>$\begin{aligned}y^*&amp;=\frac{1}{D^2-3D+2}2xe^x \\ &amp;=e^x\frac{1}{(D+1)^2-3(D+1)+2}2x \\ &amp;=e^x\frac{1}{D}\frac{1}{D-1}2x \\ &amp;=-e^x\frac{1}{D}\frac{1}{1-D}2x \\ &amp;=-e^x\frac{1}{D}(1+D)2x \\ &amp;=-e^x\frac{1}{D}(2x+2) \\ &amp;=-e^x(x^2+2x) \end{aligned}$</p>
+<p>$\therefore y=C_1e^x+C_2e^{2x}-e^x(x^2+2x)$</p>
+<p>【例7】求方程 $\frac{d^2y}{dt^2}-4\frac{dy}{dt}+4y=(1+t+t^2+…+t^{23})e^{2t}$ 的通解。<font color="red">（待定系数法必死）</font>；</p>
+<p>解：$\lambda^2-4\lambda+4=0 \therefore \lambda_1=\lambda_2=2 \Rightarrow y=(C_1+C_2t)e^{2t}$</p>
+<p>$\begin{aligned}y^*&amp;=\frac{1}{D^2-4D+4}(1+t+t^2+…+t^{23})e^{2t} \\ &amp;=e^{2t}\frac{1}{(D+2)^2-4(D+2)+4}(1+t+t^2+…+t^{23}) \\ &amp;=e^{2t}\frac{1}{D^2}(1+t+t^2+…+t^{23})\\ &amp;=e^{2t}\frac{1}{D}(t+\frac{1}{2}t^2+\frac{1}{3}t^3+…+\frac{1}{24}t^{24})\\ &amp;=e^{2t}(\frac{1}{2}t^2+\frac{1}{6}t^3+\frac{1}{12}t^4+…+\frac{1}{24\cdot 25}t^{25}) \end{aligned}$</p>
+<p>$\therefore y=(C_1+C_2t)e^{2t}+e^{2t}(\frac{1}{2}t^2+\frac{1}{6}t^3+\frac{1}{12}t^4+…+\frac{1}{24 \cdot 25}t^25)$</p>
+<h4 id="3-线性方程解的概念：考"><a href="#3-线性方程解的概念：考" class="headerlink" title="3.    线性方程解的概念：考"></a>3.    线性方程解的概念：考</h4><ol>
+<li><p>齐次：$y’’+p(x)y’+q(x)y=0$</p>
+<ol>
+<li>性质：$y_1(x)，y_2(x)$ 是方程（1）的解 $\Rightarrow C_1y_1(x)+C_2y_2(x)$ 为方程（1）的解</li>
+<li>结构：$y_1(x)，y_2(x)$ 是方程（1）的两个线性无关的解$（\frac{y_1(x)}{y_2(x)} \neq k，k为常数）\Rightarrow C_1y_1(x)+C_2y_2(x)$ 为方程（1）的通解</li>
+</ol>
+</li>
+<li><p>非齐次：$y’’+p(x)y’+q(x)y=f(x)$</p>
+<ol>
+<li><p>性质：$y_1(x)，y_2(x)$为方程（2）的解 $\Rightarrow y_1(x)-y_2(x)$ 为相应齐次方程（1）的解；</p>
+<p>$y_1(x)$ 为方程（1）的解；</p>
+<p>$y_2(x)$ 为方程（2）的解；</p>
+<p>$\Rightarrow y_1(x)+y_2(x)$ 为方程（2）的解</p>
+</li>
+<li><p>结构：$y_1(x)，y_2(x)$ 为方程（1）的线性无关解，$y^<em>(x)$ 为方程（2）的特解 $\Rightarrow C_1y_1(x)+C_2y_2(x)+y^</em>$</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>【例8】<font color="pink">（2005-1）</font>设 $y=\frac{1}{2}e^{2x}+(x-\frac{1}{3})e^x$ 是 2 阶常系数非齐次线性微分方程 $y’’+ay’+by=ce^x$ 的一个特解，则（    A    ）</p>
+<p>A. $a=-3，b=2，c=-1$</p>
+<p>B. $a=3，b=2，c=-1$</p>
+<p>C. $a=-3，b=2，c=1$</p>
+<p>D. $a=3，b=2，c=1$</p>
+<p><font color="green">解析：</font>$\because y=\frac{1}{2}e^{2x}+xe^x-\frac{1}{3}e^x \Rightarrow xe^x$ 为特解</p>
+<p>$\lambda_{1,2}=1,2$ 是齐次方程特征根 $\Rightarrow (\lambda-1)(\lambda-2)=\lambda^2-3\lambda+2\lambda=0$</p>
+<p>$\therefore y’’-3y’+2y=0$</p>
+<p>$\because y=xe^x 是 y’’+ay’+by=ce^x$ 的一个特解</p>
+<p>$\therefore y^*=\frac{1}{D^2-3D+2}ce^x=x\frac{1}{2D-3}ce^x=-cxe^x=xe^x$</p>
+<p>$\therefore a=-3，b=2，c=-1$</p>
+<p>【例9】<font color="pink">（2016-2）</font>以 $y=x^2-e^x$ 和 $y=x^2$ 为特解的一阶非齐次线性微分方程为？</p>
+<p>解：$x^2-(x^2-e^x)=e^x$ (齐解)</p>
+<p>设一阶非齐次线性微分方程为：$y’+p(x)y=q(x)$</p>
+<p>$y’+p(x)y=0，将e^x代入 \Rightarrow e^x+p(x)e^x=0 \therefore p(x)=-1 \therefore y’’-y’=q(x)$</p>
+<p>$y=x^2$ 为该方程特解</p>
+<p>故$q(x)=2x-x^2$</p>
+<p>则 $y’-y=2x-x^2$</p>
+<p>【自练】<font color="pink">没出过</font> 设 $y_1=e^x-e^{-x}sinx，y_2=e^x+e^{-x}cosx$ 是 2 阶常系数非齐次线性微分方程 $y’’+py’+qy=f(x)$ 的两个解，则 $f(x)$ 为（        ）</p>
+<p>A. $5e^x$</p>
+<p>B. $e^{3x}$</p>
+<p>C. $e^x$</p>
+<p>D. $e^{-x}$</p>
+<p>【自练】设 $y_1，y_2$ 是一阶线性非齐次微分方程 $y’+p(x)y=q(x)$ 的两个特解，若常数 $\lambda，u$ 使 $\lambda y_1+uy_2$ 是该方程的解，$\lambda y_1-uy_2$ 是该方程对应的齐次方程的解，则（        ）</p>
+<p>A. $\lambda=\frac{1}{2}，u=\frac{1}{2}$</p>
+<p>B. $\lambda=-\frac{1}{2}，u=-\frac{1}{2}$</p>
+<p>C. $\lambda=\frac{2}{3}，u=\frac{1}{3}$</p>
+<p>D. $\lambda=\frac{2}{3}，u=\frac{2}{3}$</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>史小胖
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://mdgqdjqr.github.io/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%9B%9B.%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" title="四.微分方程">https://mdgqdjqr.github.io/blog/2022/05/12/高等数学/四.微分方程/四.微分方程/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/blog/tags/%E8%80%83%E7%A0%94/" rel="tag"># 考研</a>
+              <a href="/blog/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%B8%89.%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6%E8%AE%B2%E4%B9%89/%E4%B8%89.%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6%E8%AE%B2%E4%B9%89/" rel="prev" title="三.一元函数积分学讲义">
+      <i class="fa fa-chevron-left"></i> 三.一元函数积分学讲义
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/05/12/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/%E4%BA%94.%E4%B8%AD%E5%80%BC%E5%AE%9A%E7%90%86/" rel="next" title="五.中值定理">
+      五.中值定理 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-text">四.    微分方程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">0.    基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%80%E9%98%B6%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B"><span class="nav-text">1.    一阶微分方程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8F%AF%E5%88%86%E7%A6%BB%E5%8F%98%E9%87%8F%E6%96%B9%E7%A8%8B"><span class="nav-text">1.    可分离变量方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B"><span class="nav-text">2.    齐次方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%B8%80%E9%98%B6%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B"><span class="nav-text">3.    一阶线性方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%96%B9%E7%A8%8B%EF%BC%88%E6%95%B0%E4%B8%80%EF%BC%89"><span class="nav-text">4.    伯努利方程（数一）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%85%A8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E6%95%B0%E4%B8%80%EF%BC%89"><span class="nav-text">5.    全微分方程（数一）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E5%8F%AF%E9%99%8D%E9%98%B6%E6%96%B9%E7%A8%8B%EF%BC%88%E6%95%B0%E4%B8%80%E3%80%81%E6%95%B0%E4%BA%8C%EF%BC%89"><span class="nav-text">6.    可降阶方程（数一、数二）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%AB%98%E9%98%B6%E7%BA%BF%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%EF%BC%88%E5%BF%85%E8%80%83%EF%BC%89"><span class="nav-text">2.    高阶线性微分方程（必考）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B"><span class="nav-text">1.    二阶常系数线性齐次方程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E7%BA%BF%E6%80%A7%E9%9D%9E%E9%BD%90%E6%AC%A1%E6%96%B9%E7%A8%8B%EF%BC%9A-y%E2%80%99%E2%80%99-py%E2%80%99-qy-f-x"><span class="nav-text">2.    二阶常系数线性非齐次方程：$y’’+py’+qy&#x3D;f(x)$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%BA%BF%E6%80%A7%E6%96%B9%E7%A8%8B%E8%A7%A3%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9A%E8%80%83"><span class="nav-text">3.    线性方程解的概念：考</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="史小胖"
+      src="/blog/images/header.jpeg">
+  <p class="site-author-name" itemprop="name">史小胖</p>
+  <div class="site-description" itemprop="description">啥也不是，就写点笔记吧~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/blog/archives/">
+        
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/blog/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/blog/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/blog/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">史小胖</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/blog/lib/anime.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.min.js"></script>
+  <script src="/blog/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/blog/js/utils.js"></script>
+
+<script src="/blog/js/motion.js"></script>
+
+
+<script src="/blog/js/schemes/pisces.js"></script>
+
+
+<script src="/blog/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'FGWuzNAU2sw8GIaVXYGzjqly-gzGzoHsz',
+      appKey     : '1HIdSAobv18R6dSHQhA9uhB2',
+      placeholder: "快来发表你的见解吧～",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
